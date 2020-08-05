@@ -2,6 +2,7 @@ const defaultList: Locale[] = [
   { language: 'en' },
   { language: 'fr' },
   { language: 'sp' },
+  // { language: 'sp' },
 ];
 const LOCALE_CACHE_KEY = 'locale-cache';
 

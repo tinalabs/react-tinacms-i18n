@@ -8,10 +8,10 @@ import {
   ModalHeader,
   ModalBody,
   ModalActions,
-  CMS,
 } from 'tinacms';
 import { StyleReset, Button } from '@tinacms/styles';
 
+// TODO: organize this code
 interface ModalBuilderProps {
   title: string;
   message: string;
@@ -43,40 +43,86 @@ export function ModalBuilder(modalProps: ModalBuilderProps) {
   );
 }
 
-const LocaleModal = ({ cms }: { cms: CMS }) => {
+interface ModalProps {
+  title?: string;
+  onClose: () => void;
+  actions: {
+    name: string;
+    action: () => void;
+  }[];
+  message?: string;
+}
+
+const LocaleModal = ({
+  title = 'No translation exists for this file to you want to create one?',
+  onClose,
+  actions,
+  message,
+}: ModalProps) => {
   return (
     <ModalBuilder
-      message="asdf"
-      title="No locale for exists to you want to create one"
-      close={() => {
-        cms.disable();
-      }}
-      actions={[
-        {
-          name: 'Yes',
-          action: () => {
-            console.log('yes');
-          },
-        },
-        {
-          name: 'No',
-          action: () => {
-            console.log('asdf');
-          },
-        },
-      ]}
+      message={message || ''}
+      title={title}
+      close={onClose}
+      actions={actions}
     />
   );
 };
 
-export const LocaleModelRenderer = ({
+export interface PromptPlugin<ExtraProps = Record<string, any>> {
+  __type: 'prompt';
+  name: string;
+  Component(props: ExtraProps): React.ReactElement;
+  props?: ExtraProps;
+}
+
+// export const LocaleModelRenderer = ({
+//   data,
+// }: {
+//   data?: any;
+// }): React.ReactElement | null => {
+//   const cms = useCMS();
+
+//   return cms.enabled && (!data || Object.keys(data).length == 0) ? (
+//     <LocaleModal />
+//   ) : null;
+// };
+
+export const useLocalePropmtPlugin = () => {
+  const cms = useCMS();
+  cms.plugins.add<PromptPlugin<ModalProps>>({
+    __type: 'prompt',
+    Component: LocaleModal,
+    name: 'asdf',
+    props: {
+      onClose: cms.disable,
+      actions: [
+        {
+          action: () => {
+            console.log('asdf');
+          },
+          name: 'Yes',
+        },
+        { action: cms.disable, name: 'No' },
+      ],
+    },
+  });
+};
+
+export const PromptRenderer = ({
   data,
 }: {
   data?: any;
 }): React.ReactElement | null => {
   const cms = useCMS();
+  const prompts = cms.plugins.getType<PromptPlugin>('prompt').all();
 
   return cms.enabled && (!data || Object.keys(data).length == 0) ? (
-    <LocaleModal cms={cms} />
+    <>
+      {prompts.map((prompt, i) => {
+        const Component = prompt.Component;
+        return <Component key={i} {...prompt.props} />;
+      })}
+    </>
   ) : null;
 };

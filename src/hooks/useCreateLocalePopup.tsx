@@ -48,7 +48,7 @@ interface ModalProps {
   onClose: () => void;
   actions: {
     name: string;
-    action: () => void;
+    onClick: () => void;
   }[];
   message?: string;
 }
@@ -88,22 +88,31 @@ export interface PromptPlugin<ExtraProps = Record<string, any>> {
 //   ) : null;
 // };
 
-export const useLocalePropmtPlugin = () => {
+const func = () => {
+  console.log('asdf');
+};
+export const useLocalePropmtPlugin = (
+  options?: Partial<
+    Omit<ModalProps, 'actions'> & {
+      onYes: () => void;
+      onNo: () => void;
+    }
+  >
+) => {
   const cms = useCMS();
   cms.plugins.add<PromptPlugin<ModalProps>>({
     __type: 'prompt',
     Component: LocaleModal,
     name: 'asdf',
     props: {
-      onClose: cms.disable,
+      message: options?.message,
+      onClose: options?.onClose || cms.disable,
       actions: [
         {
-          action: () => {
-            console.log('asdf');
-          },
+          onClick: options?.onYes || func,
           name: 'Yes',
         },
-        { action: cms.disable, name: 'No' },
+        { onClick: options?.onNo || cms.disable, name: 'No' },
       ],
     },
   });

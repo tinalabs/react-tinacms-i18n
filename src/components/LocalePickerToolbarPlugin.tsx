@@ -4,7 +4,8 @@ import { ChevronDownIcon } from '@tinacms/icons';
 import { Dismissible } from 'react-dismissible';
 import styled, { css } from 'styled-components';
 import { LoadingDots } from '@tinacms/react-forms';
-import { LocalizationApi } from '../localization-api/';
+import { LocalizationApi, Locale } from '../localization-api/';
+import { LeftArrowIcon } from '@tinacms/icons';
 
 // interface BranchSwitcherProps {
 //   onBranchChange?(branch: string): void;
@@ -17,6 +18,20 @@ export const LocaleSwitcher = () => {
   const [open, setOpen] = React.useState(false);
   const [filterValue, setFilterValue] = React.useState('');
   const selectListRef = React.useRef<HTMLElement>();
+  const originalFilterOptions = locale.localeList.filter((option) => {
+    return locale.localeToString(option).includes(filterValue);
+  });
+  const [filteredOptions, setFilteredOptions] = React.useState(
+    originalFilterOptions
+  );
+  const [showRegions, setShowRegions] = React.useState(true);
+
+  React.useEffect(() => {
+    const currentList = locale.localeList.filter((option) => {
+      return locale.localeToString(option).includes(filterValue);
+    });
+    setFilteredOptions(currentList);
+  }, [filterValue, setFilterValue]);
 
   const [status] = React.useState<'pending' | 'loaded' | 'error'>('loaded');
 
@@ -27,9 +42,21 @@ export const LocaleSwitcher = () => {
       selectListRef.current.scrollTop = 0;
     }
   };
-  const filteredOptions = locale.localeList.filter((option) => {
-    return locale.localeToString(option).includes(filterValue);
-  });
+  const regionGroup = locale.localeList.reduce(
+    (r: Record<string, Locale[]>, a) => {
+      if (a.region) {
+        r[a.region] = [...(r[a.region] || []), a];
+      }
+      return r;
+    },
+    {}
+  );
+
+  // get unique regions and filter out all undefined
+  const regions = Array.from(
+    new Set(filteredOptions.map((locale) => locale.region).filter(Boolean))
+  );
+  const showRegionList = showRegions && regions.length > 0 && !filterValue;
 
   return (
     <>
@@ -56,24 +83,55 @@ export const LocaleSwitcher = () => {
               )}
               {status === 'loaded' && (
                 <>
-                  {filteredOptions.map((option) => (
-                    <SelectOption
-                      key={locale.localeToString(option)}
-                      active={
-                        locale.localeToString(option) ===
-                        locale.localeToString(locale.locale)
-                      }
-                      onClick={() => {
-                        locale.locale = option;
-                        locale.onSwitch();
-                        closeDropdown();
-                      }}
-                    >
-                      {locale.localeToString(option)}
-                    </SelectOption>
-                  ))}
+                  {showRegionList ? (
+                    regions.map((region, i) => {
+                      return (
+                        <SelectOption
+                          key={i}
+                          onClick={() => {
+                            if (region) {
+                              setFilteredOptions(regionGroup[region]);
+                              setShowRegions(false);
+                            }
+                          }}
+                        >
+                          {region}
+                        </SelectOption>
+                      );
+                    })
+                  ) : (
+                    <>
+                      {regions.length > 0 && (
+                        <PanelHeader
+                          onClick={() => {
+                            setFilterValue('');
+                            setShowRegions(true);
+                            setFilteredOptions(originalFilterOptions);
+                          }}
+                        >
+                          <LeftArrowIcon /> <span>Back</span>
+                        </PanelHeader>
+                      )}
+                      {filteredOptions.map((option) => (
+                        <SelectOption
+                          key={locale.localeToString(option)}
+                          active={
+                            locale.localeToString(option) ===
+                            locale.localeToString(locale.locale)
+                          }
+                          onClick={() => {
+                            locale.locale = option;
+                            locale.onSwitch();
+                            closeDropdown();
+                          }}
+                        >
+                          {locale.localeToString(option)}
+                        </SelectOption>
+                      ))}
+                    </>
+                  )}
                   {filteredOptions.length === 0 && (
-                    <SelectEmptyState>No branches to display.</SelectEmptyState>
+                    <SelectEmptyState>No locales to display</SelectEmptyState>
                   )}
                 </>
               )}
@@ -332,3 +390,42 @@ export const LocalePickerToolbarPlugin = {
   weight: 1,
   component: LocaleSwitcher,
 };
+
+export const PanelHeader = styled.div`
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 6px 18px 6px 18px;
+  color: inherit;
+  font-size: var(--tina-font-size-3);
+  transition: color var(--tina-timing-medium) ease-out;
+  user-select: none;
+  border-bottom: 1px solid var(--tina-color-grey-2);
+  margin: 0;
+  span {
+    flex: 1 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  svg {
+    flex: 0 0 auto;
+    width: 24px;
+    fill: var(--tina-color-grey-3);
+    height: auto;
+    transform: translate3d(-4px, 0, 0);
+    transition: transform var(--tina-timing-medium) ease-out;
+  }
+  :hover {
+    color: var(--tina-color-primary);
+    svg {
+      fill: var(--tina-color-grey-8);
+      transform: translate3d(-7px, 0, 0);
+      transition: transform var(--tina-timing-medium) ease-out;
+    }
+  }
+`;

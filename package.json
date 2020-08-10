@@ -37,7 +37,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-tinacms-localization",
+  "name": "@tinacms/react-tinacms-localization",
   "author": "logan-anderson",
   "module": "dist/react-tinacms-localization.esm.js",
   "devDependencies": {

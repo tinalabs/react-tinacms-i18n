@@ -43,11 +43,12 @@ export const useLocalePromptPlugin = (
   >
 ): void => {
   const cms = useCMS();
+  const hasData = data && Object.keys(data).length > 0;
   cms.plugins.add<PromptPlugin<ModalProps>>({
     __type: 'prompt',
     Component: LocaleModal,
     name: 'asdf',
-    condition: !(data && Object.keys(data).length > 0),
+    condition: !hasData,
     props: {
       message: options?.message,
       onClose: options?.onClose || cms.disable,

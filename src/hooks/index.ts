@@ -1,2 +1,2 @@
 export * from './useTranslation';
-export * from './useCreateLocalePopup';
+export * from './useLocalePromptPlugin';

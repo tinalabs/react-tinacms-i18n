@@ -7,10 +7,6 @@ import { LoadingDots } from '@tinacms/react-forms';
 import { LocalizationApi, Locale } from '../localization-api/';
 import { LeftArrowIcon } from '@tinacms/icons';
 
-// interface BranchSwitcherProps {
-//   onBranchChange?(branch: string): void;
-// }
-
 export const LocaleSwitcher = () => {
   const cms = useCMS();
   const locale: LocalizationApi = cms.api.localization;
@@ -95,7 +91,16 @@ export const LocaleSwitcher = () => {
                             }
                           }}
                         >
-                          {region}
+                          <FlexDiv>
+                            <span>{region}</span>
+                            {region && locale.imgMap[region] && (
+                              <img
+                                width="20px"
+                                height="20px"
+                                src={locale.imgMap[region]}
+                              />
+                            )}
+                          </FlexDiv>
                         </SelectOption>
                       );
                     })
@@ -147,6 +152,18 @@ export const LocaleSwitcher = () => {
     </>
   );
 };
+
+const FlexDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & img {
+    display: flex;
+  }
+  & span {
+    display: flex;
+  }
+`;
 
 const SelectFilter = styled(Input)`
   height: 36px;

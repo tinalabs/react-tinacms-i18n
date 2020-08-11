@@ -115,11 +115,10 @@ import { LocalePickerToolbarPlugin } from '@tinacms/react-tinacms-localization';
 //...
 
 const cms = useCMS();
-cms.plugins.add(LocalePickerToolbarPlugin);
+React.useEffect( ()=>{
+  cms.plugins.add(LocalePickerToolbarPlugin);
+}
+[])
 ```
 
-# API DOCS
-
-## Localization API
-
-### class methods
+# [API DOCS](https://tinacms.github.io/react-tinacms-localization/globals.html)

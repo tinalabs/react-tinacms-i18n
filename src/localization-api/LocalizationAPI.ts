@@ -79,6 +79,11 @@ export class LocalizationApi {
   get locale(): Locale {
     return this.props.locale;
   }
+  /**
+   * converts a given locale to a formatted string
+   * @param currentLocal the given locale
+   * @returns the formatted string
+   */
   public localeToString(currentLocal: Locale): string {
     return `${currentLocal.language || ''}${
       currentLocal.region ? '_' + currentLocal.region : ''

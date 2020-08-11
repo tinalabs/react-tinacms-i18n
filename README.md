@@ -29,6 +29,14 @@ const cms = (cms = new TinaCMS({
 }));
 ```
 
+or
+
+```ts
+cms.api.registerApi('localization', localization);
+```
+
+> Note: Unlike Plugins, APIs should be registered when the CMS is instantiated, and never removed.
+
 Where you that cms object must be passed to the tina provider
 
 ```tsx
@@ -37,7 +45,7 @@ Where you that cms object must be passed to the tina provider
 
 ### Making a translation
 
-in our app when we want to make a translation we can use the `useTranslation` hooks to localize our app. `useTranslation` returns a `t` function that is used for translating text and an instance of the localization plugin (called i18n)
+when we want to make a translation we can use the `useTranslation` hooks to localize our app. `useTranslation` returns a `t` function that is used for translating text and an instance of the localization plugin (called i18n)
 
 ```tsx
 import { useTranslation } from '@tinacms/react-tinacms-localization';
@@ -115,10 +123,9 @@ import { LocalePickerToolbarPlugin } from '@tinacms/react-tinacms-localization';
 //...
 
 const cms = useCMS();
-React.useEffect( ()=>{
+React.useEffect(() => {
   cms.plugins.add(LocalePickerToolbarPlugin);
-}
-[])
+}, []);
 ```
 
 # [API DOCS](https://tinacms.github.io/react-tinacms-localization/globals.html)

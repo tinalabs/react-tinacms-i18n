@@ -2,7 +2,6 @@ const defaultList: Locale[] = [
   { language: 'en' },
   { language: 'fr' },
   { language: 'sp' },
-  // { language: 'sp' },
 ];
 const LOCALE_CACHE_KEY = 'locale-cache';
 
@@ -34,7 +33,10 @@ export class LocalizationApi {
     locale: Locale;
   };
   public localeList: Locale[];
-  constructor(localeList = defaultList) {
+  constructor(
+    localeList = defaultList,
+    public imgMap: Record<string, any> = {}
+  ) {
     this.props = {
       locale: this.getCachedData(LOCALE_CACHE_KEY) || this.default,
     };

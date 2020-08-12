@@ -143,4 +143,18 @@ useLocalePromptPlugin(data, options)
 
 this registers a `prompts plugin` that will render a prompt in edit mode letting the user know that no localization for this page exists
 
+## Generate Docs
+
+```bash
+yarn docs
+```
+
+or
+
+```bash
+npm run docs
+```
+
+This well generate the docs and you can open `docs/docs/index.html` in your browser to view
+
 # [API DOCS](https://tinacms.github.io/react-tinacms-localization/docs/)

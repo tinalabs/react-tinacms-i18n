@@ -2,7 +2,7 @@ import { useCMS } from 'tinacms';
 import { LocalizationApi } from '../localization-api';
 import { RealDoc, Translate, useTranslation } from './useTranslation';
 
-export interface Docs<T> {
+interface Docs<T> {
   currentDoc: RealDoc<T>;
   defaultDoc: RealDoc<T>;
 }

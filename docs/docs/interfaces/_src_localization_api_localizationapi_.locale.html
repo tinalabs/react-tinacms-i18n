@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SelectBoxProps | @tinacms/react-tinacms-localization</title>
+	<title>Locale | @tinacms/react-tinacms-localization</title>
 	<meta name="description" content="Documentation for @tinacms/react-tinacms-localization">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_src_components_localepickertoolbarplugin_.html">&quot;src/components/LocalePickerToolbarPlugin&quot;</a>
+					<a href="../modules/_src_localization_api_localizationapi_.html">&quot;src/localization-api/LocalizationAPI&quot;</a>
 				</li>
 				<li>
-					<a href="_src_components_localepickertoolbarplugin_.selectboxprops.html">SelectBoxProps</a>
+					<a href="_src_localization_api_localizationapi_.locale.html">Locale</a>
 				</li>
 			</ul>
-			<h1>Interface SelectBoxProps</h1>
+			<h1>Interface Locale</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SelectBoxProps</span>
+						<span class="target">Locale</span>
 					</li>
 				</ul>
 			</section>
@@ -84,7 +84,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_components_localepickertoolbarplugin_.selectboxprops.html#open" class="tsd-kind-icon">open</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_localization_api_localizationapi_.locale.html#encoding" class="tsd-kind-icon">encoding</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_localization_api_localizationapi_.locale.html#language" class="tsd-kind-icon">language</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_localization_api_localizationapi_.locale.html#modifiers" class="tsd-kind-icon">modifiers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_localization_api_localizationapi_.locale.html#region" class="tsd-kind-icon">region</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,12 +96,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="open" class="tsd-anchor"></a>
-					<h3>open</h3>
-					<div class="tsd-signature tsd-kind-icon">open<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="encoding" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> encoding</h3>
+					<div class="tsd-signature tsd-kind-icon">encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/4c53570/src/components/LocalePickerToolbarPlugin.tsx#L334">src/components/LocalePickerToolbarPlugin.tsx:334</a></li>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/localization-api/LocalizationAPI.ts#L19">src/localization-api/LocalizationAPI.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="language" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> language</h3>
+					<div class="tsd-signature tsd-kind-icon">language<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/localization-api/LocalizationAPI.ts#L17">src/localization-api/LocalizationAPI.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="modifiers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> modifiers</h3>
+					<div class="tsd-signature tsd-kind-icon">modifiers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/localization-api/LocalizationAPI.ts#L20">src/localization-api/LocalizationAPI.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="region" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> region</h3>
+					<div class="tsd-signature tsd-kind-icon">region<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/localization-api/LocalizationAPI.ts#L18">src/localization-api/LocalizationAPI.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -116,7 +149,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_components_inlinetranslatedtextarea_.html">&quot;src/components/<wbr>Inline<wbr>Translated<wbr>Text<wbr>Area&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_src_components_localepickertoolbarplugin_.html">&quot;src/components/<wbr>Locale<wbr>Picker<wbr>Toolbar<wbr>Plugin&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -131,7 +164,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_hooks_usetranslations_.html">&quot;src/hooks/use<wbr>Translations&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_src_localization_api_localizationapi_.html">&quot;src/localization-<wbr>api/<wbr>LocalizationAPI&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -141,68 +174,35 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/_src_localization_api_localizationapi_.localizationapi.html" class="tsd-kind-icon">Localization<wbr>Api</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_components_localepickertoolbarplugin_.selectboxprops.html" class="tsd-kind-icon">Select<wbr>Box<wbr>Props</a>
+						<a href="_src_localization_api_localizationapi_.locale.html" class="tsd-kind-icon">Locale</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_components_localepickertoolbarplugin_.selectboxprops.html#open" class="tsd-kind-icon">open</a>
+								<a href="_src_localization_api_localizationapi_.locale.html#encoding" class="tsd-kind-icon">encoding</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_localization_api_localizationapi_.locale.html#language" class="tsd-kind-icon">language</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_localization_api_localizationapi_.locale.html#modifiers" class="tsd-kind-icon">modifiers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_localization_api_localizationapi_.locale.html#region" class="tsd-kind-icon">region</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_components_localepickertoolbarplugin_.selectdropdownprops.html" class="tsd-kind-icon">Select<wbr>Dropdown<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_components_localepickertoolbarplugin_.selectoptionprops.html" class="tsd-kind-icon">Select<wbr>Option<wbr>Props</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../modules/_src_localization_api_localizationapi_.html#locale_cache_key" class="tsd-kind-icon">LOCALE_<wbr>CACHE_<wbr>KEY</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#dropdownheader" class="tsd-kind-icon">Dropdown<wbr>Header</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#flexdiv" class="tsd-kind-icon">Flex<wbr>Div</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#panelheader" class="tsd-kind-icon">Panel<wbr>Header</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectbox" class="tsd-kind-icon">Select<wbr>Box</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectcurrent" class="tsd-kind-icon">Select<wbr>Current</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectdropdown" class="tsd-kind-icon">Select<wbr>Dropdown</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectemptystate" class="tsd-kind-icon">Select<wbr>Empty<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectfilter" class="tsd-kind-icon">Select<wbr>Filter</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectlabel" class="tsd-kind-icon">Select<wbr>Label</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectlist" class="tsd-kind-icon">Select<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectloadingstate" class="tsd-kind-icon">Select<wbr>Loading<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectoption" class="tsd-kind-icon">Select<wbr>Option</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectwrapper" class="tsd-kind-icon">Select<wbr>Wrapper</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#localeswitcher" class="tsd-kind-icon">Locale<wbr>Switcher</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-parent-kind-module">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#localepickertoolbarplugin" class="tsd-kind-icon">Locale<wbr>Picker<wbr>Toolbar<wbr>Plugin</a>
+						<a href="../modules/_src_localization_api_localizationapi_.html#defaultlist" class="tsd-kind-icon">default<wbr>List</a>
 					</li>
 				</ul>
 			</nav>

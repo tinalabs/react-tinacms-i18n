@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SelectOptionProps | @tinacms/react-tinacms-localization</title>
+	<title>ModalBuilderProps | @tinacms/react-tinacms-localization</title>
 	<meta name="description" content="Documentation for @tinacms/react-tinacms-localization">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_src_components_localepickertoolbarplugin_.html">&quot;src/components/LocalePickerToolbarPlugin&quot;</a>
+					<a href="../modules/_src_components_modalbuilder_.html">&quot;src/components/ModalBuilder&quot;</a>
 				</li>
 				<li>
-					<a href="_src_components_localepickertoolbarplugin_.selectoptionprops.html">SelectOptionProps</a>
+					<a href="_src_components_modalbuilder_.modalbuilderprops.html">ModalBuilderProps</a>
 				</li>
 			</ul>
-			<h1>Interface SelectOptionProps</h1>
+			<h1>Interface ModalBuilderProps</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SelectOptionProps</span>
+						<span class="target">ModalBuilderProps</span>
 					</li>
 				</ul>
 			</section>
@@ -84,7 +84,16 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_components_localepickertoolbarplugin_.selectoptionprops.html#active" class="tsd-kind-icon">active</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_components_modalbuilder_.modalbuilderprops.html#actions" class="tsd-kind-icon">actions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_components_modalbuilder_.modalbuilderprops.html#error" class="tsd-kind-icon">error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_components_modalbuilder_.modalbuilderprops.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_components_modalbuilder_.modalbuilderprops.html#title" class="tsd-kind-icon">title</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_src_components_modalbuilder_.modalbuilderprops.html#close" class="tsd-kind-icon">close</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,14 +102,64 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="active" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> active</h3>
-					<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="actions" class="tsd-anchor"></a>
+					<h3>actions</h3>
+					<div class="tsd-signature tsd-kind-icon">actions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/4c53570/src/components/LocalePickerToolbarPlugin.tsx#L210">src/components/LocalePickerToolbarPlugin.tsx:210</a></li>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/components/ModalBuilder.tsx#L16">src/components/ModalBuilder.tsx:16</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="error" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> error</h3>
+					<div class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/components/ModalBuilder.tsx#L15">src/components/ModalBuilder.tsx:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="message" class="tsd-anchor"></a>
+					<h3>message</h3>
+					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/components/ModalBuilder.tsx#L14">src/components/ModalBuilder.tsx:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="title" class="tsd-anchor"></a>
+					<h3>title</h3>
+					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/components/ModalBuilder.tsx#L13">src/components/ModalBuilder.tsx:13</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="close" class="tsd-anchor"></a>
+					<h3>close</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/components/ModalBuilder.tsx#L17">src/components/ModalBuilder.tsx:17</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -116,10 +175,10 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_components_inlinetranslatedtextarea_.html">&quot;src/components/<wbr>Inline<wbr>Translated<wbr>Text<wbr>Area&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_src_components_localepickertoolbarplugin_.html">&quot;src/components/<wbr>Locale<wbr>Picker<wbr>Toolbar<wbr>Plugin&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_src_components_modalbuilder_.html">&quot;src/components/<wbr>Modal<wbr>Builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -141,68 +200,32 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_components_localepickertoolbarplugin_.selectboxprops.html" class="tsd-kind-icon">Select<wbr>Box<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_components_localepickertoolbarplugin_.selectdropdownprops.html" class="tsd-kind-icon">Select<wbr>Dropdown<wbr>Props</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_components_localepickertoolbarplugin_.selectoptionprops.html" class="tsd-kind-icon">Select<wbr>Option<wbr>Props</a>
+						<a href="_src_components_modalbuilder_.modalbuilderprops.html" class="tsd-kind-icon">Modal<wbr>Builder<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_components_localepickertoolbarplugin_.selectoptionprops.html#active" class="tsd-kind-icon">active</a>
+								<a href="_src_components_modalbuilder_.modalbuilderprops.html#actions" class="tsd-kind-icon">actions</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_components_modalbuilder_.modalbuilderprops.html#error" class="tsd-kind-icon">error</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_components_modalbuilder_.modalbuilderprops.html#message" class="tsd-kind-icon">message</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_components_modalbuilder_.modalbuilderprops.html#title" class="tsd-kind-icon">title</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_src_components_modalbuilder_.modalbuilderprops.html#close" class="tsd-kind-icon">close</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#dropdownheader" class="tsd-kind-icon">Dropdown<wbr>Header</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#flexdiv" class="tsd-kind-icon">Flex<wbr>Div</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#panelheader" class="tsd-kind-icon">Panel<wbr>Header</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectbox" class="tsd-kind-icon">Select<wbr>Box</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectcurrent" class="tsd-kind-icon">Select<wbr>Current</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectdropdown" class="tsd-kind-icon">Select<wbr>Dropdown</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectemptystate" class="tsd-kind-icon">Select<wbr>Empty<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectfilter" class="tsd-kind-icon">Select<wbr>Filter</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectlabel" class="tsd-kind-icon">Select<wbr>Label</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectlist" class="tsd-kind-icon">Select<wbr>List</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectloadingstate" class="tsd-kind-icon">Select<wbr>Loading<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectoption" class="tsd-kind-icon">Select<wbr>Option</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#selectwrapper" class="tsd-kind-icon">Select<wbr>Wrapper</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#localeswitcher" class="tsd-kind-icon">Locale<wbr>Switcher</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-parent-kind-module">
-						<a href="../modules/_src_components_localepickertoolbarplugin_.html#localepickertoolbarplugin" class="tsd-kind-icon">Locale<wbr>Picker<wbr>Toolbar<wbr>Plugin</a>
+						<a href="../modules/_src_components_modalbuilder_.html#modalbuilder" class="tsd-kind-icon">Modal<wbr>Builder</a>
 					</li>
 				</ul>
 			</nav>
@@ -225,6 +248,7 @@
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

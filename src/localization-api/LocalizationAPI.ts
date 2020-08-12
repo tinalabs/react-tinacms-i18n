@@ -24,10 +24,10 @@ export class LocalizationApi {
   /**
    * TODO: determine wether or not this should go into the API
    * is a called when switching the locale
-   * @returns  null
+   * @returns  void
    */
   public onSwitch() {
-    return null;
+    return;
   }
   public default: Locale = {
     language: 'en',

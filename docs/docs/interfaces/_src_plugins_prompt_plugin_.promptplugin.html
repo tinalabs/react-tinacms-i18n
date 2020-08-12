@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Docs | @tinacms/react-tinacms-localization</title>
+	<title>PromptPlugin | @tinacms/react-tinacms-localization</title>
 	<meta name="description" content="Documentation for @tinacms/react-tinacms-localization">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,24 +56,35 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_src_hooks_usetranslations_.html">&quot;src/hooks/useTranslations&quot;</a>
+					<a href="../modules/_src_plugins_prompt_plugin_.html">&quot;src/plugins/prompt-plugin&quot;</a>
 				</li>
 				<li>
-					<a href="_src_hooks_usetranslations_.docs.html">Docs</a>
+					<a href="_src_plugins_prompt_plugin_.promptplugin.html">PromptPlugin</a>
 				</li>
 			</ul>
-			<h1>Interface Docs&lt;T&gt;</h1>
+			<h1>Interface PromptPlugin&lt;ComponentProps&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Prompt plugin: This interface defines the contract that registers the prompts</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T</h4>
+						<h4>ComponentProps</h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+							</div>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -81,7 +92,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Docs</span>
+						<span class="target">PromptPlugin</span>
 					</li>
 				</ul>
 			</section>
@@ -92,8 +103,16 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_hooks_usetranslations_.docs.html#currentdoc" class="tsd-kind-icon">current<wbr>Doc</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_hooks_usetranslations_.docs.html#defaultdoc" class="tsd-kind-icon">default<wbr>Doc</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_plugins_prompt_plugin_.promptplugin.html#__type" class="tsd-kind-icon">__type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_plugins_prompt_plugin_.promptplugin.html#condition" class="tsd-kind-icon">condition</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_plugins_prompt_plugin_.promptplugin.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_plugins_prompt_plugin_.promptplugin.html#props" class="tsd-kind-icon">props</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_src_plugins_prompt_plugin_.promptplugin.html#component" class="tsd-kind-icon">Component</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,24 +121,93 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="currentdoc" class="tsd-anchor"></a>
-					<h3>current<wbr>Doc</h3>
-					<div class="tsd-signature tsd-kind-icon">current<wbr>Doc<span class="tsd-signature-symbol">:</span> <a href="../modules/_src_hooks_usetranslation_.html#realdoc" class="tsd-signature-type">RealDoc</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="__type" class="tsd-anchor"></a>
+					<h3>__type</h3>
+					<div class="tsd-signature tsd-kind-icon">__type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"prompt"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/4c53570/src/hooks/useTranslations.ts#L6">src/hooks/useTranslations.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/plugins/prompt-plugin.tsx#L8">src/plugins/prompt-plugin.tsx:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="defaultdoc" class="tsd-anchor"></a>
-					<h3>default<wbr>Doc</h3>
-					<div class="tsd-signature tsd-kind-icon">default<wbr>Doc<span class="tsd-signature-symbol">:</span> <a href="../modules/_src_hooks_usetranslation_.html#realdoc" class="tsd-signature-type">RealDoc</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="condition" class="tsd-anchor"></a>
+					<h3>condition</h3>
+					<div class="tsd-signature tsd-kind-icon">condition<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/4c53570/src/hooks/useTranslations.ts#L7">src/hooks/useTranslations.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/plugins/prompt-plugin.tsx#L21">src/plugins/prompt-plugin.tsx:21</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If this condition is true and we are in edit mode then the prompt will render</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/plugins/prompt-plugin.tsx#L12">src/plugins/prompt-plugin.tsx:12</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The name of the plugin</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="props" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> props</h3>
+					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="" class="tsd-signature-type">ComponentProps</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/plugins/prompt-plugin.tsx#L25">src/plugins/prompt-plugin.tsx:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The props that are give to the component {...props}</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="component" class="tsd-anchor"></a>
+					<h3>Component</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">Component<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ComponentProps</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tinacms/react-tinacms-localization/blob/c7e9efb/src/plugins/prompt-plugin.tsx#L17">src/plugins/prompt-plugin.tsx:17</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The component that will be rendered</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>props: <span class="tsd-signature-type">ComponentProps</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The used components props</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ReactElement</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -147,13 +235,13 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_hooks_usetranslation_.html">&quot;src/hooks/use<wbr>Translation&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_src_hooks_usetranslations_.html">&quot;src/hooks/use<wbr>Translations&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_localization_api_localizationapi_.html">&quot;src/localization-<wbr>api/<wbr>LocalizationAPI&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_src_plugins_prompt_plugin_.html">&quot;src/plugins/prompt-<wbr>plugin&quot;</a>
 					</li>
 				</ul>
@@ -163,20 +251,29 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_src_hooks_usetranslations_.docs.html" class="tsd-kind-icon">Docs</a>
+						<a href="_src_plugins_prompt_plugin_.promptplugin.html" class="tsd-kind-icon">Prompt<wbr>Plugin</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_hooks_usetranslations_.docs.html#currentdoc" class="tsd-kind-icon">current<wbr>Doc</a>
+								<a href="_src_plugins_prompt_plugin_.promptplugin.html#__type" class="tsd-kind-icon">__type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_hooks_usetranslations_.docs.html#defaultdoc" class="tsd-kind-icon">default<wbr>Doc</a>
+								<a href="_src_plugins_prompt_plugin_.promptplugin.html#condition" class="tsd-kind-icon">condition</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_plugins_prompt_plugin_.promptplugin.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_plugins_prompt_plugin_.promptplugin.html#props" class="tsd-kind-icon">props</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_src_plugins_prompt_plugin_.promptplugin.html#component" class="tsd-kind-icon">Component</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/_src_hooks_usetranslations_.html#usetranslations" class="tsd-kind-icon">use<wbr>Translations</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_src_plugins_prompt_plugin_.html#promptrenderer" class="tsd-kind-icon">Prompt<wbr>Renderer</a>
 					</li>
 				</ul>
 			</nav>
@@ -199,6 +296,7 @@
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

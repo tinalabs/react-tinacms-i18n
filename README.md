@@ -128,4 +128,19 @@ React.useEffect(() => {
 }, []);
 ```
 
+### using the locale prompt
+
+register the plugin
+
+```tsx
+import { useLocalePromptPlugin, PromptRenderer } from "react-tinacms-localization"
+//...
+useLocalePromptPlugin(data, options)
+//...
+//... somewhere in the component tree render
+<PromptRenderer />
+```
+
+this registers a `prompts plugin` that will render a prompt in edit mode letting the user know that no localization for this page exists
+
 # [API DOCS](https://tinacms.github.io/react-tinacms-localization/globals.html)

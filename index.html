@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docs</title>
+  </head>
+  <body>
+    <a id="link">Go to docs</a>
+  </body>
+  <script>
+    //   change link href to go to docs this is needed bc we are hosting on github pages
+    const link = document.querySelector('#link');
+    link.setAttribute('href', window.location.href + 'docs');
+  </script>
+</html>

@@ -8,7 +8,7 @@ yarn add @tinacms/react-tinacms-localization
 
 ### Create a new instance of the localization api
 
-you can pass the list of languages and the icons but these are optiona
+You can pass the list of languages and the icons but these are optiona
 
 ```ts
 import { LocalizationApi } from '@tinacms/react-tinacms-localization';
@@ -44,7 +44,7 @@ Where you that cms object must be passed to the tina provider
 
 ### Making a translation
 
-when we want to make a translation we can use the `useTranslation` hooks to localize our app. `useTranslation` returns a `t` function that is used for translating text and an instance of the localization plugin (called i18n)
+When we want to make a translation we can use the `useTranslation` hooks to localize our app. `useTranslation` returns a `t` function that is used for translating text and an instance of the localization plugin (called i18n)
 
 ```tsx
 import { useTranslation } from '@tinacms/react-tinacms-localization';
@@ -65,7 +65,7 @@ const [t, i18n ] = useTranslation(data, defaultData)
 </p>
 ```
 
-it also works with nested data
+It also works with nested data
 
 ```tsx
 import { useTranslation } from '@tinacms/react-tinacms-localization';
@@ -85,7 +85,7 @@ const [t, i18n ] = useTranslation(data, defaultData)
 i18n.locale = { region: 'ca', language: 'en' };
 ```
 
-or if your not using the `useTranslation` hook
+Or if your not using the `useTranslation` hook
 
 ```ts
 cms.api.localization.locale = { region: 'ca', language: 'en' };
@@ -105,15 +105,15 @@ or
 const currentLocale = cms.api.localization.getFormateLocale();
 ```
 
-now one can use the currentLocal when fetching data
+Now one can use the currentLocal when fetching data
 
 ```ts
 const data = await fetch(`www.example.com/api/some/path/${currentLocale}`);
 ```
 
-### adding the the toolbar plugin
+### Adding the the toolbar plugin
 
-in a global scope or on the page you wish to add this plugin you can use the
+In a global scope or on the page you wish to add this plugin you can use the
 
 ```ts
 import { useCMS } from 'tinacms';
@@ -127,9 +127,9 @@ React.useEffect(() => {
 }, []);
 ```
 
-### using the locale prompt
+### Using the locale prompt
 
-register the plugin
+Register the plugin
 
 ```tsx
 import { useLocalePromptPlugin, PromptRenderer } from "react-tinacms-localization"
@@ -140,7 +140,7 @@ useLocalePromptPlugin(data, options)
 <PromptRenderer />
 ```
 
-this registers a `prompts plugin` that will render a prompt in edit mode letting the user know that no localization for this page exists
+This registers a `prompts plugin` that will render a prompt in edit mode letting the user know that no localization for this page exists
 
 ## Generate Docs
 

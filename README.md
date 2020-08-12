@@ -12,7 +12,6 @@ you can pass the list of languages and the icons but these are optiona
 
 ```ts
 import { LocalizationApi } from '@tinacms/react-tinacms-localization';
-//...
 const localization = new LocalizationApi();
 ```
 
@@ -97,7 +96,7 @@ cms.api.localization.locale = { region: 'ca', language: 'en' };
 Get the formatted current locale
 
 ```ts
-const current locale  = i18n.getFormateLocale()
+const currentLocale  = i18n.getFormateLocale()
 ```
 
 or

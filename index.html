@@ -89,12 +89,17 @@
     localization: localization,
   },
 }));</code></pre>
+				<p>or</p>
+				<pre><code class="language-ts">cms.api.registerApi(<span class="hljs-string">&#x27;localization&#x27;</span>, localization);</code></pre>
+				<blockquote>
+					<p>Note: Unlike Plugins, APIs should be registered when the CMS is instantiated, and never removed.</p>
+				</blockquote>
 				<p>Where you that cms object must be passed to the tina provider</p>
 				<pre><code class="language-tsx">&lt;TinaProvider cms={this.cms}&gt;//...&lt;/TinaProvider&gt;</code></pre>
 				<a href="#making-a-translation" id="making-a-translation" style="color: inherit; text-decoration: none;">
 					<h3>Making a translation</h3>
 				</a>
-				<p>in our app when we want to make a translation we can use the <code>useTranslation</code> hooks to localize our app. <code>useTranslation</code> returns a <code>t</code> function that is used for translating text and an instance of the localization plugin (called i18n)</p>
+				<p>when we want to make a translation we can use the <code>useTranslation</code> hooks to localize our app. <code>useTranslation</code> returns a <code>t</code> function that is used for translating text and an instance of the localization plugin (called i18n)</p>
 				<pre><code class="language-tsx">import { useTranslation } from &#39;@tinacms/react-tinacms-localization&#39;;
 //..
 const data = {heading: &#39;this is a heading&#39;}
@@ -146,15 +151,22 @@ const [t, i18n ] = useTranslation(data, defaultData)
 <span class="hljs-comment">//...</span>
 
 <span class="hljs-keyword">const</span> cms = useCMS();
-cms.plugins.add(LocalePickerToolbarPlugin);</code></pre>
+React.useEffect(<span class="hljs-function">() =&gt;</span> {
+  cms.plugins.add(LocalePickerToolbarPlugin);
+}, []);</code></pre>
+				<a href="#using-the-locale-prompt" id="using-the-locale-prompt" style="color: inherit; text-decoration: none;">
+					<h3>using the locale prompt</h3>
+				</a>
+				<p>register the plugin</p>
+				<pre><code class="language-tsx">import { useLocalePromptPlugin, PromptRenderer } from &quot;react-tinacms-localization&quot;
+//...
+useLocalePromptPlugin(data, options)
+//...
+//... somewhere in the component tree render
+&lt;PromptRenderer /&gt;</code></pre>
+				<p>this registers a <code>prompts plugin</code> that will render a prompt in edit mode letting the user know that no localization for this page exists</p>
 				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
-					<h1>API DOCS</h1>
-				</a>
-				<a href="#localization-api" id="localization-api" style="color: inherit; text-decoration: none;">
-					<h2>Localization API</h2>
-				</a>
-				<a href="#class-methods" id="class-methods" style="color: inherit; text-decoration: none;">
-					<h3>class methods</h3>
+					<h1><a href="https://tinacms.github.io/react-tinacms-localization/globals.html">API DOCS</a></h1>
 				</a>
 			</div>
 		</div>

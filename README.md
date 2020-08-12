@@ -143,4 +143,4 @@ useLocalePromptPlugin(data, options)
 
 this registers a `prompts plugin` that will render a prompt in edit mode letting the user know that no localization for this page exists
 
-# [API DOCS](https://tinacms.github.io/react-tinacms-localization/globals.html)
+# [API DOCS](https://tinacms.github.io/react-tinacms-localization/docs/)

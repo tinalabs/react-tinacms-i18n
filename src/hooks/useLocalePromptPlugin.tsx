@@ -33,11 +33,23 @@ const defaultFunc = () => {
   console.log('asdf');
 };
 
+/**
+ *
+ * @param data If this object is empty or undefined or returns a falsy value the prompt will render to the user
+ * @param options The props that are given to the model
+ *
+ */
 export const useLocalePromptPlugin = (
   data: Record<string, any>,
   options?: Partial<
     Omit<ModalProps, 'actions'> & {
+      /**
+       * The action that happens when the user clicks "yes"
+       */
       onYes: () => void;
+      /**
+       * The action that happens when the user clicks "No"
+       */
       onNo: () => void;
     }
   >

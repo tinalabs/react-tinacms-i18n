@@ -1,5 +1,7 @@
-import * as React from 'react';
-import { useCMS } from 'tinacms';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ModalProvider, useCMS, useModalContainer } from 'tinacms';
+
 /**
  * Prompt plugin: This interface defines the contract that registers the prompts
  * @template ComponentProps
@@ -33,13 +35,37 @@ export const PromptRenderer = (): React.ReactElement | null => {
   const prompts = cms.plugins.getType<PromptPlugin>('prompt').all();
 
   return cms.enabled && prompts ? (
-    <>
+    <ModalProvider>
       {prompts
         .filter((prompt) => prompt.condition)
         .map((prompt, i) => {
           const Component = prompt.Component;
           return <Component key={i} {...prompt.props} />;
         })}
-    </>
+    </ModalProvider>
   ) : null;
+};
+
+const PromptPortal = () => {
+  const { portalNode } = useModalContainer();
+
+  if (portalNode) {
+    return ReactDOM.createPortal(<PromptRenderer />, portalNode);
+  }
+
+  return null;
+};
+
+/**
+ * Renders a portal in the app that is used for showing the prompts in the app
+ *
+ * @param children
+ */
+export const PromptProvider: React.FC = ({ children }) => {
+  return (
+    <>
+      <PromptPortal />
+      {children}
+    </>
+  );
 };

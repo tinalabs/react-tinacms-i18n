@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useRef } from 'react';
 import { Input, useCMS } from 'tinacms';
 import { ChevronDownIcon } from '@tinacms/icons';
 import { Dismissible } from 'react-dismissible';
@@ -11,9 +11,9 @@ export const LocaleSwitcher = () => {
   const cms = useCMS();
   const locale: LocalizationApi = cms.api.localization;
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [filterValue, setFilterValue] = React.useState('');
-  const selectListRef = React.useRef<HTMLElement>();
+  const selectListRef = useRef<HTMLElement>();
   const originalFilterOptions = locale.localeList.filter((option) => {
     return locale.localeToString(option).includes(filterValue);
   });

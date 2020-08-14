@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useCMS } from 'tinacms';
 import { PromptPlugin } from '../plugins';
 import { ModalBuilder } from '../components';

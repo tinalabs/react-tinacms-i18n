@@ -59,7 +59,9 @@ export const LocaleSwitcher = () => {
       <SelectWrapper>
         <SelectBox onClick={() => setOpen(!open)} open={open}>
           <SelectLabel>Locale</SelectLabel>
-          <SelectCurrent>{locale.localeToString(locale.locale)}</SelectCurrent>
+          <SelectCurrent>
+            {locale.localeToString(locale.getLocale())}
+          </SelectCurrent>
           <ChevronDownIcon />
         </SelectBox>
         <SelectDropdown open={open}>
@@ -122,10 +124,10 @@ export const LocaleSwitcher = () => {
                           key={locale.localeToString(option)}
                           active={
                             locale.localeToString(option) ===
-                            locale.localeToString(locale.locale)
+                            locale.localeToString(locale.getLocale())
                           }
                           onClick={() => {
-                            locale.locale = option;
+                            locale.setLocale(option);
                             locale.onSwitch();
                             closeDropdown();
                           }}

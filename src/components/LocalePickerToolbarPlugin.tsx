@@ -4,7 +4,7 @@ import { ChevronDownIcon } from '@tinacms/icons';
 import { Dismissible } from 'react-dismissible';
 import styled, { css } from 'styled-components';
 import { LoadingDots } from '@tinacms/react-forms';
-import { LocalizationApi, Locale } from '../localization-api/';
+import { LocalizationApi, Locale } from '../localizationApi';
 import { LeftArrowIcon } from '@tinacms/icons';
 
 export const LocaleSwitcher = () => {

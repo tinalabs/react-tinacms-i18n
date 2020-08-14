@@ -1,4 +1,5 @@
 export * from './components';
-export * from './localization-api';
+export * from './localizationApi';
 export * from './hooks';
 export * from './plugins';
+export * from './setup';

@@ -1,5 +1,5 @@
 import { useCMS } from 'tinacms';
-import { LocalizationApi } from '../localization-api';
+import { LocalizationApi } from '../localizationApi';
 import { RealDoc, Translate, useTranslation } from './useTranslation';
 
 interface Docs<T> {

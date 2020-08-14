@@ -8,8 +8,8 @@ describe('Localization API', () => {
         language: 'en',
         encoding: 'utf-8',
       };
-      localAPI.locale = newLocal;
-      expect(localAPI.locale).toBe(newLocal);
+      localAPI.setLocale(newLocal);
+      expect(localAPI.getLocale()).toBe(newLocal);
     });
   });
 
@@ -20,57 +20,57 @@ describe('Localization API', () => {
         language: 'en',
         encoding: 'utf-8',
       };
-      localAPI.locale = newLocal;
-      expect(localAPI.locale).toBe(newLocal);
+      localAPI.setLocale(newLocal);
+      expect(localAPI.getLocale()).toBe(newLocal);
     });
   });
   describe('#getFormateLocale()', () => {
     const localAPI = new LocalizationApi();
     describe('the return types matches language[_region][.encoding][@modifier]when retrieved', () => {
       it('adds a . in front of the encoding', () => {
-        localAPI.locale = {
+        localAPI.setLocale({
           language: 'en',
           encoding: 'utf-8',
-        };
+        });
         expect(localAPI.getFormateLocale()).toBe('en.utf-8');
-        localAPI.locale = {
+        localAPI.setLocale({
           language: 'fr',
           encoding: 'utf-16',
-        };
+        });
         expect(localAPI.getFormateLocale()).toBe('fr.utf-16');
       });
       it('adds a _ in front of the region', () => {
-        localAPI.locale = {
+        localAPI.setLocale({
           language: 'sp',
           region: 'CA',
-        };
+        });
         expect(localAPI.getFormateLocale()).toBe('sp_CA');
-        localAPI.locale = {
+        localAPI.setLocale({
           language: 'en',
           region: 'US',
-        };
+        });
         expect(localAPI.getFormateLocale()).toBe('en_US');
       });
       it('adds a @ in front of the modifiers', () => {
-        localAPI.locale = {
+        localAPI.setLocale({
           language: 'sp',
           modifiers: ['asdf', 'asdf2'],
-        };
+        });
         expect(localAPI.getFormateLocale()).toBe('sp@asdf@asdf2');
-        localAPI.locale = {
+        localAPI.setLocale({
           language: 'en',
           modifiers: ['example', 'example2'],
-        };
+        });
         expect(localAPI.getFormateLocale()).toBe('en@example@example2');
-        localAPI.locale = {
+        localAPI.setLocale({
           language: 'en',
           modifiers: ['1', '23', '4', '5', '6', '7', '8', '9', '10'],
-        };
+        });
         expect(localAPI.getFormateLocale()).toBe('en@1@23@4@5@6@7@8@9@10');
       });
       it('returns the items in the order <lang>[region][encoding][...modifiers]', () => {
         const rand = Math.floor(Math.random() * 100);
-        localAPI.locale = {};
+        localAPI.setLocale({});
         const vals: { locale: Locale; expected: string }[] = [
           {
             locale: {
@@ -114,7 +114,7 @@ describe('Localization API', () => {
           },
         ];
         vals.forEach((val) => {
-          localAPI.locale = val.locale;
+          localAPI.setLocale(val.locale);
           expect(localAPI.getFormateLocale()).toEqual(val.expected);
         });
       });

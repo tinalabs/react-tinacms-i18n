@@ -35,9 +35,7 @@ export class LocalizationApi {
     // encoding: "utf-8",
     // modifiers: ["example"],
   };
-  private props: {
-    locale: Locale;
-  };
+  private locale: Locale;
   /**
    * Locale list of localization api
    * @type Locale[]
@@ -53,9 +51,7 @@ export class LocalizationApi {
     localeList = defaultList,
     public imgMap: Record<string, any> = {}
   ) {
-    this.props = {
-      locale: this.getCachedData(LOCALE_CACHE_KEY) || this.default,
-    };
+    this.locale = this.getCachedData(LOCALE_CACHE_KEY) || this.default;
     this.localeList = localeList;
   }
 
@@ -69,15 +65,15 @@ export class LocalizationApi {
   /**
    * Sets locale and stores it in locale storage
    */
-  set locale(locale: Locale) {
-    this.props.locale = locale;
+  setLocale(locale: Locale): void {
+    this.locale = locale;
     this.setCachedData(LOCALE_CACHE_KEY, locale);
   }
   /**
    * Gets locale from memory
    */
-  get locale(): Locale {
-    return this.props.locale;
+  getLocale(): Locale {
+    return this.locale;
   }
   /**
    * converts a given locale to a formatted string

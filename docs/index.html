@@ -11,6 +11,10 @@
   <script>
     //   change link href to go to docs this is needed bc we are hosting on github pages
     const link = document.querySelector('#link');
-    link.setAttribute('href', window.location.href + 'docs');
+    const indexMatch = /index(.html)/gi;
+    link.setAttribute(
+      'href',
+      window.location.href.replace(indexMatch, '') + 'docs'
+    );
   </script>
 </html>

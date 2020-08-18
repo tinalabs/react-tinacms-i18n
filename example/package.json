@@ -8,7 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@tinalabs/react-tinacms-localization": "file:.yalc/@tinalabs/react-tinacms-localization",
+    "@tinalabs/react-tinacms-localization": "^0.1.4",
     "bloomer": "^0.6.5",
     "bulma": "^0.8.0",
     "craco": "^0.0.3",

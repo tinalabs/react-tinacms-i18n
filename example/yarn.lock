@@ -1688,8 +1688,10 @@
   dependencies:
     webfontloader "^1.6.28"
 
-"@tinalabs/react-tinacms-localization@file:.yalc/@tinalabs/react-tinacms-localization":
-  version "0.1.3"
+"@tinalabs/react-tinacms-localization@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@tinalabs/react-tinacms-localization/-/react-tinacms-localization-0.1.4.tgz#beb7374a253b7a081c8fd73d0b1532569cfc1b6d"
+  integrity sha512-fUrsQTsySUAhAFuz8Sy9clm36/QSJ3iKhSMiITNEBma77itH4FnZzej2I1sMXUzKvM8aEo04r7/ujhez1ZwucQ==
   dependencies:
     lodash.get "^4.4.2"
 

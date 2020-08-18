@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "@tinalabs/react-tinacms-localization": {
+      "signature": "cf6cd1e7d5daee9f524e6fa87b048bea",
+      "file": true,
+      "replaced": "file:../"
+    }
+  }
+}

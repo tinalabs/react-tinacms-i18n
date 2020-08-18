@@ -2,6 +2,8 @@ import React from 'react';
 import { useCMS } from 'tinacms';
 import { PromptPlugin } from '../plugins';
 import { ModalBuilder } from '../components';
+// import { LocalizationApi } from '../localizationApi';
+import { useI18n } from './useI18n';
 
 interface ModalProps {
   title?: string;
@@ -40,7 +42,7 @@ const defaultFunc = () => {
  *
  */
 export const useLocalePromptPlugin = (
-  data: Record<string, any>,
+  condition: boolean,
   options?: Partial<
     Omit<ModalProps, 'actions'> & {
       /**
@@ -55,12 +57,17 @@ export const useLocalePromptPlugin = (
   >
 ): void => {
   const cms = useCMS();
-  const hasData = data && Object.keys(data).length > 0;
+  // const hasData = data && Object.keys(data).length > 0;
+  // const i18n: LocalizationApi = cms.api.localization;
+  const i18n = useI18n();
+  console.log('from use locale plugin');
+  console.log({ i18n });
+  console.log(i18n.getFormateLocale());
   cms.plugins.add<PromptPlugin<ModalProps>>({
     __type: 'prompt',
     Component: LocaleModal,
-    name: 'asdf',
-    condition: !hasData,
+    name: `prompt${i18n.getFormateLocale()}`,
+    condition: condition,
     props: {
       message: options?.message,
       onClose: options?.onClose || cms.disable,

@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ModalProvider, useCMS, useModalContainer } from 'tinacms';
+import {
+  ModalProvider,
+  useCMS,
+  useModalContainer,
+  useSubscribable,
+} from 'tinacms';
 
 /**
  * Prompt plugin: This interface defines the contract that registers the prompts
@@ -32,11 +37,13 @@ export interface PromptPlugin<ComponentProps = Record<string, any>> {
  */
 export const PromptRenderer = (): React.ReactElement | null => {
   const cms = useCMS();
-  const prompts = cms.plugins.getType<PromptPlugin>('prompt').all();
+  const prompts = cms.plugins.getType<PromptPlugin>('prompt');
+  useSubscribable(prompts);
+  const allPrompts = prompts.all();
 
   return cms.enabled && prompts ? (
     <ModalProvider>
-      {prompts
+      {allPrompts
         .filter((prompt) => prompt.condition)
         .map((prompt, i) => {
           const Component = prompt.Component;

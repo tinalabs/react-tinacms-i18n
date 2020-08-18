@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import 'bulma/css/bulma.min.css';
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import { useCMS, withTina } from 'tinacms';
+import { TinaCMS, TinaProvider, useCMS, withTina } from 'tinacms';
 
 import Home from './pages/Home.js';
 import Setup from './pages/Setup.js';
 import Translations from './pages/Translations.js';
 import SwitchLocale from './pages/SwitchLocale';
+import UsingPrompts from './pages/UsingPrompts';
 import Blocks from './pages/Blocks.js';
 import Inline from './pages/Inline.js';
 import GlobalForms from './pages/GlobalForms.js';
@@ -18,20 +19,32 @@ import Data from './pages/Data.js';
 
 import NavItem from './components/Nav.js';
 import { Container, Columns, Column } from 'bloomer';
-import { useSetupI18 } from '@tinalabs/react-tinacms-localization';
+import {
+  I18nProvider,
+  useI18n,
+  LocalizationApi,
+  LocalePickerToolbarPlugin,
+  ReactLocalizationAPI,
+  PromptProvider,
+  // getLocalePickerToolbarPlugin,
+} from '@tinalabs/react-tinacms-localization';
 
 const App = () => {
   const cms = useCMS();
-  useSetupI18({
-    ApiOptions: {
-      localeList: [
-        { language: 'en', region: 'ca' },
-        { language: 'fr', region: 'ca' },
-        { language: 'en', region: 'us' },
-        { language: 'sp', region: 'us' },
-      ],
-    },
+  cms.events.subscribe('plugin:add:prompt', (event) => {
+    console.log('an event happends');
+    console.log(event);
   });
+  const i18n = useI18n();
+  console.log({ i18n });
+  console.log({ currentLocale: i18n.getLocale() });
+  useEffect(() => {
+    cms.plugins.add(LocalePickerToolbarPlugin);
+  }, []);
+  // useEffect(() => {
+  //   cms.plugins.add(getLocalePickerToolbarPlugin(i18n));
+  // }, []);
+
   return (
     <Router>
       <Container
@@ -56,6 +69,7 @@ const App = () => {
               <Route path="/setup" component={Setup} />
               <Route path="/translations" component={Translations} />
               <Route path="/switch-locale" component={SwitchLocale} />
+              <Route path="/using-prompts" component={UsingPrompts} />
               <Route path="/blocks" component={Blocks} />
               <Route path="/inline" component={Inline} />
               <Route path="/global-forms" component={GlobalForms} />
@@ -77,24 +91,9 @@ const App = () => {
               <NavItem to="/switch-locale">
                 <li>Switch locale</li>
               </NavItem>
-              {/* <NavItem to="/forms">
-                <li>Forms</li>
+              <NavItem to="/using-prompts">
+                <li>Using Prompts</li>
               </NavItem>
-              <NavItem to="/form-fields">
-                <li>Form Fields</li>
-              </NavItem>
-              <NavItem to="/blocks">
-                <li>Blocks</li>
-              </NavItem>
-              <NavItem to="/inline">
-                <li>Inline Editing</li>
-              </NavItem>
-              <NavItem to="/global-forms">
-                <li>Global Forms</li>
-              </NavItem>
-              <NavItem to="/data">
-                <li>Working with Data</li>
-              </NavItem> */}
             </ol>
           </Column>
         </Columns>
@@ -103,10 +102,45 @@ const App = () => {
   );
 };
 
-export default withTina(App, {
-  sidebar: {
-    position: 'displace',
-  },
-  enabled: true,
-  toolbar: true,
-});
+const AppWrapper = () => {
+  const options = {
+    ApiOptions: {
+      localeList: [
+        { language: 'en', region: 'ca' },
+        { language: 'fr', region: 'ca' },
+        { language: 'en', region: 'us' },
+        { language: 'sp', region: 'us' },
+      ],
+    },
+  };
+  const cms = useCMS();
+  cms.registerApi(
+    'localization',
+    new ReactLocalizationAPI(
+      options.ApiOptions.localeList,
+      options.ApiOptions.imgMap
+    )
+  );
+  return (
+    <I18nProvider>
+      <App />
+    </I18nProvider>
+  );
+};
+
+export default () => {
+  const cms = new TinaCMS({
+    sidebar: {
+      position: 'displace',
+    },
+    enabled: true,
+    toolbar: true,
+  });
+  return (
+    <TinaProvider cms={cms}>
+      <PromptProvider>
+        <AppWrapper />
+      </PromptProvider>
+    </TinaProvider>
+  );
+};

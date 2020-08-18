@@ -1,5 +1,9 @@
 name: github pages
-
+on:
+  push:
+    branches:
+      - master
+      - feature/add-example
 jobs:
   deploy:
     runs-on: ubuntu-18.04

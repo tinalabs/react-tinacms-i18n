@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 import {
   LocalizationApiOptions,
@@ -10,26 +11,24 @@ interface SetupProps {
   ApiOptions: LocalizationApiOptions;
 }
 
-const Wrapper: React.FC = (props) => {
-  const cms = useCMS();
-  useEffect(() => {
-    cms.plugins.add(LocalePickerToolbarPlugin);
-  }, []);
-  return <I18nProvider>{props.children}</I18nProvider>;
-};
-
-export const withI18n = (component: any, options: SetupProps): JSX.Element => {
-  const cms = useCMS();
-  cms.registerApi(
-    'localization',
-    new ReactLocalizationAPI(
+export const withI18n = (Component: any, options: SetupProps) => {
+  return (props: any) => {
+    const cms = useCMS();
+    const i18n = new ReactLocalizationAPI(
       options.ApiOptions.localeList,
       options.ApiOptions.imgMap
-    )
-  );
-  return (
-    <I18nProvider>
-      <Wrapper>{component}</Wrapper>
-    </I18nProvider>
-  );
+    );
+    cms.registerApi('localization', i18n);
+    const Wrapper = () => {
+      useEffect(() => {
+        cms.plugins.add(LocalePickerToolbarPlugin);
+      }, []);
+      return <Component {...props} />;
+    };
+    return (
+      <I18nProvider i18n={i18n}>
+        <Wrapper />
+      </I18nProvider>
+    );
+  };
 };

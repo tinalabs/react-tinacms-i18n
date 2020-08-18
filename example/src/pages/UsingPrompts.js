@@ -3,44 +3,30 @@ import {
   useLocalePromptPlugin,
   useTranslation,
 } from '@tinalabs/react-tinacms-localization';
-import { Title } from 'bloomer/lib/elements/Title';
-import React, { useEffect, useState } from 'react';
-import { useCMS, useForm, usePlugin } from 'tinacms';
+import React from 'react';
+import { useForm, usePlugin } from 'tinacms';
 
-import Code from '../components/Code.js';
+import Code from '../components/Diff.js';
 
 export default function Forms() {
   const i18n = useI18n();
-  const cms = useCMS();
-  console.log(cms.plugins.getType('prompt').all());
+  let hasContent = true;
+
   // get the content
   let content = {};
-  let hasContent = true;
   const currentLocale = i18n.locale;
   try {
-    content = require(`../../content/${i18n.localeToString(currentLocale)}`);
+    content = require(`../content/PromptPage/${i18n.localeToString(
+      currentLocale
+    )}`);
   } catch (error) {
+    hasContent = false;
     console.log('no locale exists');
     console.warn(error);
-    content = {};
-    hasContent = false;
   }
-  useLocalePromptPlugin(!hasContent, {
-    onNo: () => {
-      i18n.setLocale({
-        language: 'en',
-        region: 'ca',
-      });
-    },
-  });
-  console.log(cms.plugins.getType('prompt').all());
 
   // define fallback data
-  const fallbackData = {
-    header: 'fallback',
-    text: 'fallback',
-    paragraph: 'this is some fallback data',
-  };
+  const fallbackData = require('../content/PromptPage/en_ca.json');
 
   // setup a form
   const [formData, form] = useForm({
@@ -77,12 +63,99 @@ export default function Forms() {
   // register the form
   usePlugin(form);
   const [t] = useTranslation(formData, fallbackData);
-  console.log({ formData });
-  // console.log({ keys: Object.keys(formData).length });
-  console.log(hasContent);
 
-  let code = ``;
+  useLocalePromptPlugin(!hasContent, {
+    onNo: () => {
+      i18n.setLocale({
+        language: 'en',
+        region: 'ca',
+      });
+    },
+  });
 
+  let code = `import {
+    useI18n,
++   useLocalePromptPlugin,
+    useTranslation,
+  } from '@tinalabs/react-tinacms-localization';
+  import React from 'react';
+  import { useForm, usePlugin } from 'tinacms';
+  
+  
+  export default function Forms() {
+    const i18n = useI18n();
++   let hasContent = true;
+  
+    // get the content
+    let content = {};
+    const currentLocale = i18n.locale;
+    try {
+      content = require(\`../content/PromptPage/\${i18n.localeToString(
+        currentLocale
+      )}\`);
+    } catch (error) {
++     hasContent = false;
+      console.log('no locale exists');
+      console.warn(error);
+    }
+  
+    // define fallback data
+    const fallbackData = require('../content/PromptPage/en_ca.json');
+  
+    // setup a form
+    const [formData, form] = useForm({
+      id: \`edit-\${i18n.localeToString(currentLocale)}\`,
+      label: \`Edit form in \${i18n.getFormateLocale()}\`,
+      initialValues: {
+        ...content,
+      },
+  
+      fields: [
+        {
+          name: 'header',
+          label: 'Heading',
+          component: 'text',
+        },
+        {
+          name: 'text',
+          label: 'Text',
+          component: 'textarea',
+        },
+        {
+          name: 'paragraph',
+          label: 'Paragraph',
+          component: 'textarea',
+        },
+      ],
+  
+      onSubmit(data, form) {
+        alert('Form submitted! Check the console to see the form values.');
+        console.clear();
+        console.log(data);
+      },
+    });
+    // register the form
+    usePlugin(form);
+    const [t] = useTranslation(formData, fallbackData);
+  
++   useLocalePromptPlugin(!hasContent, {
++     onNo: () => {
++       i18n.setLocale({
++         language: 'en',
++         region: 'ca',
++       });
++     },
++   });
+  
+    return (
+      <>
+        <h1 className="title is-1">{t('header')}</h1>
+        <p>{t('text')}</p>
+        <p>{t('paragraph')}</p>
+      </>
+    );
+  }
+  `;
   return (
     <>
       <h1 className="title is-1">{t('header')}</h1>

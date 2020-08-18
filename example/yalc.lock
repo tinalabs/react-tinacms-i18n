@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@tinalabs/react-tinacms-localization": {
-      "signature": "cf6cd1e7d5daee9f524e6fa87b048bea",
+      "signature": "287a11c14d0cbc3cacdee0b5b6455c4b",
       "file": true,
       "replaced": "file:../"
     }

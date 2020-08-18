@@ -1,0 +1,5 @@
+{
+  "header": "Using Prompts",
+  "text": "Next we are going to add a prompt when the user is in edit mode and switches to a locale that doesn't exist",
+  "paragraph": "To do this all we have to do is call the useLocalePromptPlugin and pass it when a condition that when true will show the model."
+}

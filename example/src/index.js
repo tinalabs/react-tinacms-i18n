@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { TinaCMS } from 'tinacms';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 // const cms = new TinaCMS({});

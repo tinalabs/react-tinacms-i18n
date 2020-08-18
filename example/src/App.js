@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import 'bulma/css/bulma.min.css';
 import './App.css';

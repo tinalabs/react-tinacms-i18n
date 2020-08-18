@@ -1,13 +1,8 @@
 import React from 'react';
-import { useCMS } from 'tinacms';
-import NextLink from '../components/NextLink.js';
-
 import Code from '../components/Code.js';
 // import { useSetupI18 } from '@tinalabs/react-tinacms-localization';
 
 export default function AddingTina() {
-  const cms = useCMS();
-
   let code = `
   import { withI18n } from '@tinalabs/react-tinacms-localization';
 

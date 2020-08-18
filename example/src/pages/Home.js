@@ -1,13 +1,8 @@
 import React from 'react';
-import { useCMS } from 'tinacms';
 
 import Code from '../components/Code.js';
 
 export default function Home() {
-  const cms = useCMS();
-
-  // cms.sidebar.hidden = true;
-
   let code = `return (
     <>
       <p>

@@ -70,7 +70,7 @@ export default function SwitchLocale() {
   let content = {};
   const currentLocale = i18n.locale;
   try {
-    content = require(\../content/${i18n.localeToString(currentLocale)}\`);
+    content = require(\`../content/${i18n.localeToString(currentLocale)}\`);
   } catch (error) {
     console.log('no locale exists');
     console.warn(error);

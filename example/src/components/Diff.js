@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import diff from 'react-syntax-highlighter/dist/esm/languages/prism/diff';
-import prism from 'react-syntax-highlighter/dist/esm/styles/prism/prism';
 
 import { Button } from 'bloomer';
 
@@ -19,7 +18,7 @@ export default function Diff(props) {
       </div>
       {show && (
         <div style={{ width: '100%', fontSize: 14 }}>
-          <SyntaxHighlighter language="diff" style={prism}>
+          <SyntaxHighlighter language="diff" style={diff}>
             {props.children}
           </SyntaxHighlighter>
         </div>

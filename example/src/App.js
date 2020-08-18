@@ -32,7 +32,7 @@ const App = () => {
   };
 
   return (
-    <Router basename={process.env.REACT_APP_BASE_URL || ''}>
+    <Router basename={process.env.REACT_APP_BASE_PATH || ''}>
       <Container
         style={{
           marginTop: 40,

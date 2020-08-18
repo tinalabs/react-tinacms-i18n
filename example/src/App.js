@@ -45,7 +45,7 @@ const App = () => {
           <Column isSize="3/4">
             <h1 className="title is-1">
               <Link to="/" className="has-text-black">
-                TinaCMS i18n Example
+                TinaCMS i18n Example test
               </Link>
             </h1>
             <Button onClick={cms.toggle}>Toggle edit mode</Button>

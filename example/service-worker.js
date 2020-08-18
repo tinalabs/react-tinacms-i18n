@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-tinacms-localization/example/precache-manifest.6f86ee1179e089ea3418f16ddace9a57.js"
+  "/react-tinacms-localization/example/precache-manifest.8918b80181ec23b2ee26e1b67339be97.js"
 );
 
 self.addEventListener('message', (event) => {

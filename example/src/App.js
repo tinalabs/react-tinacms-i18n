@@ -20,6 +20,7 @@ import { Button } from 'bloomer/lib/elements/Button';
 
 const App = () => {
   const cms = useCMS();
+  console.log(process.env.REACT_APP_BASE_URL);
 
   const ApiOptions = {
     localeList: [

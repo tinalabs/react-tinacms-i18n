@@ -19,8 +19,9 @@
     "format": "prettier --write src/**/*.{ts,js,tsx}",
     "format:example": "prettier --write example/**/*.{ts,js,tsx}",
     "prepare": "tsdx build",
-    "docs": "typedoc  --out docs/docs ./src/ --ignoreCompilerErrors --exclude \"**/*+(index|.spec|.test|.e2e).ts\"",
-    "deploy:docs": "yarn docs && yarn gh-pages",
+    "deploy:docs": "typedoc  --out docs/docs ./src/ --ignoreCompilerErrors --exclude \"**/*+(index|.spec|.test|.e2e).ts\"",
+    "deploy": "yarn deploy:docs && yarn deploy:example && yarn gh-pages",
+    "deploy:example": "cat ./buildExample.sh | sh",
     "gh-pages": "gh-pages -d docs"
   },
   "peerDependencies": {

@@ -6,11 +6,21 @@
     <title>Docs</title>
   </head>
   <body>
-    <a id="link">Go to docs</a>
+    <div>
+      <a id="docLink">Go to docs</a>
+    </div>
+    <div>
+      <a id="exampleLink">Go to example</a>
+    </div>
   </body>
   <script>
     //   change link href to go to docs this is needed bc we are hosting on github pages
-    const link = document.querySelector('#link');
-    link.setAttribute('href', window.location.href + 'docs');
+    const docLink = document.querySelector('#docLink');
+    const exampleLink = document.querySelector('#exampleLink');
+    const indexMatch = /index(.html)/gi;
+    const baseURL = window.location.href.replace(indexMatch, '');
+    console.log(baseURL);
+    docLink.setAttribute('href', baseURL + 'docs');
+    exampleLink.setAttribute('href', baseURL + 'example/index.html');
   </script>
 </html>

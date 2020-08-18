@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@tinacms/react-tinacms-localization</title>
-	<meta name="description" content="Documentation for @tinacms/react-tinacms-localization">
+	<title>@tinalabs/react-tinacms-localization</title>
+	<meta name="description" content="Documentation for @tinalabs/react-tinacms-localization">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@tinacms/react-tinacms-localization</a>
+					<a href="index.html" class="title">@tinalabs/react-tinacms-localization</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>@tinacms/react-tinacms-localization</h1>
+			<h1>@tinalabs/react-tinacms-localization</h1>
 		</div>
 	</div>
 </header>
@@ -74,9 +74,8 @@
 				<a href="#create-a-new-instance-of-the-localization-api" id="create-a-new-instance-of-the-localization-api" style="color: inherit; text-decoration: none;">
 					<h3>Create a new instance of the localization api</h3>
 				</a>
-				<p>you can pass the list of languages and the icons but these are optiona</p>
+				<p>You can pass the list of languages and the icons but these are optiona</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { LocalizationApi } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tinacms/react-tinacms-localization&#x27;</span>;
-<span class="hljs-comment">//...</span>
 <span class="hljs-keyword">const</span> localization = <span class="hljs-keyword">new</span> LocalizationApi();</code></pre>
 				<a href="#add-the-localization-api-to-the-cms" id="add-the-localization-api-to-the-cms" style="color: inherit; text-decoration: none;">
 					<h3>Add the localization api to the cms</h3>
@@ -99,7 +98,7 @@
 				<a href="#making-a-translation" id="making-a-translation" style="color: inherit; text-decoration: none;">
 					<h3>Making a translation</h3>
 				</a>
-				<p>when we want to make a translation we can use the <code>useTranslation</code> hooks to localize our app. <code>useTranslation</code> returns a <code>t</code> function that is used for translating text and an instance of the localization plugin (called i18n)</p>
+				<p>When we want to make a translation we can use the <code>useTranslation</code> hooks to localize our app. <code>useTranslation</code> returns a <code>t</code> function that is used for translating text and an instance of the localization plugin (called i18n)</p>
 				<pre><code class="language-tsx">import { useTranslation } from &#39;@tinacms/react-tinacms-localization&#39;;
 //..
 const data = {heading: &#39;this is a heading&#39;}
@@ -116,7 +115,7 @@ const [t, i18n ] = useTranslation(data, defaultData)
 &lt;p&gt;
 {t(&#39;body&#39;)}
 &lt;/p&gt;</code></pre>
-				<p>it also works with nested data</p>
+				<p>It also works with nested data</p>
 				<pre><code class="language-tsx">import { useTranslation } from &#39;@tinacms/react-tinacms-localization&#39;;
 //..
 const data = {some: {nested: {data: &#39;hello world&#39;}}}
@@ -130,21 +129,21 @@ const [t, i18n ] = useTranslation(data, defaultData)
 					<h3>Switching the locale</h3>
 				</a>
 				<pre><code class="language-ts">i18n.locale = { region: <span class="hljs-string">&#x27;ca&#x27;</span>, language: <span class="hljs-string">&#x27;en&#x27;</span> };</code></pre>
-				<p>or if your not using the <code>useTranslation</code> hook</p>
+				<p>Or if your not using the <code>useTranslation</code> hook</p>
 				<pre><code class="language-ts">cms.api.localization.locale = { region: <span class="hljs-string">&#x27;ca&#x27;</span>, language: <span class="hljs-string">&#x27;en&#x27;</span> };</code></pre>
 				<a href="#fetching-data-based-on-the-locale" id="fetching-data-based-on-the-locale" style="color: inherit; text-decoration: none;">
 					<h3>Fetching data based on the locale</h3>
 				</a>
 				<p>Get the formatted current locale</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> current locale  = i18n.getFormateLocale()</code></pre>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> currentLocale  = i18n.getFormateLocale()</code></pre>
 				<p>or</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">const</span> currentLocale = cms.api.localization.getFormateLocale();</code></pre>
-				<p>now one can use the currentLocal when fetching data</p>
+				<p>Now one can use the currentLocal when fetching data</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">`www.example.com/api/some/path/<span class="hljs-subst">${currentLocale}</span>`</span>);</code></pre>
 				<a href="#adding-the-the-toolbar-plugin" id="adding-the-the-toolbar-plugin" style="color: inherit; text-decoration: none;">
-					<h3>adding the the toolbar plugin</h3>
+					<h3>Adding the the toolbar plugin</h3>
 				</a>
-				<p>in a global scope or on the page you wish to add this plugin you can use the</p>
+				<p>In a global scope or on the page you wish to add this plugin you can use the</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { useCMS } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;tinacms&#x27;</span>;
 <span class="hljs-keyword">import</span> { LocalePickerToolbarPlugin } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tinacms/react-tinacms-localization&#x27;</span>;
 
@@ -155,16 +154,16 @@ React.useEffect(<span class="hljs-function">() =&gt;</span> {
   cms.plugins.add(LocalePickerToolbarPlugin);
 }, []);</code></pre>
 				<a href="#using-the-locale-prompt" id="using-the-locale-prompt" style="color: inherit; text-decoration: none;">
-					<h3>using the locale prompt</h3>
+					<h3>Using the locale prompt</h3>
 				</a>
-				<p>register the plugin</p>
+				<p>Register the plugin</p>
 				<pre><code class="language-tsx">import { useLocalePromptPlugin, PromptRenderer } from &quot;react-tinacms-localization&quot;
 //...
 useLocalePromptPlugin(data, options)
 //...
 //... somewhere in the component tree render
 &lt;PromptRenderer /&gt;</code></pre>
-				<p>this registers a <code>prompts plugin</code> that will render a prompt in edit mode letting the user know that no localization for this page exists</p>
+				<p>This registers a <code>prompts plugin</code> that will render a prompt in edit mode letting the user know that no localization for this page exists</p>
 				<a href="#generate-docs" id="generate-docs" style="color: inherit; text-decoration: none;">
 					<h2>Generate Docs</h2>
 				</a>
@@ -184,6 +183,9 @@ useLocalePromptPlugin(data, options)
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/_src_components_i81nprovider_.html">&quot;src/components/<wbr>I81n<wbr>Provider&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/_src_components_inlinetranslatedtext_.html">&quot;src/components/<wbr>Inline<wbr>Translated<wbr>Text&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -196,6 +198,9 @@ useLocalePromptPlugin(data, options)
 						<a href="modules/_src_components_modalbuilder_.html">&quot;src/components/<wbr>Modal<wbr>Builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/_src_hooks_usei18n_.html">&quot;src/hooks/use<wbr>I18n&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/_src_hooks_uselocalepromptplugin_.html">&quot;src/hooks/use<wbr>Locale<wbr>Prompt<wbr>Plugin&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -205,10 +210,16 @@ useLocalePromptPlugin(data, options)
 						<a href="modules/_src_hooks_usetranslations_.html">&quot;src/hooks/use<wbr>Translations&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_src_localization_api_localizationapi_.html">&quot;src/localization-<wbr>api/<wbr>LocalizationAPI&quot;</a>
+						<a href="modules/_src_localizationapi_localizationapi_.html">&quot;src/localization<wbr>Api/<wbr>LocalizationAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_src_localizationapi_reactlocalizationapi_.html">&quot;src/localization<wbr>Api/<wbr>React<wbr>LocalizationAPI&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_src_plugins_prompt_plugin_.html">&quot;src/plugins/prompt-<wbr>plugin&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_src_setup_index_.html">&quot;src/setup/index&quot;</a>
 					</li>
 				</ul>
 			</nav>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;src/hooks/useTranslations&quot; | @tinalabs/react-tinacms-localization</title>
+	<title>&quot;src/components/I81nProvider&quot; | @tinalabs/react-tinacms-localization</title>
 	<meta name="description" content="Documentation for @tinalabs/react-tinacms-localization">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_src_hooks_usetranslations_.html">&quot;src/hooks/useTranslations&quot;</a>
+					<a href="_src_components_i81nprovider_.html">&quot;src/components/I81nProvider&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;src/hooks/useTranslations&quot;</h1>
+			<h1>Module &quot;src/components/I81nProvider&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -70,16 +70,10 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-not-exported">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter tsd-is-not-exported"><a href="../interfaces/_src_hooks_usetranslations_.docs.html" class="tsd-kind-icon">Docs</a></li>
-							</ul>
-						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_src_hooks_usetranslations_.html#usetranslations" class="tsd-kind-icon">use<wbr>Translations</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_src_components_i81nprovider_.html#i18nprovider" class="tsd-kind-icon">I18n<wbr>Provider</a></li>
 							</ul>
 						</section>
 					</div>
@@ -87,34 +81,34 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="usetranslations" class="tsd-anchor"></a>
-					<h3>use<wbr>Translations</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">use<wbr>Translations&lt;S&gt;<span class="tsd-signature-symbol">(</span>translations<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">, </span><a href="../classes/_src_localizationapi_localizationapi_.localizationapi.html" class="tsd-signature-type">LocalizationApi</a><span class="tsd-signature-symbol">]</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="i18nprovider" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> I18n<wbr>Provider</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">I18n<wbr>Provider<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactNode</span><span class="tsd-signature-symbol">; </span>i18n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_src_localizationapi_localizationapi_.localizationapi.html" class="tsd-signature-type">LocalizationApi</a><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Element</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tinalabs/react-tinacms-localization/blob/118c134/src/hooks/useTranslations.ts#L10">src/hooks/useTranslations.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/tinalabs/react-tinacms-localization/blob/118c134/src/components/I81nProvider.tsx#L6">src/components/I81nProvider.tsx:6</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>S<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>translations: <span class="tsd-signature-symbol">{}</span></h5>
+									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactNode</span><span class="tsd-signature-symbol">; </span>i18n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_src_localizationapi_localizationapi_.localizationapi.html" class="tsd-signature-type">LocalizationApi</a><span class="tsd-signature-symbol"> }</span></h5>
 									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ReactNode</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>i18n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_src_localizationapi_localizationapi_.localizationapi.html" class="tsd-signature-type">LocalizationApi</a></h5>
+										</li>
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">, </span><a href="../classes/_src_localizationapi_localizationapi_.localizationapi.html" class="tsd-signature-type">LocalizationApi</a><span class="tsd-signature-symbol">]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Element</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -126,7 +120,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="_src_components_i81nprovider_.html">&quot;src/components/<wbr>I81n<wbr>Provider&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -150,7 +144,7 @@
 					<li class=" tsd-kind-module">
 						<a href="_src_hooks_usetranslation_.html">&quot;src/hooks/use<wbr>Translation&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="_src_hooks_usetranslations_.html">&quot;src/hooks/use<wbr>Translations&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -169,11 +163,8 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter tsd-is-not-exported">
-						<a href="../interfaces/_src_hooks_usetranslations_.docs.html" class="tsd-kind-icon">Docs</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_src_hooks_usetranslations_.html#usetranslations" class="tsd-kind-icon">use<wbr>Translations</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_src_components_i81nprovider_.html#i18nprovider" class="tsd-kind-icon">I18n<wbr>Provider</a>
 					</li>
 				</ul>
 			</nav>

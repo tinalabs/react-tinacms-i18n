@@ -32,7 +32,7 @@ export default function Home() {
         Note: This guide assume you have a basic understanding of tina if you
         don't{' '}
         <a href="https://tinacms.org/docs">
-          head over to our website and check them out!
+          head over to our website check out our get started guide
         </a>
       </p>
 

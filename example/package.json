@@ -11,6 +11,7 @@
     "@tinalabs/react-tinacms-localization": "file:.yalc/@tinalabs/react-tinacms-localization",
     "bloomer": "^0.6.5",
     "bulma": "^0.8.0",
+    "craco": "^0.0.3",
     "dotenv": "^8.2.0",
     "leaflet": "^1.6.0",
     "moment": "^2.24.0",

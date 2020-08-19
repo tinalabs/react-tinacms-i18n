@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5efbd6b8087fe58eae041a3848a90557",
+    "revision": "83a33ecf0cd59a1f6131797c76b674bc",
     "url": "/react-tinacms-localization/example/index.html"
   },
   {
-    "revision": "cb7e5adf1f3750e53a5a",
+    "revision": "acba9dfc277c7c4d1144",
     "url": "/react-tinacms-localization/example/static/css/2.0698d7a5.chunk.css"
   },
   {
-    "revision": "3525ff7d53698ca93cb2",
+    "revision": "8cbade374fe0c9371d7d",
     "url": "/react-tinacms-localization/example/static/css/main.f907ef9e.chunk.css"
   },
   {
-    "revision": "cb7e5adf1f3750e53a5a",
-    "url": "/react-tinacms-localization/example/static/js/2.1a589de2.chunk.js"
+    "revision": "acba9dfc277c7c4d1144",
+    "url": "/react-tinacms-localization/example/static/js/2.7e6bdb3b.chunk.js"
   },
   {
     "revision": "75dc602eb7fa44348d2670a01d2e2d45",
-    "url": "/react-tinacms-localization/example/static/js/2.1a589de2.chunk.js.LICENSE.txt"
+    "url": "/react-tinacms-localization/example/static/js/2.7e6bdb3b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3525ff7d53698ca93cb2",
-    "url": "/react-tinacms-localization/example/static/js/main.48ac4bec.chunk.js"
+    "revision": "8cbade374fe0c9371d7d",
+    "url": "/react-tinacms-localization/example/static/js/main.ca1fd985.chunk.js"
   },
   {
     "revision": "1ff1478be2ea063d8511",

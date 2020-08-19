@@ -4,13 +4,13 @@ import { ChevronDownIcon } from '@tinacms/icons';
 import { Dismissible } from 'react-dismissible';
 import styled, { css } from 'styled-components';
 import { LoadingDots } from '@tinacms/react-forms';
-import { LocalizationApi, Locale } from '../localization-api/';
+import { Locale, LocalizationApi } from '../localizationApi';
 import { LeftArrowIcon } from '@tinacms/icons';
+// import { useI18n } from '../hooks/useI18n';
 
 export const LocaleSwitcher = () => {
   const cms = useCMS();
   const locale: LocalizationApi = cms.api.localization;
-
   const [open, setOpen] = useState(false);
   const [filterValue, setFilterValue] = React.useState('');
   const selectListRef = useRef<HTMLElement>();
@@ -408,6 +408,17 @@ export const LocalePickerToolbarPlugin = {
   name: 'locale-branch-switcher',
   weight: 1,
   component: LocaleSwitcher,
+};
+export const getLocalePickerToolbarPlugin = (i18n: LocalizationApi) => {
+  return {
+    __type: 'toolbar:widget',
+    name: 'locale-branch-switcher',
+    weight: 1,
+    component: LocaleSwitcher,
+    props: {
+      i18n,
+    },
+  };
 };
 
 export const PanelHeader = styled.div`

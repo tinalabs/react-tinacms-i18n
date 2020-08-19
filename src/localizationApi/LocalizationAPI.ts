@@ -1,3 +1,5 @@
+// import { useState } from 'react';
+
 const defaultList: Locale[] = [
   { language: 'en' },
   { language: 'fr' },
@@ -19,7 +21,10 @@ export interface Locale {
   encoding?: string;
   modifiers?: string[];
 }
-
+export interface LocalizationApiOptions {
+  localeList?: Locale[];
+  imgMap?: Record<string, any>;
+}
 export class LocalizationApi {
   /**
    * TODO: determine wether or not this should go into the API
@@ -29,13 +34,14 @@ export class LocalizationApi {
   public onSwitch() {
     return;
   }
+  // private setTest: any;
   public default: Locale = {
     language: 'en',
     // region: "CA",
     // encoding: "utf-8",
     // modifiers: ["example"],
   };
-  private locale: Locale;
+  public locale: Locale;
   /**
    * Locale list of localization api
    * @type Locale[]
@@ -51,7 +57,12 @@ export class LocalizationApi {
     localeList = defaultList,
     public imgMap: Record<string, any> = {}
   ) {
+    // const [test, setTest] = useState(
+    //   this.getCachedData(LOCALE_CACHE_KEY) || this.default
+    // );
+    // this.locale = test;
     this.locale = this.getCachedData(LOCALE_CACHE_KEY) || this.default;
+    // this.setTest = setTest;
     this.localeList = localeList;
   }
 
@@ -66,6 +77,7 @@ export class LocalizationApi {
    * Sets locale and stores it in locale storage
    */
   setLocale(locale: Locale): void {
+    // this.setTest(locale);
     this.locale = locale;
     this.setCachedData(LOCALE_CACHE_KEY, locale);
   }

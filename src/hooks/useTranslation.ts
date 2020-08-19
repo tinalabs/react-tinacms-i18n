@@ -1,4 +1,4 @@
-import { LocalizationApi } from '../../src/localization-api';
+import { LocalizationApi } from '../localizationApi';
 import { useCMS } from 'tinacms';
 import get from 'lodash.get';
 export type RealDoc<T = Record<string, any>> = T;

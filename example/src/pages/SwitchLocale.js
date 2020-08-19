@@ -119,13 +119,6 @@ export default function SwitchLocale() {
       <h1 className="title is-3">{t('header')}</h1>
       <p>{t('text')}</p>
       <p>{t('paragraph')}</p>
-
-      <Code
-        readMoreLink="https://tinacms.org/docs/forms"
-        readMoreText="Read the docs"
-      >
-        {code}
-      </Code>
     </>
   );
 }

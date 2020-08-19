@@ -1,6 +1,5 @@
 import React from 'react';
 import Code from '../components/Code.js';
-// import { useSetupI18 } from '@tinalabs/react-tinacms-localization';
 
 export default function AddingTina() {
   let code = `
@@ -36,7 +35,7 @@ export default function AddingTina() {
     <>
       <p>First we need to set up the plugin</p>
       <p>
-        We could put all the bits and pieces together ourself or we can use a
+        You could put all the bits and pieces together ourself or we can use a
         helper function
       </p>
       <p>This helper function</p>
@@ -57,6 +56,7 @@ export default function AddingTina() {
       >
         {code}
       </Code>
+      <p>Note that that all of of our pages are inside of the App component</p>
     </>
   );
 }

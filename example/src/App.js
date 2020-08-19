@@ -17,6 +17,7 @@ import NavItem from './components/Nav.js';
 import { Container, Columns, Column } from 'bloomer';
 import { PromptProvider, withI18n } from '@tinalabs/react-tinacms-localization';
 import { Button } from 'bloomer/lib/elements/Button';
+import WhatsNext from './pages/WhatNext';
 
 const App = () => {
   const cms = useCMS();
@@ -68,6 +69,10 @@ const App = () => {
                 path="/using-prompts"
                 component={withI18n(UsingPrompts, { ApiOptions })}
               />
+              <Route
+                path="/whats-next"
+                component={withI18n(WhatsNext, { ApiOptions })}
+              />
             </Switch>
           </Column>
 
@@ -87,6 +92,9 @@ const App = () => {
               </NavItem>
               <NavItem to="/using-prompts">
                 <li>Using Prompts</li>
+              </NavItem>
+              <NavItem to="/whats-next">
+                <li>Whats Next?</li>
               </NavItem>
             </ol>
           </Column>

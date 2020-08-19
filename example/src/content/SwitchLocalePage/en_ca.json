@@ -1,5 +1,5 @@
 {
   "header": "Switch the current locale",
-  "text": "Now we are going to switch the current locale. In our i18n object the current locale is stored at react state. This means when it updates out app will re-render",
+  "text": "Now we are going to switch the current locale. In our i18n object the current locale is stored at react state. This means when it updates out app will re-render. If you open the toolbar you will see that the form has also been changed.",
   "paragraph": "The locale picker in the toolbar will switch the current locale for us so all we have to do it grab the content based on the current locale and use that in out app. Try it out! in the toolbar plugin try clicking \"ca\" and then selection fr_ca"
 }

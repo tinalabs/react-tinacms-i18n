@@ -21,10 +21,10 @@ export type Translate = (translationKey: string) => string | undefined;
 export function useTranslation(
   currentDoc: RealDoc,
   defaultDoc: RealDoc
-): [Translate, LocalizationApi] {
+): Translate {
   const cms = useCMS();
   const translate = (translationsKey: string) => {
     return get(currentDoc, translationsKey) || get(defaultDoc, translationsKey);
   };
-  return [translate, cms.api.localization];
+  return translate;
 }

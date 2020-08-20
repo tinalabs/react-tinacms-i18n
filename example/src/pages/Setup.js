@@ -3,7 +3,7 @@ import Code from '../components/Code.js';
 
 export default function AddingTina() {
   let code = `
-  import { withI18n } from '@tinalabs/react-tinacms-localization';
+  import { withI18n } from '@tinalabs/react-tinacms-i18n';
 
   const AppWrapper = withI18n(App, {
     ApiOptions: {

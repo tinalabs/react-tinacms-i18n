@@ -2,7 +2,7 @@ import {
   useI18n,
   useLocalePromptPlugin,
   useTranslation,
-} from '@tinalabs/react-tinacms-localization';
+} from '@tinalabs/react-tinacms-i18n';
 import React from 'react';
 import { useForm, usePlugin } from 'tinacms';
 
@@ -77,7 +77,7 @@ export default function Forms() {
     useI18n,
 +   useLocalePromptPlugin,
     useTranslation,
-  } from '@tinalabs/react-tinacms-localization';
+  } from '@tinalabs/react-tinacms-i18n';
   import React from 'react';
   import { useForm, usePlugin } from 'tinacms';
   

@@ -15,7 +15,8 @@ import UsingPrompts from './pages/UsingPrompts';
 
 import NavItem from './components/Nav.js';
 import { Container, Columns, Column } from 'bloomer';
-import { PromptProvider, withI18n } from '@tinalabs/react-tinacms-localization';
+import { withI18n } from '@tinalabs/react-tinacms-i18n';
+import { PromptProvider } from '@tinalabs/react-tinacms-prompts';
 import { Button } from 'bloomer/lib/elements/Button';
 import WhatsNext from './pages/WhatNext';
 

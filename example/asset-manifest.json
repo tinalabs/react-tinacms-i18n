@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/react-tinacms-localization/example/static/css/main.f907ef9e.chunk.css",
-    "main.js": "/react-tinacms-localization/example/static/js/main.ca1fd985.chunk.js",
-    "main.js.map": "/react-tinacms-localization/example/static/js/main.ca1fd985.chunk.js.map",
-    "runtime-main.js": "/react-tinacms-localization/example/static/js/runtime-main.cf75141a.js",
-    "runtime-main.js.map": "/react-tinacms-localization/example/static/js/runtime-main.cf75141a.js.map",
-    "static/css/2.0698d7a5.chunk.css": "/react-tinacms-localization/example/static/css/2.0698d7a5.chunk.css",
-    "static/js/2.7e6bdb3b.chunk.js": "/react-tinacms-localization/example/static/js/2.7e6bdb3b.chunk.js",
-    "static/js/2.7e6bdb3b.chunk.js.map": "/react-tinacms-localization/example/static/js/2.7e6bdb3b.chunk.js.map",
-    "index.html": "/react-tinacms-localization/example/index.html",
-    "precache-manifest.20001de38c8105dd46fc0e19b51e6121.js": "/react-tinacms-localization/example/precache-manifest.20001de38c8105dd46fc0e19b51e6121.js",
-    "service-worker.js": "/react-tinacms-localization/example/service-worker.js",
-    "static/css/2.0698d7a5.chunk.css.map": "/react-tinacms-localization/example/static/css/2.0698d7a5.chunk.css.map",
-    "static/css/main.f907ef9e.chunk.css.map": "/react-tinacms-localization/example/static/css/main.f907ef9e.chunk.css.map",
-    "static/js/2.7e6bdb3b.chunk.js.LICENSE.txt": "/react-tinacms-localization/example/static/js/2.7e6bdb3b.chunk.js.LICENSE.txt"
+    "main.css": "/react-tinacms-i18n/example/static/css/main.f907ef9e.chunk.css",
+    "main.js": "/react-tinacms-i18n/example/static/js/main.4348b067.chunk.js",
+    "main.js.map": "/react-tinacms-i18n/example/static/js/main.4348b067.chunk.js.map",
+    "runtime-main.js": "/react-tinacms-i18n/example/static/js/runtime-main.9ac9b2a2.js",
+    "runtime-main.js.map": "/react-tinacms-i18n/example/static/js/runtime-main.9ac9b2a2.js.map",
+    "static/css/2.0698d7a5.chunk.css": "/react-tinacms-i18n/example/static/css/2.0698d7a5.chunk.css",
+    "static/js/2.71e65c9a.chunk.js": "/react-tinacms-i18n/example/static/js/2.71e65c9a.chunk.js",
+    "static/js/2.71e65c9a.chunk.js.map": "/react-tinacms-i18n/example/static/js/2.71e65c9a.chunk.js.map",
+    "index.html": "/react-tinacms-i18n/example/index.html",
+    "precache-manifest.9bca5c0b63fdd709ba9ba0267cc61245.js": "/react-tinacms-i18n/example/precache-manifest.9bca5c0b63fdd709ba9ba0267cc61245.js",
+    "service-worker.js": "/react-tinacms-i18n/example/service-worker.js",
+    "static/css/2.0698d7a5.chunk.css.map": "/react-tinacms-i18n/example/static/css/2.0698d7a5.chunk.css.map",
+    "static/css/main.f907ef9e.chunk.css.map": "/react-tinacms-i18n/example/static/css/main.f907ef9e.chunk.css.map",
+    "static/js/2.71e65c9a.chunk.js.LICENSE.txt": "/react-tinacms-i18n/example/static/js/2.71e65c9a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.cf75141a.js",
+    "static/js/runtime-main.9ac9b2a2.js",
     "static/css/2.0698d7a5.chunk.css",
-    "static/js/2.7e6bdb3b.chunk.js",
+    "static/js/2.71e65c9a.chunk.js",
     "static/css/main.f907ef9e.chunk.css",
-    "static/js/main.ca1fd985.chunk.js"
+    "static/js/main.4348b067.chunk.js"
   ]
 }

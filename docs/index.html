@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@tinalabs/react-tinacms-localization</title>
-	<meta name="description" content="Documentation for @tinalabs/react-tinacms-localization">
+	<title>@tinalabs/react-tinacms-i18n</title>
+	<meta name="description" content="Documentation for @tinalabs/react-tinacms-i18n">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@tinalabs/react-tinacms-localization</a>
+					<a href="index.html" class="title">@tinalabs/react-tinacms-i18n</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>@tinalabs/react-tinacms-localization</h1>
+			<h1>@tinalabs/react-tinacms-i18n</h1>
 		</div>
 	</div>
 </header>
@@ -64,46 +64,53 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#react-tinacms-localization" id="react-tinacms-localization" style="color: inherit; text-decoration: none;">
-					<h1>react-tinacms-localization</h1>
+				<a href="#react-tinacms-i18n" id="react-tinacms-i18n" style="color: inherit; text-decoration: none;">
+					<h1>react-tinacms-i18n</h1>
 				</a>
 				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
 					<h2>Getting started</h2>
 				</a>
-				<pre><code class="language-bash">yarn add @tinacms/react-tinacms-localization</code></pre>
-				<a href="#create-a-new-instance-of-the-localization-api" id="create-a-new-instance-of-the-localization-api" style="color: inherit; text-decoration: none;">
-					<h3>Create a new instance of the localization api</h3>
+				<pre><code class="language-bash">yarn add @tinalabs/react-tinacms-i18n</code></pre>
+				<a href="#first-wrap-you-app-in-the-with-the-i18n-function" id="first-wrap-you-app-in-the-with-the-i18n-function" style="color: inherit; text-decoration: none;">
+					<h2>First wrap you app in the with the i18n function</h2>
 				</a>
-				<p>You can pass the list of languages and the icons but these are optiona</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { LocalizationApi } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tinacms/react-tinacms-localization&#x27;</span>;
-<span class="hljs-keyword">const</span> localization = <span class="hljs-keyword">new</span> LocalizationApi();</code></pre>
-				<a href="#add-the-localization-api-to-the-cms" id="add-the-localization-api-to-the-cms" style="color: inherit; text-decoration: none;">
-					<h3>Add the localization api to the cms</h3>
-				</a>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> cms = (cms = <span class="hljs-keyword">new</span> TinaCMS({
-  enabled: props.pageProps.preview,
-  <span class="hljs-comment">//...</span>
-  apis: {
-    <span class="hljs-comment">//...</span>
-    localization: localization,
+				<p>We pass out app component along with the configuration for the plugin to the with tina plugin. If you dont want to use this helper function and want to setup stuff mananualy <a href="#withi18n-alternative">read here</a></p>
+				<pre><code class="language-tsx">import { withI18n } from &#39;@tinalabs/react-tinacms-i18n&#39;;
+
+const AppWrapper = withI18n(App, {
+  ApiOptions: {
+    localeList: [
+      { language: &#39;en&#39;, region: &#39;ca&#39; },
+      { language: &#39;fr&#39;, region: &#39;ca&#39; },
+      { language: &#39;en&#39;, region: &#39;us&#39; },
+      { language: &#39;sp&#39;, region: &#39;us&#39; },
+    ],
   },
-}));</code></pre>
-				<p>or</p>
-				<pre><code class="language-ts">cms.api.registerApi(<span class="hljs-string">&#x27;localization&#x27;</span>, localization);</code></pre>
-				<blockquote>
-					<p>Note: Unlike Plugins, APIs should be registered when the CMS is instantiated, and never removed.</p>
-				</blockquote>
-				<p>Where you that cms object must be passed to the tina provider</p>
-				<pre><code class="language-tsx">&lt;TinaProvider cms={this.cms}&gt;//...&lt;/TinaProvider&gt;</code></pre>
+});</code></pre>
+				<p>Note: this most also be inside the tina provider to your app return statement may look something like this</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> () =&gt; {
+  <span class="hljs-keyword">const</span> cms = <span class="hljs-keyword">new</span> TinaCMS({
+    sidebar: {
+      position: <span class="hljs-string">&#x27;displace&#x27;</span>,
+    },
+    enabled: <span class="hljs-literal">true</span>,
+    toolbar: <span class="hljs-literal">true</span>,
+  });
+  <span class="hljs-keyword">return</span> (
+    &lt;TinaProvider cms={cms}&gt;
+      &lt;AppWrapper /&gt;
+    &lt;/TinaProvider&gt;
+  );
+};</code></pre>
 				<a href="#making-a-translation" id="making-a-translation" style="color: inherit; text-decoration: none;">
 					<h3>Making a translation</h3>
 				</a>
 				<p>When we want to make a translation we can use the <code>useTranslation</code> hooks to localize our app. <code>useTranslation</code> returns a <code>t</code> function that is used for translating text and an instance of the localization plugin (called i18n)</p>
-				<pre><code class="language-tsx">import { useTranslation } from &#39;@tinacms/react-tinacms-localization&#39;;
+				<pre><code class="language-tsx">import { useTranslation } from &#39;@tinalabs/react-tinacms-i18n&#39;;
 //..
 const data = {heading: &#39;this is a heading&#39;}
 const defaultData = {heading: &#39;heading&#39;, body: &#39;this is the body text&#39;}
-const [t, i18n ] = useTranslation(data, defaultData)
+const t = useTranslation(data, defaultData)
 //..
 // this displays &#39;this is a heading&#39;
 &lt;h1&gt;
@@ -116,10 +123,10 @@ const [t, i18n ] = useTranslation(data, defaultData)
 {t(&#39;body&#39;)}
 &lt;/p&gt;</code></pre>
 				<p>It also works with nested data</p>
-				<pre><code class="language-tsx">import { useTranslation } from &#39;@tinacms/react-tinacms-localization&#39;;
+				<pre><code class="language-tsx">import { useTranslation } from &#39;@tinalabs/react-tinacms-i18n&#39;;
 //..
 const data = {some: {nested: {data: &#39;hello world&#39;}}}
-const [t, i18n ] = useTranslation(data, defaultData)
+const t = useTranslation(data, defaultData)
 
 //..
 &lt;h1&gt;
@@ -128,42 +135,66 @@ const [t, i18n ] = useTranslation(data, defaultData)
 				<a href="#switching-the-locale" id="switching-the-locale" style="color: inherit; text-decoration: none;">
 					<h3>Switching the locale</h3>
 				</a>
-				<pre><code class="language-ts">i18n.locale = { region: <span class="hljs-string">&#x27;ca&#x27;</span>, language: <span class="hljs-string">&#x27;en&#x27;</span> };</code></pre>
-				<p>Or if your not using the <code>useTranslation</code> hook</p>
-				<pre><code class="language-ts">cms.api.localization.locale = { region: <span class="hljs-string">&#x27;ca&#x27;</span>, language: <span class="hljs-string">&#x27;en&#x27;</span> };</code></pre>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { useI18n } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tinalabs/react-tinacms-i18n&#x27;</span>;
+
+i18n.setLocale({ region: <span class="hljs-string">&#x27;ca&#x27;</span>, language: <span class="hljs-string">&#x27;en&#x27;</span> });</code></pre>
 				<a href="#fetching-data-based-on-the-locale" id="fetching-data-based-on-the-locale" style="color: inherit; text-decoration: none;">
 					<h3>Fetching data based on the locale</h3>
 				</a>
 				<p>Get the formatted current locale</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> currentLocale  = i18n.getFormateLocale()</code></pre>
-				<p>or</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> currentLocale = cms.api.localization.getFormateLocale();</code></pre>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> currentLocale = i18n.getFormateLocale();</code></pre>
 				<p>Now one can use the currentLocal when fetching data</p>
 				<pre><code class="language-ts"><span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">`www.example.com/api/some/path/<span class="hljs-subst">${currentLocale}</span>`</span>);</code></pre>
-				<a href="#adding-the-the-toolbar-plugin" id="adding-the-the-toolbar-plugin" style="color: inherit; text-decoration: none;">
-					<h3>Adding the the toolbar plugin</h3>
-				</a>
-				<p>In a global scope or on the page you wish to add this plugin you can use the</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { useCMS } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;tinacms&#x27;</span>;
-<span class="hljs-keyword">import</span> { LocalePickerToolbarPlugin } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tinacms/react-tinacms-localization&#x27;</span>;
-
-<span class="hljs-comment">//...</span>
-
-<span class="hljs-keyword">const</span> cms = useCMS();
-React.useEffect(<span class="hljs-function">() =&gt;</span> {
-  cms.plugins.add(LocalePickerToolbarPlugin);
-}, []);</code></pre>
 				<a href="#using-the-locale-prompt" id="using-the-locale-prompt" style="color: inherit; text-decoration: none;">
 					<h3>Using the locale prompt</h3>
 				</a>
-				<p>Register the plugin</p>
-				<pre><code class="language-tsx">import { useLocalePromptPlugin, PromptRenderer } from &quot;react-tinacms-localization&quot;
-//...
-useLocalePromptPlugin(data, options)
-//...
-//... somewhere in the component tree render
-&lt;PromptRenderer /&gt;</code></pre>
-				<p>This registers a <code>prompts plugin</code> that will render a prompt in edit mode letting the user know that no localization for this page exists</p>
+				<p>Register the plugin
+				Note: this requires a peer dependency @tinalabs/react-tinacms-prompts</p>
+				<p>so first first</p>
+				<pre><code class="language-bash">npm i @tinalabs/react-tinacms-prompts --save</code></pre>
+				<p>First wrap your app or a component with the prompt provider. The only stipulation is that it must be a child of the tina provider</p>
+				<pre><code class="language-tsx">import { PromptProvider } from &#39;@tinalabs/react-tinacms-prompts&#39;;
+&lt;PromptProvider&gt;
+  &lt;App /&gt;
+&lt;/PromptProvider&gt;;</code></pre>
+				<p>Next we registers a <code>prompts plugin</code> that will render a prompt in edit mode letting the user know that no localization for this page exists. This will render when the given condition is true.</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { useLocalePromptPlugin } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tinalabs/react-tinacms-i18n&#x27;</span>;
+
+useLocalePromptPlugin(condition, options);</code></pre>
+				<a href="#withi18n-alternative" id="withi18n-alternative" style="color: inherit; text-decoration: none;">
+					<h2>WithI18n alternative</h2>
+				</a>
+				<p>This can be a bit confusing to do but may be necessary in some use cases.</p>
+				<p>The General idea is this</p>
+				<pre><code class="language-tsx">&lt;TinaProvider cms={cms}&gt;
+  // register the localization plugin in here
+  &lt;I18nProvider&gt;
+    // register the toolbar plugin in here
+    &lt;App /&gt;
+  &lt;/I18nProvider&gt;
+&lt;/TinaProvider&gt;</code></pre>
+				<p>you can see how the <code>withTina</code> function does this</p>
+				<pre><code class="language-tsx">export const withI18n = (Component: any, options: SetupProps) =&gt; {
+  return (props: any) =&gt; {
+    const cms = useCMS();
+    const i18n = new ReactLocalizationAPI(
+      options.ApiOptions.localeList,
+      options.ApiOptions.imgMap
+    );
+    cms.registerApi(&#39;localization&#39;, i18n);
+    const Wrapper = () =&gt; {
+      useEffect(() =&gt; {
+        cms.plugins.add(LocalePickerToolbarPlugin);
+      }, []);
+      return &lt;Component {...props} /&gt;;
+    };
+    return (
+      &lt;I18nProvider i18n={i18n}&gt;
+        &lt;Wrapper /&gt;
+      &lt;/I18nProvider&gt;
+    );
+  };
+};</code></pre>
 				<a href="#generate-docs" id="generate-docs" style="color: inherit; text-decoration: none;">
 					<h2>Generate Docs</h2>
 				</a>
@@ -172,7 +203,7 @@ useLocalePromptPlugin(data, options)
 				<pre><code class="language-bash">npm run docs</code></pre>
 				<p>This well generate the docs and you can open <code>docs/docs/index.html</code> in your browser to view</p>
 				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
-					<h1><a href="https://tinacms.github.io/react-tinacms-localization/docs/">API DOCS</a></h1>
+					<h1><a href="https://tinacms.github.io/react-tinacms-i18n/docs/">API DOCS</a></h1>
 				</a>
 			</div>
 		</div>

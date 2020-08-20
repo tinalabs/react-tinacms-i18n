@@ -52,8 +52,8 @@ When we want to make a translation we can use the `useTranslation` hooks to loca
 import { useTranslation } from '@tinalabs/react-tinacms-i18n';
 //..
 const data = {heading: 'this is a heading'}
-const defaultData = {heading: 'heading', body: 'this is the body text'}
-const t = useTranslation(data, defaultData)
+const fallbackData = {heading: 'heading', body: 'this is the body text'}
+const t = useTranslation(data, fallbackData)
 //..
 // this displays 'this is a heading'
 <h1>
@@ -73,7 +73,7 @@ It also works with nested data
 import { useTranslation } from '@tinalabs/react-tinacms-i18n';
 //..
 const data = {some: {nested: {data: 'hello world'}}}
-const t = useTranslation(data, defaultData)
+const t = useTranslation(data, fallbackData)
 
 //..
 <h1>
@@ -86,6 +86,7 @@ const t = useTranslation(data, defaultData)
 ```ts
 import { useI18n } from '@tinalabs/react-tinacms-i18n';
 
+const i18n = useI18n()
 i18n.setLocale({ region: 'ca', language: 'en' });
 ```
 
@@ -147,7 +148,7 @@ The General idea is this
 </TinaProvider>
 ```
 
-you can see how the `withTina` function does this
+you can see how the `withI18n` function does this
 
 ```tsx
 export const withI18n = (Component: any, options: SetupProps) => {

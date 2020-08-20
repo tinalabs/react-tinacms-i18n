@@ -62,7 +62,7 @@ export default function Forms() {
   });
   // register the form
   usePlugin(form);
-  const [t] = useTranslation(formData, fallbackData);
+  const t = useTranslation(formData, fallbackData);
 
   useLocalePromptPlugin(!hasContent, {
     onNo: () => {
@@ -136,7 +136,7 @@ export default function Forms() {
     });
     // register the form
     usePlugin(form);
-    const [t] = useTranslation(formData, fallbackData);
+    const t = useTranslation(formData, fallbackData);
   
 +   useLocalePromptPlugin(!hasContent, {
 +     onNo: () => {

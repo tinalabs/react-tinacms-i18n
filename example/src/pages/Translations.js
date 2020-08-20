@@ -50,7 +50,7 @@ export default function Translations() {
   });
 
   usePlugin(form);
-  const [t] = useTranslation(formData, fallbackData);
+  const t = useTranslation(formData, fallbackData);
 
   let code = `export default function Translations() {
     const fallbackData = {
@@ -98,7 +98,7 @@ export default function Translations() {
     });
   
     usePlugin(form);
-    const [t] = useTranslation(formData, fallbackData);
+    const t = useTranslation(formData, fallbackData);
   
   
     return (

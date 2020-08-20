@@ -10,7 +10,7 @@ export type TranslateFunction = (translationKey: string) => string | undefined;
  *
  * Example:
  * ```ts
- * const [t, i18n] = useTranslation({heading: "this is a title"}, {heading: "fallback", "body": "this is a body"})
+ * const t = useTranslation({heading: "this is a title"}, {heading: "fallback", "body": "this is a body"})
  *
  * t("heading") // returns "this is a title"
  * t("body") // returns  "this is a body"

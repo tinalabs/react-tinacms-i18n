@@ -174,7 +174,7 @@
 							<h4 class="tsd-returns-title">Returns <a href="_src_hooks_usetranslation_.html#translatefunction" class="tsd-signature-type">TranslateFunction</a></h4>
 							<p>A function that is used for transitioning values and an instance of the registered localization plugin</p>
 							<p>Example:</p>
-							<pre><code class="language-ts"><span class="hljs-keyword">const</span> [t, i18n] = useTranslation({heading: <span class="hljs-string">&quot;this is a title&quot;</span>}, {heading: <span class="hljs-string">&quot;fallback&quot;</span>, <span class="hljs-string">&quot;body&quot;</span>: <span class="hljs-string">&quot;this is a body&quot;</span>})
+							<pre><code class="language-ts"><span class="hljs-keyword">const</span> t = useTranslation({heading: <span class="hljs-string">&quot;this is a title&quot;</span>}, {heading: <span class="hljs-string">&quot;fallback&quot;</span>, <span class="hljs-string">&quot;body&quot;</span>: <span class="hljs-string">&quot;this is a body&quot;</span>})
 
 t(<span class="hljs-string">&quot;heading&quot;</span>) <span class="hljs-comment">// returns &quot;this is a title&quot;</span>
 t(<span class="hljs-string">&quot;body&quot;</span>) <span class="hljs-comment">// returns  &quot;this is a body&quot;</span></code></pre>

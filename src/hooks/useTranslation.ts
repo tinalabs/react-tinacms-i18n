@@ -1,5 +1,3 @@
-import { LocalizationApi } from '../localizationApi';
-import { useCMS } from 'tinacms';
 import get from 'lodash.get';
 export type RealDoc<T = Record<string, any>> = T;
 export type Translate = (translationKey: string) => string | undefined;
@@ -22,7 +20,6 @@ export function useTranslation(
   currentDoc: RealDoc,
   defaultDoc: RealDoc
 ): Translate {
-  const cms = useCMS();
   const translate = (translationsKey: string) => {
     return get(currentDoc, translationsKey) || get(defaultDoc, translationsKey);
   };

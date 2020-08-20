@@ -1,5 +1,6 @@
 import get from 'lodash.get';
 export type RealDoc<T = Record<string, any>> = T;
+export type TranslateFunction = (translationKey: string) => string | undefined;
 
 /**
  * Use translation hook provides an easy way to access localized data and provided fallback data
@@ -18,7 +19,7 @@ export type RealDoc<T = Record<string, any>> = T;
 export function useTranslation(
   currentDoc: RealDoc,
   defaultDoc: RealDoc
-): (translationKey: string) => string | undefined {
+): TranslateFunction {
   const translate = (translationsKey: string) => {
     return get(currentDoc, translationsKey) || get(defaultDoc, translationsKey);
   };

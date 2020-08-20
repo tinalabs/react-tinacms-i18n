@@ -1,4 +1,4 @@
-import { useTranslation } from '@tinalabs/react-tinacms-localization';
+import { useTranslation } from '@tinalabs/react-tinacms-i18n';
 import React from 'react';
 import { useForm, usePlugin } from 'tinacms';
 

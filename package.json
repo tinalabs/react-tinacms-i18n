@@ -48,9 +48,9 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@tinalabs/react-tinacms-localization",
+  "name": "@tinalabs/react-tinacms-i18n",
   "author": "logan-anderson",
-  "module": "dist/react-tinacms-localization.esm.js",
+  "module": "dist/react-tinacms-i18n.esm.js",
   "devDependencies": {
     "@types/lodash.get": "^4.4.6",
     "@types/react": "^16.9.44",

@@ -1,8 +1,6 @@
-import { LocalizationApi } from '../localizationApi';
-import { useCMS } from 'tinacms';
 import get from 'lodash.get';
 export type RealDoc<T = Record<string, any>> = T;
-export type Translate = (translationKey: string) => string | undefined;
+export type TranslateFunction = (translationKey: string) => string | undefined;
 
 /**
  * Use translation hook provides an easy way to access localized data and provided fallback data
@@ -21,10 +19,9 @@ export type Translate = (translationKey: string) => string | undefined;
 export function useTranslation(
   currentDoc: RealDoc,
   defaultDoc: RealDoc
-): [Translate, LocalizationApi] {
-  const cms = useCMS();
+): TranslateFunction {
   const translate = (translationsKey: string) => {
     return get(currentDoc, translationsKey) || get(defaultDoc, translationsKey);
   };
-  return [translate, cms.api.localization];
+  return translate;
 }

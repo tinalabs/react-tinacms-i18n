@@ -1,6 +1,6 @@
 import { useCMS } from 'tinacms';
 import { LocalizationApi } from '../localizationApi';
-import { RealDoc, Translate, useTranslation } from './useTranslation';
+import { RealDoc, TranslateFunction, useTranslation } from './useTranslation';
 
 interface Docs<T> {
   currentDoc: RealDoc<T>;
@@ -11,15 +11,15 @@ export function useTranslations<
   S extends Record<string, any> = Record<string, any>
 >(
   translations: { [key in keyof S]: Docs<any> }
-): [{ [key in keyof S]: Translate }, LocalizationApi] {
+): [{ [key in keyof S]: TranslateFunction }, LocalizationApi] {
   type Translations = {
-    [key in keyof S]: Translate;
+    [key in keyof S]: TranslateFunction;
   };
   const cms = useCMS();
   const returnValue: Translations = {} as Translations;
 
   Object.keys(translations).forEach((key) => {
-    const [t] = useTranslation(
+    const t = useTranslation(
       translations[key].currentDoc,
       translations[key].defaultDoc
     );

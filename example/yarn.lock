@@ -1688,12 +1688,17 @@
   dependencies:
     webfontloader "^1.6.28"
 
-"@tinalabs/react-tinacms-localization@^0.1.4":
+"@tinalabs/react-tinacms-i18n@^0.1.4":
   version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@tinalabs/react-tinacms-localization/-/react-tinacms-localization-0.1.4.tgz#beb7374a253b7a081c8fd73d0b1532569cfc1b6d"
-  integrity sha512-fUrsQTsySUAhAFuz8Sy9clm36/QSJ3iKhSMiITNEBma77itH4FnZzej2I1sMXUzKvM8aEo04r7/ujhez1ZwucQ==
+  resolved "https://registry.yarnpkg.com/@tinalabs/react-tinacms-i18n/-/react-tinacms-i18n-0.1.4.tgz#a4995354d697161d9f220e1f76c9db4c5266251e"
+  integrity sha512-/HuqOP2rTO4nliypbfAx/nERJxxGt2zv5uLax1xZVtlrTZ68E1m2eUHWaSltKbWYIEgH8FSYhy5vsfX8F5OA+A==
   dependencies:
     lodash.get "^4.4.2"
+
+"@tinalabs/react-tinacms-prompts@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@tinalabs/react-tinacms-prompts/-/react-tinacms-prompts-0.1.0.tgz#283eb64d5a223c7c660849a46cfcce528c2a5a69"
+  integrity sha512-89DsIuRicxbAAbTiGcmZFwcjwoCmmVmlE2WuAZUeacAOEbZTHd7W53UBGNaikUMuybs3sU3zFmbQt1FuZ5ruAg==
 
 "@types/anymatch@*":
   version "1.3.1"

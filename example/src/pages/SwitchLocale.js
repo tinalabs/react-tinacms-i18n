@@ -55,7 +55,7 @@ export default function SwitchLocale() {
   });
   // register the form
   usePlugin(form);
-  const [t] = useTranslation(formData, fallbackData);
+  const t = useTranslation(formData, fallbackData);
 
   let code = `
 import { useI18n, useTranslation } from '@tinalabs/react-tinacms-i18n';
@@ -112,7 +112,7 @@ export default function SwitchLocale() {
   });
   // register the form
   usePlugin(form);
-  const [t] = useTranslation(formData, fallbackData);
+  const t = useTranslation(formData, fallbackData);
 
   return (
     <>

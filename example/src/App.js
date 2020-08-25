@@ -3,9 +3,14 @@ import React from 'react';
 import 'bulma/css/bulma.min.css';
 import './App.css';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 
-import { TinaCMS, TinaProvider, useCMS } from 'tinacms';
+import { TinaCMS, TinaProvider } from 'tinacms';
 
 import Home from './pages/Home.js';
 import Setup from './pages/Setup.js';
@@ -13,17 +18,11 @@ import Translations from './pages/Translations.js';
 import SwitchLocale from './pages/SwitchLocale';
 import UsingPrompts from './pages/UsingPrompts';
 
-import NavItem from './components/Nav.js';
-import { Container, Columns, Column } from 'bloomer';
 import { withI18n } from '@tinalabs/react-tinacms-i18n';
 import { PromptProvider } from '@tinalabs/react-tinacms-prompts';
-import { Button } from 'bloomer/lib/elements/Button';
 import WhatsNext from './pages/WhatNext';
 
 const App = () => {
-  const cms = useCMS();
-  console.log(process.env.REACT_APP_BASE_PATH);
-
   const ApiOptions = {
     localeList: [
       { language: 'en', region: 'ca' },
@@ -35,72 +34,27 @@ const App = () => {
 
   return (
     <Router basename={process.env.REACT_APP_BASE_PATH || ''}>
-      <Container
-        style={{
-          marginTop: 40,
-          marginBottom: 40,
-          paddingLeft: 40,
-          paddingRight: 40,
-          maxWidth: 1000,
-        }}
-      >
-        <Columns>
-          <Column isSize="3/4">
-            <h1 className="title is-1">
-              <Link to="/" className="has-text-black">
-                TinaCMS i18n Example
-              </Link>
-            </h1>
-            <Button onClick={cms.toggle}>Toggle edit mode</Button>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route
-                path="/setup"
-                component={withI18n(Setup, { ApiOptions })}
-              />
-              <Route
-                path="/translations"
-                component={withI18n(Translations, { ApiOptions })}
-              />
-              <Route
-                path="/switch-locale"
-                component={withI18n(SwitchLocale, { ApiOptions })}
-              />
-              <Route
-                path="/using-prompts"
-                component={withI18n(UsingPrompts, { ApiOptions })}
-              />
-              <Route
-                path="/whats-next"
-                component={withI18n(WhatsNext, { ApiOptions })}
-              />
-            </Switch>
-          </Column>
-
-          <Column isSize="1/4">
-            <ol style={{ marginTop: 20 }}>
-              <NavItem to="/">
-                <li>Welcome</li>
-              </NavItem>
-              <NavItem to="/setup">
-                <li>Register the API</li>
-              </NavItem>
-              <NavItem to="/translations">
-                <li>Make Translations</li>
-              </NavItem>
-              <NavItem to="/switch-locale">
-                <li>Switching Locales</li>
-              </NavItem>
-              <NavItem to="/using-prompts">
-                <li>Using Prompts</li>
-              </NavItem>
-              <NavItem to="/whats-next">
-                <li>Whats Next?</li>
-              </NavItem>
-            </ol>
-          </Column>
-        </Columns>
-      </Container>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/setup" component={withI18n(Setup, { ApiOptions })} />
+        <Route
+          path="/translations"
+          component={withI18n(Translations, { ApiOptions })}
+        />
+        <Route
+          path="/switch-locale"
+          component={withI18n(SwitchLocale, { ApiOptions })}
+        />
+        <Route
+          path="/using-prompts"
+          component={withI18n(UsingPrompts, { ApiOptions })}
+        />
+        <Route
+          path="/whats-next"
+          component={withI18n(WhatsNext, { ApiOptions })}
+        />
+        <Redirect to="/" />
+      </Switch>
     </Router>
   );
 };

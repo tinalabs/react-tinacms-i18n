@@ -25,9 +25,8 @@ import WhatsNext from './pages/WhatNext';
 const App = () => {
   const ApiOptions = {
     localeList: [
-      { language: 'en', region: 'ca' },
+      { language: 'en' },
       { language: 'fr', region: 'ca' },
-      { language: 'en', region: 'us' },
       { language: 'sp', region: 'us' },
     ],
   };

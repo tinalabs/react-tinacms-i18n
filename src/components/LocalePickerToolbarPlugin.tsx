@@ -38,20 +38,21 @@ export const LocaleSwitcher = () => {
       selectListRef.current.scrollTop = 0;
     }
   };
+  const regions: Locale[] = Array.from(
+    new Set(filteredOptions.filter((locale) => locale.region))
+  );
   const regionGroup = locale.localeList.reduce(
     (r: Record<string, Locale[]>, a) => {
       if (a.region) {
         r[a.region] = [...(r[a.region] || []), a];
+      } else {
+        regions.push(a);
       }
       return r;
     },
     {}
   );
-
   // get unique regions and filter out all undefined
-  const regions = Array.from(
-    new Set(filteredOptions.map((locale) => locale.region).filter(Boolean))
-  );
   const showRegionList = showRegions && regions.length > 0 && !filterValue;
 
   return (
@@ -82,26 +83,45 @@ export const LocaleSwitcher = () => {
               {status === 'loaded' && (
                 <>
                   {showRegionList ? (
-                    regions.map((region, i) => {
+                    regions.map((currentLocale, i) => {
                       return (
                         <SelectOption
                           key={i}
+                          active={
+                            locale.localeToString(currentLocale) ===
+                              locale.localeToString(locale.getLocale()) ||
+                            currentLocale.region === locale.getLocale().region
+                          }
                           onClick={() => {
-                            if (region) {
-                              setFilteredOptions(regionGroup[region]);
+                            if (
+                              currentLocale.region &&
+                              regionGroup[currentLocale.region]
+                            ) {
+                              setFilteredOptions(
+                                regionGroup[currentLocale.region]
+                              );
                               setShowRegions(false);
+                            } else {
+                              // this is not a region it is a locale
+                              locale.setLocale(currentLocale);
+                              locale.onSwitch();
+                              closeDropdown();
                             }
                           }}
                         >
                           <FlexDiv>
-                            <span>{region}</span>
-                            {region && locale.imgMap[region] && (
-                              <img
-                                width="20px"
-                                height="20px"
-                                src={locale.imgMap[region]}
-                              />
-                            )}
+                            <span>
+                              {currentLocale.region ||
+                                locale.localeToString(currentLocale)}
+                            </span>
+                            {currentLocale.region &&
+                              locale.imgMap[currentLocale.region] && (
+                                <img
+                                  width="20px"
+                                  height="20px"
+                                  src={locale.imgMap[currentLocale.region]}
+                                />
+                              )}
                           </FlexDiv>
                         </SelectOption>
                       );

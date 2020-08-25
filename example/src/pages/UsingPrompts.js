@@ -21,12 +21,17 @@ export default function Forms() {
     )}`);
   } catch (error) {
     hasContent = false;
+    content = {
+      header: `Edit a header in ${i18n.getFormateLocale()}`,
+      text: `Edit a paragraph in ${i18n.getFormateLocale()}`,
+      paragraph: `Edit a paragraph in ${i18n.getFormateLocale()}`,
+    };
     console.log('no locale exists');
     console.warn(error);
   }
 
   // define fallback data
-  const fallbackData = require('../content/PromptPage/en_ca.json');
+  const fallbackData = require('../content/PromptPage/en.json');
 
   // setup a form
   const [formData, form] = useForm({
@@ -100,7 +105,7 @@ export default function Forms() {
     }
   
     // define fallback data
-    const fallbackData = require('../content/PromptPage/en_ca.json');
+    const fallbackData = require('../content/PromptPage/en.json');
   
     // setup a form
     const [formData, form] = useForm({

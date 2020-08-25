@@ -19,7 +19,7 @@ export default function SwitchLocale() {
     console.warn(error);
   }
   // define fallback data
-  const fallbackData = require('../content/SwitchLocalePage/en_ca.json');
+  const fallbackData = require('../content/SwitchLocalePage/en.json');
 
   // setup a form
   const [formData, form] = useForm({
@@ -76,7 +76,7 @@ export default function SwitchLocale() {
     console.warn(error);
   }
   // define fallback data
-  const fallbackData = require('../content/en_ca.json');
+  const fallbackData = require('../content/en.json');
 
   // setup a form
   const [formData, form] = useForm({

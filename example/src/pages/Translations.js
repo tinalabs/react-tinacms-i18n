@@ -12,9 +12,9 @@ export default function Translations() {
       'Since there is no paragraph field defined on our content this fallback data will be shown. If you open the toolbar and edit the paragraph field you will override this fallback data.',
   };
   const content = {
-    header: 'Making translations in our app',
+    header: 'Make Translations',
     text:
-      'First we should make a form to make our content editable. Once we have some data in a form we can use the useTranslation hook. We pass the form data to that hook and the fallback data. The fallback data will be displayed if the data we are trying to access is missing or empty. If you look at the sidebar you can see all of this in action',
+      'First we should make a form to make our content editable. Once we have some data in a form we can use the useTranslation hook. We pass the form data to that hook and fallback data. The fallback data will be displayed if the data we are trying to access is missing or empty. If you look at the sidebar you can see all of this in action',
   };
   const [formData, form] = useForm({
     id: 'edit',

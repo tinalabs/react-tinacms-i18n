@@ -2,7 +2,7 @@ import { useI18n, useTranslation } from '@tinalabs/react-tinacms-i18n';
 import React from 'react';
 import { useForm, usePlugin } from 'tinacms';
 
-import Code from '../components/Code.js';
+import { Layout } from '../components/Layout.js';
 
 export default function SwitchLocale() {
   const i18n = useI18n();
@@ -125,17 +125,10 @@ export default function SwitchLocale() {
   `;
 
   return (
-    <>
+    <Layout code={code} nextLink="/using-prompts" prevLink="/translations">
       <h1 className="title is-3">{t('header')}</h1>
       <p>{t('text')}</p>
       <p>{t('paragraph')}</p>
-
-      <Code
-        readMoreLink="https://tinacms.org/docs/forms"
-        readMoreText="Read the docs"
-      >
-        {code}
-      </Code>
-    </>
+    </Layout>
   );
 }

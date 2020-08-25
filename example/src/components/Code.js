@@ -8,7 +8,7 @@ import { Button } from 'bloomer';
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 export default function Code(props) {
-  const [show, setVisibility] = useState(true);
+  const [show, setVisibility] = useState(false);
   return (
     <div style={{ marginRight: 60, marginTop: 40 }}>
       <div style={{ width: '100%', textAlign: 'right' }}>

@@ -33,12 +33,13 @@ export default function AddingTina() {
 
   return (
     <>
+      <h1 className="title is-2">Register the API</h1>
       <p>First we need to set up the plugin</p>
       <p>
         You could put all the bits and pieces together ourself or we can use a
-        helper function
+        helper function.
       </p>
-      <p>This helper function</p>
+      <p>This helper function:</p>
       <ol>
         <li>registers the localization api</li>
         <li>registers the locale picker toolbar plugin</li>
@@ -47,7 +48,7 @@ export default function AddingTina() {
         </li>
       </ol>
       <p>
-        Now you will have access to a locale selection dropdown in the toolbar
+        Now you will have access to a locale selection dropdown in the toolbar.
       </p>
 
       <Code

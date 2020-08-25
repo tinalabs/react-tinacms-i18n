@@ -83,13 +83,13 @@ const App = () => {
                 <li>Welcome</li>
               </NavItem>
               <NavItem to="/setup">
-                <li>Register the Api</li>
+                <li>Register the API</li>
               </NavItem>
               <NavItem to="/translations">
-                <li>MakeTranslations</li>
+                <li>Make Translations</li>
               </NavItem>
               <NavItem to="/switch-locale">
-                <li>Switch locale</li>
+                <li>Switching Locales</li>
               </NavItem>
               <NavItem to="/using-prompts">
                 <li>Using Prompts</li>

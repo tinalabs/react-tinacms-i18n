@@ -50,11 +50,12 @@ export default function AddingTina() {
         </ol>
         <p>
           Now you will have access to a locale selection dropdown in the
-          toolbar.
+          toolbar. (see it in the toolbar at the top of the screen?)
         </p>
 
         <p>
-          Note that that all of of our pages are inside of the App component
+          <strong>Note:</strong> that that all of of our pages are inside of the
+          App component
         </p>
       </React.Fragment>
     </Layout>

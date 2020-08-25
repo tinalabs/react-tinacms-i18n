@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout';
 
 export default function WhatsNext() {
   return (
-    <Layout code="" nextLink="/whats-next" prevLink="/using-prompts">
+    <Layout prevLink="/using-prompts">
       <h1 className="title is-3">Next Steps</h1>
       <p>i18n is made easy with tina!</p>
       <h3 className="title is-5">What can I do next?</h3>

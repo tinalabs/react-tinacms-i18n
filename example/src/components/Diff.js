@@ -8,7 +8,7 @@ import { Button } from 'bloomer';
 SyntaxHighlighter.registerLanguage('diff', diff);
 
 export default function Diff(props) {
-  const [show, setVisibility] = useState(true);
+  const [show, setVisibility] = useState(false);
   return (
     <div style={{ marginRight: 60, marginTop: 40 }}>
       <div style={{ width: '100%', textAlign: 'right' }}>

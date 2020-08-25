@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c3236cb75cd328037fa7959480fa9eb",
+    "revision": "fe8c8c51d9815a460353db5c63fae18a",
     "url": "/react-tinacms-i18n/example/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-tinacms-i18n/example/static/css/2.0698d7a5.chunk.css"
   },
   {
-    "revision": "7e3d50611a08f928cf80",
+    "revision": "0c294251aa67a530f450",
     "url": "/react-tinacms-i18n/example/static/css/main.380a345b.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-tinacms-i18n/example/static/js/2.8c2e7419.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7e3d50611a08f928cf80",
-    "url": "/react-tinacms-i18n/example/static/js/main.c09db0fd.chunk.js"
+    "revision": "0c294251aa67a530f450",
+    "url": "/react-tinacms-i18n/example/static/js/main.9700aa2c.chunk.js"
   },
   {
     "revision": "0f8b1721a08c94632e96",

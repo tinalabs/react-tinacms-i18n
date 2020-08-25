@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-tinacms-i18n/example/static/css/main.380a345b.chunk.css",
-    "main.js": "/react-tinacms-i18n/example/static/js/main.c09db0fd.chunk.js",
-    "main.js.map": "/react-tinacms-i18n/example/static/js/main.c09db0fd.chunk.js.map",
+    "main.js": "/react-tinacms-i18n/example/static/js/main.9700aa2c.chunk.js",
+    "main.js.map": "/react-tinacms-i18n/example/static/js/main.9700aa2c.chunk.js.map",
     "runtime-main.js": "/react-tinacms-i18n/example/static/js/runtime-main.9ac9b2a2.js",
     "runtime-main.js.map": "/react-tinacms-i18n/example/static/js/runtime-main.9ac9b2a2.js.map",
     "static/css/2.0698d7a5.chunk.css": "/react-tinacms-i18n/example/static/css/2.0698d7a5.chunk.css",
     "static/js/2.8c2e7419.chunk.js": "/react-tinacms-i18n/example/static/js/2.8c2e7419.chunk.js",
     "static/js/2.8c2e7419.chunk.js.map": "/react-tinacms-i18n/example/static/js/2.8c2e7419.chunk.js.map",
     "index.html": "/react-tinacms-i18n/example/index.html",
-    "precache-manifest.e8f363ad15463a1e1d97893583424920.js": "/react-tinacms-i18n/example/precache-manifest.e8f363ad15463a1e1d97893583424920.js",
+    "precache-manifest.7fcfbd89362dafc066dbd6c342e90e4f.js": "/react-tinacms-i18n/example/precache-manifest.7fcfbd89362dafc066dbd6c342e90e4f.js",
     "service-worker.js": "/react-tinacms-i18n/example/service-worker.js",
     "static/css/2.0698d7a5.chunk.css.map": "/react-tinacms-i18n/example/static/css/2.0698d7a5.chunk.css.map",
     "static/css/main.380a345b.chunk.css.map": "/react-tinacms-i18n/example/static/css/main.380a345b.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.0698d7a5.chunk.css",
     "static/js/2.8c2e7419.chunk.js",
     "static/css/main.380a345b.chunk.css",
-    "static/js/main.c09db0fd.chunk.js"
+    "static/js/main.9700aa2c.chunk.js"
   ]
 }

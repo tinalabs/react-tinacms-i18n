@@ -5,6 +5,11 @@
       "signature": "287a11c14d0cbc3cacdee0b5b6455c4b",
       "file": true,
       "replaced": "file:../"
+    },
+    "@tinalabs/react-tinacms-i18n": {
+      "signature": "0eb4b7f659b88bb8edcf80bad8d69cec",
+      "file": true,
+      "replaced": "file:../"
     }
   }
 }

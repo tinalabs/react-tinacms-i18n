@@ -42,7 +42,14 @@ export const ModalBuilder: React.FC<ModalBuilderProps> = (
             </ModalBody>
             <ModalActions>
               {modalProps.actions.map((action: any, key) => (
-                <Button {...action} key={key}>
+                <Button
+                  {...action}
+                  onClick={() => {
+                    action.onClick();
+                    setShow(false);
+                  }}
+                  key={key}
+                >
                   {action.name}
                 </Button>
               ))}

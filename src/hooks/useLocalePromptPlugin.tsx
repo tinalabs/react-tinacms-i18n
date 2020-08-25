@@ -2,7 +2,6 @@ import React from 'react';
 import { useCMS } from 'tinacms';
 import { PromptPlugin } from '../plugins';
 import { ModalBuilder } from '../components';
-// import { LocalizationApi } from '../localizationApi';
 import { useI18n } from './useI18n';
 
 interface ModalProps {
@@ -60,9 +59,6 @@ export const useLocalePromptPlugin = (
   // const hasData = data && Object.keys(data).length > 0;
   // const i18n: LocalizationApi = cms.api.localization;
   const i18n = useI18n();
-  console.log('from use locale plugin');
-  console.log({ i18n });
-  console.log(i18n.getFormateLocale());
   cms.plugins.add<PromptPlugin<ModalProps>>({
     __type: 'prompt',
     Component: LocaleModal,

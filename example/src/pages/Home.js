@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Layout } from '../components/Layout.js';
 
@@ -31,7 +32,7 @@ export default function Home() {
   );`;
 
   return (
-    <Layout code={code} prevLink="/" nextLink="/setup">
+    <Layout code={code} nextLink="/setup">
       <>
         <h1 className="title is-1">Welcome!</h1>
         <p>
@@ -40,7 +41,8 @@ export default function Home() {
         </p>
         <p>
           To get started you can open the sidebar (pencil icon at the bottom of
-          the screen)
+          the screen) and{' '}
+          <Link to="setup">next we will register the i18n API.</Link>
         </p>
         <p>
           <strong>Note: </strong>This guide assume you have a basic

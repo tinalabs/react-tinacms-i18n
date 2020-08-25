@@ -42,11 +42,14 @@ export const Layout = ({ children, nextLink, prevLink, code }) => {
                 justifyContent: 'space-between',
               }}
             >
-              <Link to={prevLink}>
-                <Button type="button" className="button is-small">
-                  Previous
-                </Button>
-              </Link>
+              {prevLink && (
+                <Link to={prevLink}>
+                  <Button type="button" className="button is-small">
+                    Previous
+                  </Button>
+                </Link>
+              )}
+
               <Button
                 onClick={cms.toggle}
                 type="button"
@@ -54,20 +57,25 @@ export const Layout = ({ children, nextLink, prevLink, code }) => {
               >
                 Toggle Edit Mode
               </Button>
-              <Button
-                type="button"
-                className="button is-small"
-                onClick={() => {
-                  setVisibility(!showCode);
-                }}
-              >
-                {showCode ? 'Close Code' : 'Show Code'}
-              </Button>
-              <Link to={nextLink}>
-                <Button type="button" className="button is-small">
-                  Next
+              {code && (
+                <Button
+                  type="button"
+                  className="button is-small"
+                  onClick={() => {
+                    setVisibility(!showCode);
+                  }}
+                >
+                  {showCode ? 'Close Code' : 'Show Code'}
                 </Button>
-              </Link>
+              )}
+
+              {nextLink && (
+                <Link to={nextLink}>
+                  <Button type="button" className="button is-small">
+                    Next
+                  </Button>
+                </Link>
+              )}
             </div>
             <Code show={showCode}>{code}</Code>
           </div>

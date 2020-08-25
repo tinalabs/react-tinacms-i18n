@@ -74,7 +74,7 @@ export const Layout = ({ children, nextLink, prevLink, code }) => {
         </Column>
 
         <Column isSize="1/4">
-          Table of contents
+          Table of Contents
           <ol style={{ marginTop: 20 }}>
             <NavItem to="/">
               <li>Welcome</li>

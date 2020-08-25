@@ -7,7 +7,7 @@ SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 export default function Code(props) {
   return (
-    <div style={{ marginRight: 60, marginTop: 40 }}>
+    <div style={{ marginTop: 40 }}>
       {props.show && (
         <div style={{ width: '100%', fontSize: 14 }}>
           <SyntaxHighlighter language="jsx" style={prism}>

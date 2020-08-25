@@ -188,4 +188,6 @@ npm run docs
 
 This well generate the docs and you can open `docs/docs/index.html` in your browser to view
 
-# [API DOCS](https://tinacms.github.io/react-tinacms-i18n/docs/)
+# Links
+- [API docs](https://tinalabs.github.io/react-tinacms-i18n/docs/)
+- [Example](https://tinalabs.github.io/react-tinacms-i18n/example/)

@@ -1,1 +1,0 @@
-{"version":3,"sources":["App.css"],"names":[],"mappings":"AACA,WACE,0BAA2B,CAC3B,YACF,CAEA,EACE,aACF","file":"main.f907ef9e.chunk.css","sourcesContent":["@import '~leaflet/dist/leaflet.css';\nblockquote {\n  border-left: 5px solid #eee;\n  padding: 10px;\n}\n\np {\n  margin: 20px 0;\n}\n"]}

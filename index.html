@@ -5,12 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Docs</title>
   </head>
+  <style>
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+    .btn-1 {
+      margin: 20px;
+      font-family: Hack, monospace;
+      background: #0f0f6d;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 2em;
+      padding: 1.5rem;
+      border: 0;
+      transition: all 0.5s;
+      border-radius: 10px;
+      width: auto;
+      position: relative;
+    }
+
+    .btn-1::after {
+      content: \&#8618;
+      font-weight: 400;
+      position: absolute;
+      left: 85%;
+      top: 31%;
+      right: 5%;
+      bottom: 0;
+      opacity: 0;
+    }
+
+    .btn-1:hover {
+      background: #2b2bff;
+      transition: all 0.5s;
+      border-radius: 10px;
+      padding: 1.5rem 3.5rem 1.5rem 1.5rem;
+    }
+
+    .btn-1:hover::after {
+      opacity: 1;
+      transition: all 0.5s;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
   <body>
-    <div>
-      <a id="docLink">Go to docs</a>
-    </div>
-    <div>
-      <a id="exampleLink">Go to example</a>
+    <div class="container">
+      <h1 class="text-center">Get started</h1>
+      <div class="grid-container">
+        <div class="btn-1">
+          <a id="docLink">Go to docs &#8618</a>
+        </div>
+        <div class="btn-1">
+          <a id="exampleLink">Go to example &#8618</a>
+        </div>
+      </div>
     </div>
   </body>
   <script>
@@ -21,6 +80,6 @@
     const baseURL = window.location.href.replace(indexMatch, '');
     console.log(baseURL);
     docLink.setAttribute('href', baseURL + 'docs');
-    exampleLink.setAttribute('href', baseURL + 'example/index.html');
+    exampleLink.setAttribute('href', baseURL + 'example/');
   </script>
 </html>

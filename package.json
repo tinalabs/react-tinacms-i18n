@@ -48,7 +48,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@tinalabs/react-tinacms-i18n",
+  "name": "react-tinacms-i18n",
   "author": "logan-anderson",
   "module": "dist/react-tinacms-i18n.esm.js",
   "devDependencies": {

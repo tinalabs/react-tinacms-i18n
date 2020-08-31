@@ -18,7 +18,7 @@ import Translations from './pages/Translations.js';
 import SwitchLocale from './pages/SwitchLocale';
 import UsingPrompts from './pages/UsingPrompts';
 
-import { withI18n } from '@tinalabs/react-tinacms-i18n';
+import { withI18n } from 'react-tinacms-i18n';
 import { PromptProvider } from '@tinalabs/react-tinacms-prompts';
 import WhatsNext from './pages/WhatNext';
 

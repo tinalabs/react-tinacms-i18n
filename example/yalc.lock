@@ -6,7 +6,7 @@
       "file": true,
       "replaced": "file:../"
     },
-    "@tinalabs/react-tinacms-i18n": {
+    "react-tinacms-i18n": {
       "signature": "bcf5a7accabea592c44439519814891a",
       "file": true,
       "replaced": "file:../"

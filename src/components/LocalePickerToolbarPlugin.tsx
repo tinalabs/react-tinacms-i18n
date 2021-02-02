@@ -44,7 +44,7 @@ export const LocaleSwitcher = () => {
   const regionGroup = locale.localeList.reduce(
     (r: Record<string, Locale[]>, a) => {
       if (a.region) {
-        r[a.region] = [...(r[a.region] || []), a];
+        r[a.region.code] = [...(r[a.region.code] || []), a];
       } else {
         regions.push(a);
       }
@@ -95,10 +95,10 @@ export const LocaleSwitcher = () => {
                           onClick={() => {
                             if (
                               currentLocale.region &&
-                              regionGroup[currentLocale.region]
+                              regionGroup[currentLocale.region.code]
                             ) {
                               setFilteredOptions(
-                                regionGroup[currentLocale.region]
+                                regionGroup[currentLocale.region.code]
                               );
                               setShowRegions(false);
                             } else {
@@ -115,11 +115,11 @@ export const LocaleSwitcher = () => {
                                 locale.localeToString(currentLocale)}
                             </span>
                             {currentLocale.region &&
-                              locale.imgMap[currentLocale.region] && (
+                              locale.imgMap[currentLocale.region.code] && (
                                 <img
                                   width="20px"
                                   height="20px"
-                                  src={locale.imgMap[currentLocale.region]}
+                                  src={locale.imgMap[currentLocale.region.code]}
                                 />
                               )}
                           </FlexDiv>

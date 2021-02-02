@@ -72,8 +72,8 @@ export default function Forms() {
   useLocalePromptPlugin(!hasContent, {
     onNo: () => {
       i18n.setLocale({
-        language: 'en',
-        region: 'ca',
+        language: { code: 'en', label: 'English' },
+        region: { code: 'ca', label: 'Canada' },
       });
     },
   });
@@ -146,8 +146,8 @@ export default function Forms() {
 +   useLocalePromptPlugin(!hasContent, {
 +     onNo: () => {
 +       i18n.setLocale({
-+         language: 'en',
-+         region: 'ca',
++         language: { code: 'en', label: 'English' },
++         region: { code: 'ca', label: 'Canada' },
 +       });
 +     },
 +   });

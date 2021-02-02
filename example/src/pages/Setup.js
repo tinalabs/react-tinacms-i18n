@@ -8,10 +8,10 @@ export default function AddingTina() {
   const AppWrapper = withI18n(App, {
     ApiOptions: {
       localeList: [
-        { language: 'en', region: 'ca' },
-        { language: 'fr', region: 'ca' },
-        { language: 'en', region: 'us' },
-        { language: 'sp', region: 'us' },
+        { language: { code: 'en', label: 'English' }, region: { code: 'ca', label: 'Canada' } },
+        { language: { code: 'fr', label: 'French' }, region: { code: 'ca', label: 'Canada' } },
+        { language: { code: 'en', label: 'English' }, region: { code: 'us', label: 'United States' } },
+        { language: { code: 'sp', label: 'Spanish' }, region: { code: 'us', label: 'United States' } },
       ],
     },
   });

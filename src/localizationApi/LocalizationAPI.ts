@@ -1,23 +1,36 @@
 // import { useState } from 'react';
 
 const defaultList: Locale[] = [
-  { language: 'en' },
-  { language: 'fr' },
-  { language: 'sp' },
+  { 
+    language: { 
+      code: 'en', 
+      label: 'English' 
+    } 
+  },
+  { 
+    language: { 
+      code: 'fr', 
+      label: 'French' 
+    } 
+  },
+  { language: 
+    { code: 'sp', 
+    label: 'Spanish' 
+  } 
+},
 ];
 const LOCALE_CACHE_KEY = 'locale-cache';
 
-// TODO:  use Region and Language
-// export interface CodeAndLabel {
-//   code: string;
-//   label: string;
-// }
-// export type Region = CodeAndLabel;
-// export type Language = CodeAndLabel;
+export interface CodeAndLabel {
+  code: string;
+  label: string;
+}
+export type Region = CodeAndLabel;
+export type Language = CodeAndLabel;
 
 export interface Locale {
-  language?: string;
-  region?: string;
+  language?: Language;
+  region?: Region;
   encoding?: string;
   modifiers?: string[];
 }
@@ -36,8 +49,11 @@ export class LocalizationApi {
   }
   // private setTest: any;
   public default: Locale = {
-    language: 'en',
-    // region: "CA",
+    language: {
+      code: 'en', 
+      label: 'English' 
+    },
+    // region: { code: "ca", label: "Canada" },
     // encoding: "utf-8",
     // modifiers: ["example"],
   };

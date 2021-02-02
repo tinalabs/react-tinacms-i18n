@@ -1,23 +1,19 @@
 // import { useState } from 'react';
 
 const defaultList: Locale[] = [
-  { 
-    language: { 
-      code: 'en', 
-      label: 'English' 
-    } 
+  {
+    language: {
+      code: 'en',
+      label: 'English',
+    },
   },
-  { 
-    language: { 
-      code: 'fr', 
-      label: 'French' 
-    } 
+  {
+    language: {
+      code: 'fr',
+      label: 'French',
+    },
   },
-  { language: 
-    { code: 'sp', 
-    label: 'Spanish' 
-  } 
-},
+  { language: { code: 'sp', label: 'Spanish' } },
 ];
 const LOCALE_CACHE_KEY = 'locale-cache';
 
@@ -50,8 +46,8 @@ export class LocalizationApi {
   // private setTest: any;
   public default: Locale = {
     language: {
-      code: 'en', 
-      label: 'English' 
+      code: 'en',
+      label: 'English',
     },
     // region: { code: "ca", label: "Canada" },
     // encoding: "utf-8",

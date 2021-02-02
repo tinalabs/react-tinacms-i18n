@@ -125,7 +125,6 @@ export class LocalizationApi {
     if (typeof localStorage === 'undefined') {
       return;
     }
-    console.log(data)
     localStorage.setItem(id, JSON.stringify(data.code));
   };
 }

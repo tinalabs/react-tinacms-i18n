@@ -105,8 +105,8 @@ export class LocalizationApi {
    * @returns the formatted string
    */
   public localeToString(currentLocal: Locale): string {
-    return `${currentLocal.language || ''}${
-      currentLocal.region ? '_' + currentLocal.region : ''
+    return `${currentLocal.language?.code || ''}${
+      currentLocal.region?.code ? '_' + currentLocal.region.code : ''
     }${currentLocal.encoding ? '.' + currentLocal.encoding : ''}${
       currentLocal.modifiers ? '@' + currentLocal.modifiers.join('@') : ''
     }`;
@@ -125,6 +125,7 @@ export class LocalizationApi {
     if (typeof localStorage === 'undefined') {
       return;
     }
-    localStorage.setItem(id, JSON.stringify(data));
+    console.log(data)
+    localStorage.setItem(id, JSON.stringify(data.code));
   };
 }

@@ -13,17 +13,6 @@ describe('Localization API', () => {
     });
   });
 
-  describe('#local = newLocale ', () => {
-    const localAPI = new LocalizationApi();
-    it('updates the locale to be newLocale', () => {
-      const newLocal: Locale = {
-        language: { code: 'en', label: 'English' },
-        encoding: 'utf-8',
-      };
-      localAPI.setLocale(newLocal);
-      expect(localAPI.getLocale()).toBe(newLocal);
-    });
-  });
   describe('#getFormateLocale()', () => {
     const localAPI = new LocalizationApi();
     describe('the return types matches language[_region][.encoding][@modifier]when retrieved', () => {
@@ -42,12 +31,12 @@ describe('Localization API', () => {
       it('adds a _ in front of the region', () => {
         localAPI.setLocale({
           language: { code: 'sp', label: 'Spanish' },
-          region: { code: 'ca', label: 'Canada' },
+          region: { code: 'CA', label: 'Canada' },
         });
         expect(localAPI.getFormateLocale()).toBe('sp_CA');
         localAPI.setLocale({
           language: { code: 'en', label: 'English' },
-          region: { code: 'us', label: 'United States' },
+          region: { code: 'US', label: 'United States' },
         });
         expect(localAPI.getFormateLocale()).toBe('en_US');
       });
@@ -90,7 +79,7 @@ describe('Localization API', () => {
             locale: {
               language: { code: 'en', label: 'English' },
               encoding: 'utf-8',
-              region: { code: 'ca', label: 'Canada' },
+              region: { code: 'CA', label: 'Canada' },
             },
             expected: 'en_CA.utf-8',
           },
@@ -98,7 +87,7 @@ describe('Localization API', () => {
             locale: {
               language: { code: 'en', label: 'English' },
               encoding: 'utf-8',
-              region: { code: 'ca', label: 'Canada' },
+              region: { code: 'CA', label: 'Canada' },
               modifiers: ['test'],
             },
             expected: 'en_CA.utf-8@test',
@@ -107,7 +96,7 @@ describe('Localization API', () => {
             locale: {
               language: { code: 'en', label: 'English' },
               encoding: 'utf-8',
-              region: { code: 'ca', label: 'Canada' },
+              region: { code: 'CA', label: 'Canada' },
               modifiers: ['test', 'test2'],
             },
             expected: 'en_CA.utf-8@test@test2',

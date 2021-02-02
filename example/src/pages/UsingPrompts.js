@@ -73,7 +73,7 @@ export default function Forms() {
     onNo: () => {
       i18n.setLocale({
         language: { code: 'en', label: 'English' },
-        region: { code: 'ca', label: 'Canada' },
+        region: { code: 'CA', label: 'Canada' },
       });
     },
   });
@@ -147,7 +147,7 @@ export default function Forms() {
 +     onNo: () => {
 +       i18n.setLocale({
 +         language: { code: 'en', label: 'English' },
-+         region: { code: 'ca', label: 'Canada' },
++         region: { code: 'CA', label: 'Canada' },
 +       });
 +     },
 +   });

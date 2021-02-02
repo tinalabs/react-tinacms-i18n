@@ -26,8 +26,8 @@ const App = () => {
   const ApiOptions = {
     localeList: [
       { language: { code: 'en', label: 'English' } },
-      { language: { code: 'fr', label: 'French' }, region: { code: 'ca', label: 'Canada' } },
-      { language: { code: 'sp', label: 'Spanish' }, region: { code: 'us', label: 'United States' } },
+      { language: { code: 'fr', label: 'French' }, region: { code: 'CA', label: 'Canada' } },
+      { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
     ],
   };
 

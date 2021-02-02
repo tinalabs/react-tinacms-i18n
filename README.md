@@ -16,10 +16,10 @@ import { withI18n } from '@tinalabs/react-tinacms-i18n';
 const AppWrapper = withI18n(App, {
   ApiOptions: {
     localeList: [
-      { language: { code: 'en', label: 'English' }, region: { code: 'ca', label: 'Canada' } },
-      { language: { code: 'fr', label: 'French' }, region: { code: 'ca', label: 'Canada' } },
-      { language: { code: 'en', label: 'English' }, region: { code: 'us', label: 'United States' } },
-      { language: { code: 'sp', label: 'Spanish' }, region: { code: 'us', label: 'United States' } },
+      { language: { code: 'en', label: 'English' }, region: { code: 'CA', label: 'Canada' } },
+      { language: { code: 'fr', label: 'French' }, region: { code: 'CA', label: 'Canada' } },
+      { language: { code: 'en', label: 'English' }, region: { code: 'US', label: 'United States' } },
+      { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
     ],
   },
 });
@@ -87,7 +87,7 @@ const t = useTranslation(data, fallbackData)
 import { useI18n } from '@tinalabs/react-tinacms-i18n';
 
 const i18n = useI18n()
-i18n.setLocale({ region: { code: 'ca', label: 'Canada' }, language: { code: 'en', label: 'English' } });
+i18n.setLocale({ region: { code: 'CA', label: 'Canada' }, language: { code: 'en', label: 'English' } });
 ```
 
 ### Fetching data based on the locale

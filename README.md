@@ -3,7 +3,7 @@
 ## Getting started
 
 ```bash
-yarn add @tinalabs/react-tinacms-i18n
+yarn add react-tinacms-i18n
 ```
 
 ## First wrap you app in the with the i18n function
@@ -11,7 +11,7 @@ yarn add @tinalabs/react-tinacms-i18n
 We pass out app component along with the configuration for the plugin to the with tina plugin. If you dont want to use this helper function and want to setup stuff mananualy [read here](#withi18n-alternative)
 
 ```tsx
-import { withI18n } from '@tinalabs/react-tinacms-i18n';
+import { withI18n } from 'react-tinacms-i18n';
 
 const AppWrapper = withI18n(App, {
   ApiOptions: {
@@ -49,7 +49,7 @@ export default () => {
 When we want to make a translation we can use the `useTranslation` hooks to localize our app. `useTranslation` returns a `t` function that is used for translating text and an instance of the localization plugin (called i18n)
 
 ```tsx
-import { useTranslation } from '@tinalabs/react-tinacms-i18n';
+import { useTranslation } from 'react-tinacms-i18n';
 //..
 const data = {heading: 'this is a heading'}
 const fallbackData = {heading: 'heading', body: 'this is the body text'}
@@ -70,7 +70,7 @@ const t = useTranslation(data, fallbackData)
 It also works with nested data
 
 ```tsx
-import { useTranslation } from '@tinalabs/react-tinacms-i18n';
+import { useTranslation } from 'react-tinacms-i18n';
 //..
 const data = {some: {nested: {data: 'hello world'}}}
 const t = useTranslation(data, fallbackData)
@@ -84,7 +84,7 @@ const t = useTranslation(data, fallbackData)
 ### Switching the locale
 
 ```ts
-import { useI18n } from '@tinalabs/react-tinacms-i18n';
+import { useI18n } from 'react-tinacms-i18n';
 
 const i18n = useI18n()
 i18n.setLocale({ region: 'ca', language: 'en' });
@@ -127,7 +127,7 @@ import { PromptProvider } from '@tinalabs/react-tinacms-prompts';
 Next we registers a `prompts plugin` that will render a prompt in edit mode letting the user know that no localization for this page exists. This will render when the given condition is true.
 
 ```ts
-import { useLocalePromptPlugin } from '@tinalabs/react-tinacms-i18n';
+import { useLocalePromptPlugin } from 'react-tinacms-i18n';
 
 useLocalePromptPlugin(condition, options);
 ```

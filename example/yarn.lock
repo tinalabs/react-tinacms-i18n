@@ -1688,9 +1688,9 @@
   dependencies:
     webfontloader "^1.6.28"
 
-"@tinalabs/react-tinacms-i18n@^0.1.6":
+"react-tinacms-i18n@^0.1.6":
   version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@tinalabs/react-tinacms-i18n/-/react-tinacms-i18n-0.1.6.tgz#254c5d43a0a37df744f12268b40550de452bef12"
+  resolved "https://registry.yarnpkg.com/react-tinacms-i18n/-/react-tinacms-i18n-0.1.6.tgz#254c5d43a0a37df744f12268b40550de452bef12"
   integrity sha512-rtdAvpr5IrIN3Tt6pGGvsfBxCoLleRv0L//iempjIWOM8F+PwRdcQEMTNmktpE7VcDDQw3gjky/Kk4iOmN5yUQ==
   dependencies:
     lodash.get "^4.4.2"

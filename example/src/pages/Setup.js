@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout.js';
 
 export default function AddingTina() {
   let code = `
-  import { withI18n } from '@tinalabs/react-tinacms-i18n';
+  import { withI18n } from 'react-tinacms-i18n';
 
   const AppWrapper = withI18n(App, {
     ApiOptions: {

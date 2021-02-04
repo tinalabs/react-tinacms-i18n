@@ -80,10 +80,10 @@
 const AppWrapper = withI18n(App, {
   ApiOptions: {
     localeList: [
-      { language: &#39;en&#39;, region: &#39;ca&#39; },
-      { language: &#39;fr&#39;, region: &#39;ca&#39; },
-      { language: &#39;en&#39;, region: &#39;us&#39; },
-      { language: &#39;sp&#39;, region: &#39;us&#39; },
+      { language: { code: &#39;en&#39;, label: &#39;English&#39; }, region: { code: &#39;CA&#39;, label: &#39;Canada&#39; } },
+      { language: { code: &#39;fr&#39;, label: &#39;French&#39; }, region: { code: &#39;CA&#39;, label: &#39;Canada&#39; } },
+      { language: { code: &#39;en&#39;, label: &#39;English&#39; }, region: { code: &#39;US&#39;, label: &#39;United States&#39; } },
+      { language: { code: &#39;sp&#39;, label: &#39;Spanish&#39; }, region: { code: &#39;US&#39;, label: &#39;United States&#39; } },
     ],
   },
 });</code></pre>
@@ -138,7 +138,7 @@ const t = useTranslation(data, fallbackData)
 				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { useI18n } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-tinacms-i18n&#x27;</span>;
 
 <span class="hljs-keyword">const</span> i18n = useI18n()
-i18n.setLocale({ region: <span class="hljs-string">&#x27;ca&#x27;</span>, language: <span class="hljs-string">&#x27;en&#x27;</span> });</code></pre>
+i18n.setLocale({ region: { code: <span class="hljs-string">&#x27;CA&#x27;</span>, label: <span class="hljs-string">&#x27;Canada&#x27;</span> }, language: { code: <span class="hljs-string">&#x27;en&#x27;</span>, label: <span class="hljs-string">&#x27;English&#x27;</span> } });</code></pre>
 				<a href="#fetching-data-based-on-the-locale" id="fetching-data-based-on-the-locale" style="color: inherit; text-decoration: none;">
 					<h3>Fetching data based on the locale</h3>
 				</a>

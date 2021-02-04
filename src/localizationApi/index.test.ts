@@ -5,7 +5,7 @@ describe('Localization API', () => {
     const localAPI = new LocalizationApi();
     it('updates the locale to be newLocale', () => {
       const newLocal: Locale = {
-        language: 'en',
+        language: { code: 'en', label: 'English' },
         encoding: 'utf-8',
       };
       localAPI.setLocale(newLocal);
@@ -13,57 +13,46 @@ describe('Localization API', () => {
     });
   });
 
-  describe('#local = newLocale ', () => {
-    const localAPI = new LocalizationApi();
-    it('updates the locale to be newLocale', () => {
-      const newLocal: Locale = {
-        language: 'en',
-        encoding: 'utf-8',
-      };
-      localAPI.setLocale(newLocal);
-      expect(localAPI.getLocale()).toBe(newLocal);
-    });
-  });
   describe('#getFormateLocale()', () => {
     const localAPI = new LocalizationApi();
     describe('the return types matches language[_region][.encoding][@modifier]when retrieved', () => {
       it('adds a . in front of the encoding', () => {
         localAPI.setLocale({
-          language: 'en',
+          language: { code: 'en', label: 'English' },
           encoding: 'utf-8',
         });
         expect(localAPI.getFormateLocale()).toBe('en.utf-8');
         localAPI.setLocale({
-          language: 'fr',
+          language: { code: 'fr', label: 'French' },
           encoding: 'utf-16',
         });
         expect(localAPI.getFormateLocale()).toBe('fr.utf-16');
       });
       it('adds a _ in front of the region', () => {
         localAPI.setLocale({
-          language: 'sp',
-          region: 'CA',
+          language: { code: 'sp', label: 'Spanish' },
+          region: { code: 'CA', label: 'Canada' },
         });
         expect(localAPI.getFormateLocale()).toBe('sp_CA');
         localAPI.setLocale({
-          language: 'en',
-          region: 'US',
+          language: { code: 'en', label: 'English' },
+          region: { code: 'US', label: 'United States' },
         });
         expect(localAPI.getFormateLocale()).toBe('en_US');
       });
       it('adds a @ in front of the modifiers', () => {
         localAPI.setLocale({
-          language: 'sp',
+          language: { code: 'sp', label: 'Spanish' },
           modifiers: ['asdf', 'asdf2'],
         });
         expect(localAPI.getFormateLocale()).toBe('sp@asdf@asdf2');
         localAPI.setLocale({
-          language: 'en',
+          language: { code: 'en', label: 'English' },
           modifiers: ['example', 'example2'],
         });
         expect(localAPI.getFormateLocale()).toBe('en@example@example2');
         localAPI.setLocale({
-          language: 'en',
+          language: { code: 'en', label: 'English' },
           modifiers: ['1', '23', '4', '5', '6', '7', '8', '9', '10'],
         });
         expect(localAPI.getFormateLocale()).toBe('en@1@23@4@5@6@7@8@9@10');
@@ -74,40 +63,40 @@ describe('Localization API', () => {
         const vals: { locale: Locale; expected: string }[] = [
           {
             locale: {
-              language: 'en',
+              language: { code: 'en', label: 'English' },
               encoding: 'utf-8',
             },
             expected: 'en.utf-8',
           },
           {
             locale: {
-              language: 'en',
+              language: { code: 'en', label: 'English' },
               encoding: `utf-${rand}`,
             },
             expected: `en.utf-${rand}`,
           },
           {
             locale: {
-              language: 'en',
+              language: { code: 'en', label: 'English' },
               encoding: 'utf-8',
-              region: 'CA',
+              region: { code: 'CA', label: 'Canada' },
             },
             expected: 'en_CA.utf-8',
           },
           {
             locale: {
-              language: 'en',
+              language: { code: 'en', label: 'English' },
               encoding: 'utf-8',
-              region: 'CA',
+              region: { code: 'CA', label: 'Canada' },
               modifiers: ['test'],
             },
             expected: 'en_CA.utf-8@test',
           },
           {
             locale: {
-              language: 'en',
+              language: { code: 'en', label: 'English' },
               encoding: 'utf-8',
-              region: 'CA',
+              region: { code: 'CA', label: 'Canada' },
               modifiers: ['test', 'test2'],
             },
             expected: 'en_CA.utf-8@test@test2',

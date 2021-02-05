@@ -1,5 +1,13 @@
 // import { useState } from 'react';
-
+const defaultLocale: Locale = {
+  language: {
+    code: 'en',
+    label: 'English',
+  },
+  // region: { code: "ca", label: "Canada" },
+  // encoding: "utf-8",
+  // modifiers: ["example"],
+};
 const defaultList: Locale[] = [
   {
     language: {
@@ -33,6 +41,7 @@ export interface Locale {
 export interface LocalizationApiOptions {
   localeList?: Locale[];
   imgMap?: Record<string, any>;
+  locale?: Locale;
 }
 export class LocalizationApi {
   /**
@@ -44,15 +53,7 @@ export class LocalizationApi {
     return;
   }
   // private setTest: any;
-  public default: Locale = {
-    language: {
-      code: 'en',
-      label: 'English',
-    },
-    // region: { code: "ca", label: "Canada" },
-    // encoding: "utf-8",
-    // modifiers: ["example"],
-  };
+  
   public locale: Locale;
   /**
    * Locale list of localization api
@@ -60,20 +61,22 @@ export class LocalizationApi {
    */
   public localeList: Locale[];
   /**
-   * constructs the localization API and sets the current local from local storage
+   * constructs the localization API and sets the current local from local storage, or default locale
    *
+   * @param locale the default locale for the application, will default to current locale if set.
    * @param localeList the list of locales Available in the application
    * @param imgMap A object that maps the region to a path to the img scr
    */
   constructor(
     localeList = defaultList,
-    public imgMap: Record<string, any> = {}
+    public imgMap: Record<string, any> = {},
+    locale = defaultLocale
   ) {
     // const [test, setTest] = useState(
     //   this.getCachedData(LOCALE_CACHE_KEY) || this.default
     // );
     // this.locale = test;
-    this.locale = this.getCachedData(LOCALE_CACHE_KEY) || this.default;
+    this.locale = this.getCachedData(LOCALE_CACHE_KEY) || locale;
     // this.setTest = setTest;
     this.localeList = localeList;
   }

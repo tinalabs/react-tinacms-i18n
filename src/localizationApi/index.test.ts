@@ -3,23 +3,25 @@ import { Locale, LocalizationApi } from './index';
 describe('Localization API', () => {
   describe('#local = newLocale ', () => {
     const localAPI = new LocalizationApi();
-    const localDefaultAPI = new LocalizationApi([], undefined, {language: {code: 'fr', label: 'French'}})
+    const localDefaultAPI = new LocalizationApi([], undefined, {
+      language: { code: 'fr', label: 'French' },
+    });
     it('instantiates with default values', () => {
       const expectedDefault: Locale = {
         language: {
           code: 'en',
           label: 'English',
-        }
+        },
       };
       const expectedLocalDefault: Locale = {
         language: {
           code: 'fr',
-          label: 'French'
-        }
-      }
+          label: 'French',
+        },
+      };
 
-      expect(localAPI.getLocale()).toStrictEqual(expectedDefault)
-      expect(localDefaultAPI.getLocale()).toStrictEqual(expectedLocalDefault)
+      expect(localAPI.getLocale()).toStrictEqual(expectedDefault);
+      expect(localDefaultAPI.getLocale()).toStrictEqual(expectedLocalDefault);
     });
 
     it('updates the locale to be newLocale', () => {

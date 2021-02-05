@@ -53,7 +53,7 @@ export class LocalizationApi {
     return;
   }
   // private setTest: any;
-  
+
   public locale: Locale;
   /**
    * Locale list of localization api

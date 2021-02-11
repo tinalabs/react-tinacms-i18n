@@ -9,7 +9,6 @@ export class ReactLocalizationAPI extends LocalizationApi {
     this.stateSetLocale = stateSetLocale;
   }
   setLocale(locale: Locale): Locale {
-    console.log('set locale from super class is being called');
     super.setLocale(locale);
     this.stateSetLocale(locale);
     return this.locale;

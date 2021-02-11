@@ -120,7 +120,7 @@ export class LocalizationApi {
       if (Object.keys(cache).length === 0) {
         return;
       }
-      return cache;
+      return cache as Locale;
     } catch (e) {
       console.warn(e);
       console.warn(`Malformed localstorage with ID ${id}`);
@@ -131,6 +131,6 @@ export class LocalizationApi {
     if (typeof localStorage === 'undefined') {
       return;
     }
-    localStorage.setItem(id, JSON.stringify(data.language));
+    localStorage.setItem(id, JSON.stringify(data));
   };
 }

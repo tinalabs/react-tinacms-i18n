@@ -115,16 +115,22 @@ export class LocalizationApi {
     if (typeof localStorage === 'undefined') {
       return;
     }
-    const cache = JSON.parse(localStorage.getItem(id) || '{}');
-    if (Object.keys(cache).length === 0) {
+    try {
+      const cache = JSON.parse(localStorage.getItem(id) || '{}');
+      if (Object.keys(cache).length === 0) {
+        return;
+      }
+      return cache;
+    } catch (e) {
+      console.warn(e);
+      console.warn(`Malformed localstorage with ID ${id}`);
       return;
     }
-    return cache;
   };
-  private setCachedData = (id: string, data: Record<string, any>) => {
+  private setCachedData = (id: string, data: Locale) => {
     if (typeof localStorage === 'undefined') {
       return;
     }
-    localStorage.setItem(id, JSON.stringify(data.code));
+    localStorage.setItem(id, JSON.stringify(data.language));
   };
 }

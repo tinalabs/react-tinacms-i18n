@@ -8,7 +8,7 @@ const defaultLocale: Locale = {
   // encoding: "utf-8",
   // modifiers: ["example"],
 };
-const defaultList: Locale[] = [
+const defaultList: LocaleList = [
   {
     language: {
       code: 'en',
@@ -23,6 +23,11 @@ const defaultList: Locale[] = [
   },
   { language: { code: 'sp', label: 'Spanish' } },
 ];
+const defaultOptions: LocalizationApiOptions = {
+  localeList: defaultList, 
+  locale: defaultLocale, 
+  imgMap: {}
+}
 const LOCALE_CACHE_KEY = 'locale-cache';
 
 export interface CodeAndLabel {
@@ -31,7 +36,8 @@ export interface CodeAndLabel {
 }
 export type Region = CodeAndLabel;
 export type Language = CodeAndLabel;
-
+export type LocaleList = Locale[];
+export type ImgMap = Record<string, any>;
 export interface Locale {
   language?: Language;
   region?: Region;
@@ -39,10 +45,14 @@ export interface Locale {
   modifiers?: string[];
 }
 export interface LocalizationApiOptions {
-  localeList?: Locale[];
-  imgMap?: Record<string, any>;
-  locale?: Locale;
+  localeList: LocaleList;
+  imgMap: ImgMap;
+  locale: Locale;
 }
+/**
+ * @deprecated
+ * Preferred use case of API class is as I18nClient alias
+ */
 export class LocalizationApi {
   /**
    * TODO: determine wether or not this should go into the API
@@ -54,12 +64,21 @@ export class LocalizationApi {
   }
   // private setTest: any;
 
+  /**
+   * Default locale of localization api
+   * @type Locale
+   */
   public locale: Locale;
   /**
    * Locale list of localization api
-   * @type Locale[]
+   * @type LocaleList
    */
-  public localeList: Locale[];
+  public localeList: LocaleList;
+  /**
+   * Default imgMap
+   * @type ImgMap
+   */
+  public imgMap: ImgMap
   /**
    * constructs the localization API and sets the current local from local storage, or default locale
    *
@@ -67,18 +86,12 @@ export class LocalizationApi {
    * @param localeList the list of locales Available in the application
    * @param imgMap A object that maps the region to a path to the img scr
    */
-  constructor(
-    localeList = defaultList,
-    public imgMap: Record<string, any> = {},
-    locale = defaultLocale
-  ) {
-    // const [test, setTest] = useState(
-    //   this.getCachedData(LOCALE_CACHE_KEY) || this.default
-    // );
-    // this.locale = test;
+  constructor(options: LocalizationApiOptions = defaultOptions) {
+    const { locale, localeList, imgMap } = options
+    
     this.locale = this.getCachedData(LOCALE_CACHE_KEY) || locale;
-    // this.setTest = setTest;
     this.localeList = localeList;
+    this.imgMap = imgMap
   }
 
   /**
@@ -137,3 +150,5 @@ export class LocalizationApi {
     localStorage.setItem(id, JSON.stringify(data));
   };
 }
+
+export const I18nClient = LocalizationApi

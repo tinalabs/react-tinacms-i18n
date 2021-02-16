@@ -4,13 +4,13 @@ import { ChevronDownIcon } from '@tinacms/icons';
 import { Dismissible } from 'react-dismissible';
 import styled, { css } from 'styled-components';
 import { LoadingDots } from '@tinacms/react-forms';
-import { Locale, LocalizationApi } from '../localizationApi';
+import { Locale, I18nClient } from '../localizationApi';
 import { LeftArrowIcon } from '@tinacms/icons';
 // import { useI18n } from '../hooks/useI18n';
 
 export const LocaleSwitcher = () => {
   const cms = useCMS();
-  const locale: LocalizationApi = cms.api.localization;
+  const locale: I18nClient = cms.api.localization;
   const [open, setOpen] = useState(false);
   const [filterValue, setFilterValue] = React.useState('');
   const selectListRef = useRef<HTMLElement>();

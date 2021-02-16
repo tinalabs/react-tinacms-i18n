@@ -84,7 +84,7 @@ export class I18nClient {
    * @returns formatted locale in the form language[_region][.encoding][@modifier]
    */
   public getFormateLocale(): string {
-    return this.localeToString(this.locale);
+    return localeToString(this.locale);
   }
   /**
    * Sets locale and stores it in locale storage
@@ -101,9 +101,8 @@ export class I18nClient {
     return this.locale;
   }
   /**
-   * converts a given locale to a formatted string
-   * @param currentLocal the given locale
-   * @returns the formatted string
+   * @deprecated
+   * use static localeToString function
    */
   public localeToString(currentLocal: Locale): string {
     return `${currentLocal.language?.code || ''}${
@@ -141,3 +140,16 @@ export class I18nClient {
  * Preferred use case of API class is as I18nClient alias
  */
 export const LocalizationApi = I18nClient;
+
+/**
+ * converts a given locale to a formatted string
+ * @param currentLocal the given locale
+ * @returns the formatted string
+ */
+export function localeToString(currentLocal: Locale): string {
+  return `${currentLocal.language?.code || ''}${
+    currentLocal.region?.code ? '_' + currentLocal.region.code : ''
+  }${currentLocal.encoding ? '.' + currentLocal.encoding : ''}${
+    currentLocal.modifiers ? '@' + currentLocal.modifiers.join('@') : ''
+  }`;
+}

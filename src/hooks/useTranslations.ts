@@ -1,5 +1,5 @@
 import { useCMS } from 'tinacms';
-import { LocalizationApi } from '../localizationApi';
+import { I18nClient } from '../localizationApi';
 import { RealDoc, TranslateFunction, useTranslation } from './useTranslation';
 
 interface Docs<T> {
@@ -11,7 +11,7 @@ export function useTranslations<
   S extends Record<string, any> = Record<string, any>
 >(
   translations: { [key in keyof S]: Docs<any> }
-): [{ [key in keyof S]: TranslateFunction }, LocalizationApi] {
+): [{ [key in keyof S]: TranslateFunction }, I18nClient] {
   type Translations = {
     [key in keyof S]: TranslateFunction;
   };

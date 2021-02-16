@@ -1,20 +1,10 @@
-import { useCMS } from 'tinacms';
 import React from 'react';
 import { I18nContext } from '../hooks/useI18n';
-import { LocalizationApi } from '../localizationApi';
+import { I18nClient } from '../localizationApi';
 
-export const I18nProvider: React.FC<{ i18n?: LocalizationApi }> = ({
+export const I18nProvider: React.FC<{ i18n: I18nClient }> = ({
   children,
   i18n,
 }) => {
-  const cms = useCMS();
-  const i18nInstance = i18n || cms.api.localization;
-
-  if (!i18nInstance) {
-    throw new Error('Localization plugin is not defined');
-  }
-
-  return (
-    <I18nContext.Provider value={i18nInstance}>{children}</I18nContext.Provider>
-  );
+  return <I18nContext.Provider value={i18n}>{children}</I18nContext.Provider>;
 };

@@ -4,24 +4,27 @@ describe('Localization API', () => {
   describe('#local = newLocale ', () => {
     const options = {
       localeList: [
-        { language: {
-          code: 'en',
-          label: 'English',
-          }
+        {
+          language: {
+            code: 'en',
+            label: 'English',
+          },
         },
-        { language: {
-          code: 'fr',
-          label: 'French',
-          }
+        {
+          language: {
+            code: 'fr',
+            label: 'French',
+          },
         },
       ],
-      locale: { language: {
-        code: 'fr',
-        label: 'French',
-        }
+      locale: {
+        language: {
+          code: 'fr',
+          label: 'French',
+        },
       },
-      imgMap: {}
-    }
+      imgMap: {},
+    };
     const localAPI = new LocalizationApi();
     const localDefaultAPI = new LocalizationApi(options);
     it('instantiates with default values', () => {

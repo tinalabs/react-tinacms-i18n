@@ -24,10 +24,10 @@ const defaultList: LocaleList = [
   { language: { code: 'sp', label: 'Spanish' } },
 ];
 const defaultOptions: LocalizationApiOptions = {
-  localeList: defaultList, 
-  locale: defaultLocale, 
-  imgMap: {}
-}
+  localeList: defaultList,
+  locale: defaultLocale,
+  imgMap: {},
+};
 const LOCALE_CACHE_KEY = 'locale-cache';
 
 export interface CodeAndLabel {
@@ -78,7 +78,7 @@ export class LocalizationApi {
    * Default imgMap
    * @type ImgMap
    */
-  public imgMap: ImgMap
+  public imgMap: ImgMap;
   /**
    * constructs the localization API and sets the current local from local storage, or default locale
    *
@@ -87,11 +87,11 @@ export class LocalizationApi {
    * @param imgMap A object that maps the region to a path to the img scr
    */
   constructor(options: LocalizationApiOptions = defaultOptions) {
-    const { locale, localeList, imgMap } = options
-    
+    const { locale, localeList, imgMap } = options;
+
     this.locale = this.getCachedData(LOCALE_CACHE_KEY) || locale;
     this.localeList = localeList;
-    this.imgMap = imgMap
+    this.imgMap = imgMap;
   }
 
   /**
@@ -151,4 +151,4 @@ export class LocalizationApi {
   };
 }
 
-export const I18nClient = LocalizationApi
+export const I18nClient = LocalizationApi;

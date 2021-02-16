@@ -429,7 +429,7 @@ export const LocalePickerToolbarPlugin = {
   weight: 1,
   component: LocaleSwitcher,
 };
-export const getLocalePickerToolbarPlugin = (i18n: LocalizationApi) => {
+export const getLocalePickerToolbarPlugin = (i18n: I18nClient) => {
   return {
     __type: 'toolbar:widget',
     name: 'locale-branch-switcher',

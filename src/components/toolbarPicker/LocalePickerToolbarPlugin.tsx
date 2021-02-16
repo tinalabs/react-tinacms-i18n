@@ -14,12 +14,12 @@ import {
   DropdownHeader,
   SelectFilter,
   SelectLoadingState,
-  SelectOption,
   SelectEmptyState,
   SelectList,
 } from './toolbarStyles';
 import { Option } from './Option';
 import { useI18n } from '../../hooks/useI18n';
+import { FilterOptions } from './FilterOptions';
 // import { useI18n } from '../hooks/useI18n';
 
 export const LocaleSwitcher = () => {
@@ -115,7 +115,6 @@ export const LocaleSwitcher = () => {
                           }
                           currentLocale={currentLocale}
                           selectedLocale={locale.getLocale()}
-                          regionGroup={regionGroup}
                           imgMap={locale.imgMap}
                           key={i}
                           onClick={(e) => {
@@ -154,21 +153,15 @@ export const LocaleSwitcher = () => {
                           <LeftArrowIcon /> <span>Back</span>
                         </PanelHeader>
                       )}
-                      {filteredOptions.map((option) => (
-                        <SelectOption
-                          key={localeToString(option)}
-                          active={
-                            locale.getFormateLocale() === localeToString(option)
-                          }
-                          onClick={() => {
-                            locale.setLocale(option);
-                            locale.onSwitch();
-                            closeDropdown();
-                          }}
-                        >
-                          {localeToString(option)}
-                        </SelectOption>
-                      ))}
+                      <FilterOptions
+                        currentLocales={filteredOptions as Locale[]}
+                        selectedLocale={locale.getLocale()}
+                        onClick={(_, currentLocale) => {
+                          locale.setLocale(currentLocale);
+                          locale.onSwitch();
+                          closeDropdown();
+                        }}
+                      />
                     </>
                   )}
                   {filteredOptions.length === 0 && (

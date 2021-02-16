@@ -38,12 +38,20 @@ export const LocaleSwitcher = () => {
       selectListRef.current.scrollTop = 0;
     }
   };
+  const seenRegions = new Set();
   const regions: Locale[] = Array.from(
-    new Set(filteredOptions.filter((locale) => locale.region))
+    filteredOptions.filter((locale) => {
+      if (!locale?.region?.code) return false;
+
+      if (seenRegions.has(locale.region.code)) return false;
+
+      seenRegions.add(locale.region.code);
+      return true;
+    })
   );
   const regionGroup = locale.localeList.reduce(
     (r: Record<string, Locale[]>, a) => {
-      if (a.region) {
+      if (a.region?.code) {
         r[a.region.code] = [...(r[a.region.code] || []), a];
       } else {
         regions.push(a);
@@ -52,6 +60,7 @@ export const LocaleSwitcher = () => {
     },
     {}
   );
+  console.log({ regionGroup });
   // get unique regions and filter out all undefined
   const showRegionList = showRegions && regions.length > 0 && !filterValue;
 
@@ -88,13 +97,14 @@ export const LocaleSwitcher = () => {
                         <SelectOption
                           key={i}
                           active={
-                            locale.localeToString(currentLocale) ===
-                              locale.localeToString(locale.getLocale()) ||
-                            currentLocale.region === locale.getLocale().region
+                            locale.getFormateLocale() ===
+                            locale.localeToString(currentLocale)
                           }
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
                             if (
-                              currentLocale.region &&
+                              currentLocale.region?.code &&
                               regionGroup[currentLocale.region.code]
                             ) {
                               setFilteredOptions(
@@ -111,7 +121,7 @@ export const LocaleSwitcher = () => {
                         >
                           <FlexDiv>
                             <span>
-                              {currentLocale.region ||
+                              {currentLocale.region?.label ||
                                 locale.localeToString(currentLocale)}
                             </span>
                             {currentLocale.region &&
@@ -130,7 +140,9 @@ export const LocaleSwitcher = () => {
                     <>
                       {regions.length > 0 && (
                         <PanelHeader
-                          onClick={() => {
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
                             setFilterValue('');
                             setShowRegions(true);
                             setFilteredOptions(originalFilterOptions);
@@ -143,8 +155,8 @@ export const LocaleSwitcher = () => {
                         <SelectOption
                           key={locale.localeToString(option)}
                           active={
-                            locale.localeToString(option) ===
-                            locale.localeToString(locale.getLocale())
+                            locale.getFormateLocale() ===
+                            locale.localeToString(option)
                           }
                           onClick={() => {
                             locale.setLocale(option);
@@ -153,6 +165,7 @@ export const LocaleSwitcher = () => {
                           }}
                         >
                           {locale.localeToString(option)}
+                          {/* this is a test */}
                         </SelectOption>
                       ))}
                     </>

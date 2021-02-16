@@ -1,13 +1,3 @@
-// import { useState } from 'react';
-const defaultLocale: Locale = {
-  language: {
-    code: 'en',
-    label: 'English',
-  },
-  // region: { code: "ca", label: "Canada" },
-  // encoding: "utf-8",
-  // modifiers: ["example"],
-};
 const defaultList: LocaleList = [
   {
     language: {
@@ -25,7 +15,6 @@ const defaultList: LocaleList = [
 ];
 const defaultOptions: LocalizationApiOptions = {
   localeList: defaultList,
-  locale: defaultLocale,
   imgMap: {},
 };
 const LOCALE_CACHE_KEY = 'locale-cache';
@@ -46,14 +35,10 @@ export interface Locale {
 }
 export interface LocalizationApiOptions {
   localeList: LocaleList;
-  imgMap: ImgMap;
-  locale: Locale;
+  imgMap?: ImgMap;
+  locale?: Locale;
 }
-/**
- * @deprecated
- * Preferred use case of API class is as I18nClient alias
- */
-export class LocalizationApi {
+export class I18nClient {
   /**
    * TODO: determine wether or not this should go into the API
    * is a called when switching the locale
@@ -89,9 +74,9 @@ export class LocalizationApi {
   constructor(options: LocalizationApiOptions = defaultOptions) {
     const { locale, localeList, imgMap } = options;
 
-    this.locale = this.getCachedData(LOCALE_CACHE_KEY) || locale;
+    this.locale = this.getCachedData(LOCALE_CACHE_KEY) || locale || {};
     this.localeList = localeList;
-    this.imgMap = imgMap;
+    this.imgMap = imgMap || {};
   }
 
   /**
@@ -151,4 +136,8 @@ export class LocalizationApi {
   };
 }
 
-export const I18nClient = LocalizationApi;
+/**
+ * @deprecated
+ * Preferred use case of API class is as I18nClient alias
+ */
+export const LocalizationApi = I18nClient;

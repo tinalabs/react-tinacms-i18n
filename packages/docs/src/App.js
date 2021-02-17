@@ -18,16 +18,16 @@ import Translations from './pages/Translations.js';
 import SwitchLocale from './pages/SwitchLocale';
 import UsingPrompts from './pages/UsingPrompts';
 
-import { withI18n } from 'react-tinacms-i18n';
+import { withI18n } from '@tinalabs/react-tinacms-i18n';
 import { PromptProvider } from '@tinalabs/react-tinacms-prompts';
 import WhatsNext from './pages/WhatNext';
 
 const App = () => {
   const ApiOptions = {
     localeList: [
-      { language: { code: 'en', label: 'English' } },
-      { language: { code: 'fr', label: 'French' }, region: { code: 'CA', label: 'Canada' } },
-      { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
+      { language: 'en' },
+      { language: 'fr', region: 'ca' },
+      { language: 'sp', region: 'us' },
     ],
   };
 

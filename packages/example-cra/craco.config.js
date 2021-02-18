@@ -1,15 +1,15 @@
-const { resolve } = require('path');
 module.exports = function ({ env }) {
-  let webpack_config = {
-    alias: {},
-  };
-
-  webpack_config.alias['react'] = resolve(__dirname, './node_modules/react');
-  webpack_config.alias['react-dom'] = resolve(
-    __dirname,
-    './node_modules/react-dom'
-  );
   return {
-    webpack: webpack_config,
+    webpack: {
+      // Fixes the "import outside of src" bug
+      configure: webpackConfig => {
+        const scopePluginIndex = webpackConfig.resolve.plugins.findIndex(
+          ({ constructor }) => constructor && constructor.name === 'ModuleScopePlugin'
+        );
+  
+        webpackConfig.resolve.plugins.splice(scopePluginIndex, 1);
+        return webpackConfig;
+      }
+    },
   };
 };

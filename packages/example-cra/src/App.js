@@ -18,40 +18,31 @@ import Translations from './pages/Translations.js';
 import SwitchLocale from './pages/SwitchLocale';
 import UsingPrompts from './pages/UsingPrompts';
 
-import { withI18n } from 'react-tinacms-i18n';
+import { I18nClient, I18nProvider } from 'react-tinacms-i18n';
 import { PromptProvider } from '@tinalabs/react-tinacms-prompts';
 import WhatsNext from './pages/WhatNext';
 
 const App = () => {
-  const ApiOptions = {
-    localeList: [
-      { language: "ru" },
-      { language: { code: 'en', label: 'English' } },
-      { language: { code: 'fr', label: 'French' }, region: { code: 'CA', label: 'Canada' } },
-      { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
-    ],
-  };
-
   return (
     <Router basename={process.env.REACT_APP_BASE_PATH || ''}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/setup" component={withI18n(Setup, { ApiOptions })} />
+        <Route path="/setup" component={Setup} />
         <Route
           path="/translations"
-          component={withI18n(Translations, { ApiOptions })}
+          component={Translations}
         />
         <Route
           path="/switch-locale"
-          component={withI18n(SwitchLocale, { ApiOptions })}
+          component={SwitchLocale}
         />
         <Route
           path="/using-prompts"
-          component={withI18n(UsingPrompts, { ApiOptions })}
+          component={UsingPrompts}
         />
         <Route
           path="/whats-next"
-          component={withI18n(WhatsNext, { ApiOptions })}
+          component={WhatsNext}
         />
         <Redirect to="/" />
       </Switch>
@@ -60,18 +51,31 @@ const App = () => {
 };
 
 export default () => {
+  const i18n = new I18nClient({
+    localeList: [
+      { language: "ru" },
+      { language: { code: 'en', label: 'English' } },
+      { language: { code: 'fr', label: 'French' }, region: { code: 'CA', label: 'Canada' } },
+      { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
+    ],
+  })
   const cms = new TinaCMS({
     sidebar: {
       position: 'displace',
     },
     enabled: true,
     toolbar: true,
+    apis: {
+      i18n
+    }
   });
   
   return (
     <TinaProvider cms={cms}>
       <PromptProvider>
-        <App />
+        <I18nProvider i18n={i18n}>
+          <App />
+        </I18nProvider>
       </PromptProvider>
     </TinaProvider>
   );

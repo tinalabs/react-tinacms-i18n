@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { LocalePickerToolbarPlugin } from 'react-tinacms-i18n';
+import { useCMS } from 'tinacms';
 import { Layout } from '../components/Layout.js';
 
 export default function AddingTina() {
+  const cms = useCMS();
   let code = `
   import { withI18n } from 'react-tinacms-i18n';
 
@@ -30,6 +33,10 @@ export default function AddingTina() {
     );
   };
  `;
+
+
+
+  console.log(cms);
 
   return (
     <Layout code={code} prevLink="/" nextLink="/translations">

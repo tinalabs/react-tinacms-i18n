@@ -91,7 +91,7 @@ export function ToolbarSelect({
       setSortGroup(option.label);
 
       return;
-    }
+  }
 
     if (onSelect && option) onSelect(option.value);
     setSelected(option);

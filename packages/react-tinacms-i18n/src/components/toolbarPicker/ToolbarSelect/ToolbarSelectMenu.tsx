@@ -13,7 +13,7 @@ export interface ToolbarSelectSubMenuProps {
   icons?: (value: any) => React.ReactNode | React.ReactNode[]
 }
 
-export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect}: ToolbarSelectSubMenuProps) {
+export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect, icons}: ToolbarSelectSubMenuProps) {
   const onPanelClick = useCallback((event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
@@ -50,6 +50,7 @@ export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect
                 value={option.value}
                 onSelect={() => onSelect(option)}
                 selected={selectedOption?.value === option.value || selectedOption?.label === option.label}
+                icons={icons}
               />
             );
           })
@@ -67,6 +68,7 @@ export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect
                   value={option.value}
                   onSelect={() => onSelect(option)}
                   selected={selectedOption?.value === option.value || selectedOption?.label === option.label}
+                  icons={icons}
                 />
               );
             })}
@@ -82,6 +84,7 @@ export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect
             value={option.value}
             onSelect={() => onSelect(option)}
             selected={selectedOption?.value === option.value || selectedOption?.label === option.label}
+            icons={icons}
           />
         );
       })}

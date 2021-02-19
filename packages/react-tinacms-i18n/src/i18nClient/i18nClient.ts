@@ -21,7 +21,7 @@ export interface Locale {
 export interface i18nClientOptions {
   locales: LocaleList;
   /** @deprecated Will be removed in 1.0.0. Please use locales */
-  localeList: LocaleList;
+  localeList?: LocaleList;
   locale?: Locale;
   /* @deprecated No longer supported in 0.3.0. Please use the icon option of locales */
   imgMap?: ImgMap
@@ -85,7 +85,7 @@ export class I18nClient {
    * Gets formatted locale
    * @returns formatted locale for l10n or i18n
    */
-  public getLocaleString(l10n: boolean = true): string {
+  public getLocaleString(l10n: boolean = false): string {
     if (l10n) {
       return getl10nStringFromLocale(this.locale);
     }
@@ -160,7 +160,7 @@ export function getI18nStringFromLocale(locale: Locale): string {
 
   if (region) localeString += `_${region.toString().toUpperCase()}`;
   if (locale.encoding) localeString += `.${locale.encoding}`
-  if (locale.modifiers) localeString += `@${locale.modifiers.join("@")}`;
+  if (locale.modifiers && locale.modifiers.length > 0) localeString += `@${locale.modifiers.join("@")}`;
     
   return localeString;
 }

@@ -1,6 +1,6 @@
 import { I18nClient, Locale } from './i18nClient';
 
-describe('Localization API', () => {
+describe('i18nClient', () => {
   const TEST_LOCALE = {
     language: "en"
   }
@@ -8,12 +8,10 @@ describe('Localization API', () => {
     locale: {
       language: "en"
     },
-    localeList: [
-      "en":
-    ]
+    locales: [TEST_LOCALE]
   });
 
-  describe('#local = newLocale ', () => {
+  describe('setLocale', () => {
     it('updates the locale to be newLocale', () => {
       const newLocal: Locale = {
         language: { code: 'en', label: 'English' },
@@ -25,7 +23,7 @@ describe('Localization API', () => {
     });
   });
 
-  describe('#getFormateLocale()', () => {
+  describe('getLocaleString()', () => {
     describe('the return types matches language[_region][.encoding][@modifier]when retrieved', () => {
       it('adds a . in front of the encoding', () => {
         i18n.setLocale({

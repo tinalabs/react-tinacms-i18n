@@ -1,6 +1,6 @@
 {
   "name": "example-cra",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "private": true,
   "homepage": "https://tinalabs.github.io/react-tinacms-i18n/example",
   "dependencies": {
@@ -23,7 +23,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.3",
     "react-syntax-highlighter": "^12.2.1",
-    "react-tinacms-i18n": "^0.3.0",
+    "react-tinacms-i18n": "^0.3.1",
     "react-tinacms-inline": "^0.27.3",
     "styled-components": "^5.0.1",
     "tinacms": "^0.27.1"

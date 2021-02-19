@@ -1,0 +1,5 @@
+{
+  "header": "Changer la langue actuelle",
+  "text": "Maintenant, nous allons changer la locale actuelle. Dans notre objet i18n, les paramètres régionaux actuels sont stockés à l'état de réaction. Cela signifie que lorsque l'application sera mise à jour, le rendu sera de nouveau",
+  "paragraph": "Le sélecteur de paramètres régionaux de la barre d'outils changera la localisation actuelle pour nous donc tout ce que nous avons à faire pour récupérer le contenu en fonction de la localisation actuelle et l'utiliser dans notre application. Essaye le! dans le plugin de la barre d'outils, essayez de cliquer sur \"ca \" puis sur la sélection fr_ca"
+}

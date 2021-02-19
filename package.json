@@ -1,83 +1,29 @@
 {
-  "public": true,
+  "private": true,
+  "name": "react-tinacms-i18n",
   "version": "0.3.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
+  "workspaces": [
+    "packages/*"
   ],
-  "engines": {
-    "node": ">=10"
+  "devDependencies": {
+    "lerna": "^3.22.1"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "eslint 'src/**/*.{ts,tsx}' --quiet --fix",
-    "format": "prettier --write src/**/*.{ts,tsx}",
-    "format:example": "prettier --write example/**/*.{ts,js,tsx}",
-    "prepare": "tsdx build",
-    "deploy:locale": "yarn build:docs && yarn build:example && yarn gh-pages",
-    "build:docs": "typedoc  --out docs/docs ./src/ --ignoreCompilerErrors --exclude \"**/*+(index|.spec|.test|.e2e).ts\"",
-    "build:example": "cat ./buildExample.sh | sh",
-    "gh-pages": "gh-pages -d docs"
+    "postinstall": "npx lerna bootstrap",
+    "build": "npx lerna run build --stream",
+    "start": "npx lerna run start --stream --parallel",
+    "dev": "npx lerna run dev --stream --parallel",
+    "test": "npx lerna run test --stream --parallel",
+    "lint": "echo \"Not yet implemented\" && exit 0"    
   },
-  "peerDependencies": {
-    "react": ">=16",
-    "react-dismissible": "^1.3.0",
-    "react-textarea-autosize": "^8.2.0",
-    "react-tinacms-inline": "^0.26.0",
-    "styled-components": "^5.1.1",
-    "tinacms": "^0.26.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinalabs/react-tinacms-i18n.git"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint && yarn format"
-    }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinalabs/react-tinacms-i18n/issues"
   },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "react-tinacms-i18n",
-  "author": "logan-anderson",
-  "module": "dist/react-tinacms-i18n.esm.js",
-  "devDependencies": {
-    "@types/lodash.get": "^4.4.6",
-    "@types/react": "^16.9.44",
-    "@types/react-dom": "^16.9.8",
-    "@types/styled-components": "^5.1.2",
-    "@typescript-eslint/eslint-plugin": "^3.8.0",
-    "@typescript-eslint/parser": "^3.8.0",
-    "eslint": "^7.6.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.5",
-    "gh-pages": "^3.1.0",
-    "husky": "^4.2.5",
-    "prettier": "^2.0.5",
-    "react": "^16.13.1",
-    "react-dismissible": "^1.3.0",
-    "react-dom": "^16.13.1",
-    "react-textarea-autosize": "^8.2.0",
-    "react-tinacms-inline": "^0.26.0",
-    "styled-components": "^5.1.1",
-    "tinacms": "^0.26.0",
-    "tsdx": "^0.13.2",
-    "tslib": "^2.0.1",
-    "typedoc": "^0.18.0",
-    "typescript": "^3.9.7"
-  },
-  "dependencies": {
-    "lodash.get": "^4.4.2"
-  }
+  "homepage": "https://github.com/tinalabs/react-tinacms-i18n#readme"
 }

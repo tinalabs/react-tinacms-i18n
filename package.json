@@ -13,7 +13,8 @@
     "build": "npx lerna run build --stream",
     "start": "npx lerna run start --stream --parallel",
     "dev": "npx lerna run dev --stream --parallel",
-    "test": "npx lerna run test --stream --parallel"
+    "test": "npx lerna run test --stream --parallel",
+    "lint": "echo \"Not yet implemented\" && exit 0"
   },
   "repository": {
     "type": "git",

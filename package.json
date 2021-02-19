@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "react-tinacms-i18n",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "workspaces": [
     "packages/*"
   ],
@@ -14,6 +14,8 @@
     "start": "npx lerna run start --stream --parallel",
     "dev": "npx lerna run dev --stream --parallel",
     "test": "npx lerna run test --stream --parallel",
+    "publish": "npx lerna publish",
+    "postpublish": "npx lerna run ",
     "lint": "echo \"Not yet implemented\" && exit 0"    
   },
   "repository": {

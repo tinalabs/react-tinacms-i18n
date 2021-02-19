@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "react-tinacms-i18n",
+  "version": "0.2.3",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "postinstall": "npx lerna bootstrap",
+    "build": "npx lerna run build --stream",
+    "start": "npx lerna run start --stream --parallel",
+    "dev": "npx lerna run dev --stream --parallel",
+    "test": "npx lerna run test --stream --parallel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinalabs/react-tinacms-i18n.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinalabs/react-tinacms-i18n/issues"
+  },
+  "homepage": "https://github.com/tinalabs/react-tinacms-i18n#readme"
+}

@@ -40,6 +40,7 @@ export default function AddingTina() {
     return () => {
       cms.plugins.remove(LocalePickerToolbarPlugin);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-tinacms-i18n';
+import { LocalePickerToolbarPlugin, useTranslation } from 'react-tinacms-i18n';
 import React from 'react';
 import { useForm, usePlugin } from 'tinacms';
 
@@ -48,6 +48,8 @@ export default function Translations() {
       console.log(data);
     },
   });
+
+  usePlugin(LocalePickerToolbarPlugin);
 
   usePlugin(form);
   const t = useTranslation(formData, fallbackData);

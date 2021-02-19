@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { LocalePickerToolbarPlugin } from 'react-tinacms-i18n';
 import { useCMS } from 'tinacms';
+import { LocalePickerToolbarPlugin } from 'react-tinacms-i18n';
 import { Layout } from '../components/Layout.js';
 
 export default function AddingTina() {
@@ -34,9 +34,13 @@ export default function AddingTina() {
   };
  `;
 
+  useEffect(() => {
+    cms.plugins.add(LocalePickerToolbarPlugin);
 
-
-  console.log(cms);
+    return () => {
+      cms.plugins.remove(LocalePickerToolbarPlugin);
+    }
+  }, [])
 
   return (
     <Layout code={code} prevLink="/" nextLink="/translations">

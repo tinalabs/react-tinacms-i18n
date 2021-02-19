@@ -52,10 +52,11 @@ const App = () => {
 
 export default () => {
   const i18n = new I18nClient({
-    localeList: [
+    locale: { language: "ru" },
+    locales: [
       { language: "ru" },
       { language: { code: 'en', label: 'English' } },
-      { language: { code: 'fr', label: 'French' }, region: { code: 'CA', label: 'Canada' } },
+      { language: { code: 'fr', label: 'French' }, region: "CA" },
       { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
     ],
   })
@@ -71,12 +72,12 @@ export default () => {
   });
   
   return (
-    <TinaProvider cms={cms}>
-      <PromptProvider>
-        <I18nProvider i18n={i18n}>
+    <I18nProvider i18n={i18n}>
+      <TinaProvider cms={cms}>
+        <PromptProvider>
           <App />
-        </I18nProvider>
-      </PromptProvider>
-    </TinaProvider>
+        </PromptProvider>
+      </TinaProvider>
+    </I18nProvider>
   );
 };

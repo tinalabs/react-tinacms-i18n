@@ -1,4 +1,5 @@
 import {
+  LocalePickerToolbarPlugin,
   useI18n,
   useLocalePromptPlugin,
   useTranslation,
@@ -65,6 +66,9 @@ export default function Forms() {
       console.log(data);
     },
   });
+
+  usePlugin(LocalePickerToolbarPlugin);
+
   // register the form
   usePlugin(form);
   const t = useTranslation(formData, fallbackData);

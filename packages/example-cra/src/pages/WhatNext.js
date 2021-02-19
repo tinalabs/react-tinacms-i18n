@@ -1,7 +1,11 @@
+import { usePlugin } from '@tinacms/react-core';
 import React from 'react';
+import { LocalePickerToolbarPlugin } from 'react-tinacms-i18n';
 import { Layout } from '../components/Layout';
 
 export default function WhatsNext() {
+  usePlugin(LocalePickerToolbarPlugin);
+
   return (
     <Layout prevLink="/using-prompts">
       <h1 className="title is-3">Next Steps</h1>

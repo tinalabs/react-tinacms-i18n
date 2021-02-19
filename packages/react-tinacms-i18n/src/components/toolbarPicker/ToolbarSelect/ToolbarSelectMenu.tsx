@@ -7,9 +7,9 @@ import { ToolbarSelectOption } from "./ToolbarSelectOption";
 
 export interface ToolbarSelectSubMenuProps {
   options: ToolbarSelectValue[];
-  groupBy?: string;
   selectedOption?: ToolbarSelectValue;
-  onSelect: (value: any) => void;
+  groupBy?: string | string[];
+  onSelect: (value: any, back?: boolean) => void;
   icons?: (value: any) => React.ReactNode | React.ReactNode[]
 }
 
@@ -17,7 +17,7 @@ export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect
   const onPanelClick = useCallback((event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
-    onSelect(null);
+    onSelect(selectedOption, true);
   }, [])
 
   // Handle grouping
@@ -25,12 +25,9 @@ export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect
   useEffect(() => {
     if (!groupBy) return;
 
-    const canBeGrouped = options.findIndex(option => typeof option.value[groupBy] !== "undefined");
-    if (!canBeGrouped) return;
-
     const groupedOpts = groupOptions(options, groupBy);
     if (groupedOpts) setGroupedOptions(groupedOpts);
-  }, [groupBy]);
+  }, [groupBy, options]);
 
   return (
     <>
@@ -40,6 +37,25 @@ export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect
       {groupedOptions && Object.keys(groupedOptions).map(key => {
         const options = groupedOptions[key];
 
+        // Don't render empty groups
+        if (options.length === 0) return null;
+
+        // Don't render group headers for groups of one
+        if (options.length === -1) {
+          return options.map((option, i) => {
+            return (
+              <ToolbarSelectOption
+                key={i}
+                label={option.label}
+                value={option.value}
+                onSelect={() => onSelect(option)}
+                selected={selectedOption?.value === option.value || selectedOption?.label === option.label}
+              />
+            );
+          })
+        }
+
+        // Render a group w/ header
         return (
           <SelectOptionGroup key={key}>
             <SelectOptionGroupHeader>{key}</SelectOptionGroupHeader>
@@ -49,22 +65,23 @@ export function ToolbarSelectSubMenu({options, groupBy, selectedOption, onSelect
                   key={i}
                   label={option.label}
                   value={option.value}
-                  onSelect={onSelect}
-                  selected={selectedOption?.value === option.value}
+                  onSelect={() => onSelect(option)}
+                  selected={selectedOption?.value === option.value || selectedOption?.label === option.label}
                 />
               );
             })}
           </SelectOptionGroup>
         )
       })}
-      {options.map((option, i) => {
+      {/** Render ungrouped options */}
+      {!groupedOptions && options.map((option, i) => {
         return (
           <ToolbarSelectOption
             key={i}
             label={option.label}
             value={option.value}
-            onSelect={onSelect}
-            selected={selectedOption?.value === option.value}
+            onSelect={() => onSelect(option)}
+            selected={selectedOption?.value === option.value || selectedOption?.label === option.label}
           />
         );
       })}

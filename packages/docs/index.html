@@ -81,7 +81,7 @@
     const exampleLink = document.querySelector('#exampleLink');
     const indexMatch = /index(.html)/gi;
     const baseURL = window.location.href.replace(indexMatch, '');
-    console.log(baseURL);
+
     docLink.setAttribute('href', baseURL + 'docs');
     exampleLink.setAttribute('href', baseURL + 'example/');
   </script>

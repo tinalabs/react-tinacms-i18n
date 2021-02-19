@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { RightArrowIcon } from '@tinacms/icons';
 import { SelectOption, FlexDiv } from '../Select/Select';
 import { ToolbarSelectValue } from './ToolbarSelect';
 
@@ -24,7 +25,8 @@ export const ToolbarSelectOption = ({
   >
     <FlexDiv>
       <span>{label}</span>
-      {icons || null}
+      {value && icons && icons(value) || null}
+      {!value && <RightArrowIcon />}
     </FlexDiv>
   </SelectOption>
 );

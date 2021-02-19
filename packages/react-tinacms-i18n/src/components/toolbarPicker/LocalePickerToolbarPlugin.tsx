@@ -2,24 +2,22 @@ import React, { useState, useRef, useCallback } from 'react';
 import { I18nClient, getI18nStringFromLocale, Locale, getLabel } from '../../i18nClient';
 import { useI18n } from '../../hooks';
 import { ToolbarSelect, ToolbarSelectValue } from './ToolbarSelect';
+import { SelectOptionBadge } from './Select/Select';
 
 export const LocaleSwitcher = () => {
-  const { locale, locales, setLocale } = useI18n();
+  const { locale, locales, setLocale, sortBy } = useI18n();
   const selectRef = useRef<HTMLElement>();
-  const sortBy = locales.findIndex(locale => typeof locale.region === "string") > -1
-    ? "region" : "region.label"
-  const groupBy = locales.findIndex(locale => typeof locale.language === "string") > -1
-    ? "language.label"
-    : "language"
+  const sortKeys = sortBy === "region"
+    ? ["region.label", "region.code", "region"]
+    : ["language.label", "language.code", "language"];
   const baseOptions: ToolbarSelectValue[] = locales.map(locale => ({
-    label: getLabel(locale.region) || getLabel(locale.language) || getI18nStringFromLocale(locale),
+    label: getLabel(locale.language) || getI18nStringFromLocale(locale),
     value: locale
   }));
   const [options, setOptions] = useState<ToolbarSelectValue[]>(baseOptions);
 
   // Set locale on select
   const onSelect = (value: Locale) => {
-    console.log({value});
     setLocale(value);
   }
 
@@ -48,10 +46,21 @@ export const LocaleSwitcher = () => {
         label: getLabel(locale.region) || getLabel(locale.language) || getI18nStringFromLocale(locale),
         value: locale
       }}
-      sortBy={sortBy}
-      groupBy={groupBy}
+      sortBy={sortKeys}
+      groupBy={sortKeys}
+      filter={true}
       onFilter={onFilter}
       onSelect={onSelect}
+      labels={{
+        active: locale.region ? `${getLabel(locale.language)} - ${getLabel(locale.region)}` : getLabel(locale.language),
+        single: "Locale",
+        plural: "locales"
+      }}
+      icons={(value) => (
+        <SelectOptionBadge>
+          {getI18nStringFromLocale(value)}
+        </SelectOptionBadge>
+      )}
     />
   );
 };

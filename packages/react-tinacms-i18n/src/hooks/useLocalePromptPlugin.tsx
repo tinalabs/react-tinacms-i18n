@@ -30,9 +30,7 @@ const LocaleModal = ({
   );
 };
 
-const defaultFunc = () => {
-  console.log('asdf');
-};
+const defaultFunc = () => undefined
 
 /**
  *

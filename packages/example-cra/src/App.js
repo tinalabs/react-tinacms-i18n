@@ -52,11 +52,14 @@ const App = () => {
 
 export default () => {
   const i18n = new I18nClient({
-    locale: { language: "ru" },
+    locale: { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
     locales: [
       { language: "ru" },
       { language: { code: 'en', label: 'English' } },
-      { language: { code: 'fr', label: 'French' }, region: "CA" },
+      { language: { code: 'fr', label: 'French' } },
+      { language: { code: 'fr', label: 'French' }, region: "FR" },
+      { language: { code: 'en', label: 'English' }, region: { code: "CA", label: "Canada" } },
+      { language: { code: 'fr', label: 'French' }, region: { code: "CA", label: "Canada" } },
       { language: { code: 'sp', label: 'Spanish' }, region: { code: 'US', label: 'United States' } },
     ],
   })

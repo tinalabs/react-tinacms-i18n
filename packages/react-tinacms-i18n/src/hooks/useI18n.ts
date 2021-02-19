@@ -5,6 +5,7 @@ export interface I18nContextProps {
   locale: Locale,
   locales: Locale[],
   defaultLocale: Locale,
+  sortBy: string,
   getLocaleString: () => string,
   setLocale: (locale: Locale) => void
 }

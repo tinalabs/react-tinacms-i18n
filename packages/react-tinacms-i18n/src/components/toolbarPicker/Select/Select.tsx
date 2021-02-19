@@ -114,16 +114,16 @@ export const SelectOption = styled.button<SelectOptionProps>`
       font-weight: bold;
       color: var(--tina-color-primary);
       background-color: var(--tina-color-grey-1);
-      pointer-events: none;
     `};
 `;
 
 export const SelectOptionBadge = styled.span`
   display: inline-block;
-  color: var(--tina-color-grey-3);
+  color: var(--tina-color-grey-4);
   background-color: var(--tina-color-grey-2);
   border: 2px solid var(--tina-color-primary-grey-3);
   border-radius: 5px;
+  padding: 0 5px;
 `
 
 export const SelectOptionGroup = styled.div`

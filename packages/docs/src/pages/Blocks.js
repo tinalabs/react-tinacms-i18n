@@ -55,7 +55,6 @@ export default function Blocks() {
     onSubmit(data, form) {
       alert('Form submitted! Check the console to see the form values.');
       console.clear();
-      console.log(data);
     },
   });
 
